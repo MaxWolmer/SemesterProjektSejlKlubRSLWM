@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    public class Member
+    internal class Event
     {
-        
-        public string Name { get; set; }
-        public int Id { get; set; } 
     }
 }
