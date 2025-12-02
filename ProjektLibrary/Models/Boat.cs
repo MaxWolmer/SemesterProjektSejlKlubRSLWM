@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ProjektLibrary.Models
 {
+    //Id for boat
     public class Boat
     {
         public int ID { get; set; }
@@ -15,4 +17,6 @@ namespace ProjektLibrary.Models
 
         }
     }
+
+   
 }
