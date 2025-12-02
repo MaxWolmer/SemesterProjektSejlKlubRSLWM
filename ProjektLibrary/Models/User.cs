@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    public class Member
+    public class User
     {
-        
         public string Name { get; set; }
-        public int Id { get; set; } 
     }
 }
