@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Interfaces
 {
-    internal interface IEventRepo
+    internal interface IUser
     {
     }
 }

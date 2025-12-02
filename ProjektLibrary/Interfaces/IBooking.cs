@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektLibrary.Models
+namespace ProjektLibrary.Interfaces
 {
-    public class Repair
+    internal interface IBooking
     {
     }
 }
