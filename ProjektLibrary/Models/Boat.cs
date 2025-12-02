@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    //Id for boat
+    /// <summary>
+    /// Represents a boat with an unique identifier
+    /// </summary>
     public class Boat
     {
+        //Martins kommentar
         public int ID { get; set; }
         
         public void PrintSofie(string text)
@@ -17,6 +20,5 @@ namespace ProjektLibrary.Models
 
         }
     }
-
-   
+    
 }
