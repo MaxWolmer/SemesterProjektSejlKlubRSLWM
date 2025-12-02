@@ -14,6 +14,7 @@ namespace ProjektLibrary.Models
         //Martins kommentar
         public int ID { get; set; }
 
+       
         public void print(string text)
         {
             
