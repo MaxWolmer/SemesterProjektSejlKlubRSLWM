@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektLibrary.Interfaces
+namespace ProjektLibrary.Models
 {
-    internal interface IBlog
+    public class Event
     {
+        public string Name { get; set; }
     }
 }

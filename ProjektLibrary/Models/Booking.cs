@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektLibrary.Interfaces
+namespace ProjektLibrary.Models
 {
-    internal interface IBoat
+    public class Booking
     {
     }
 }
