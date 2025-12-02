@@ -9,7 +9,7 @@ namespace ProjektLibrary.Models
     public class Boat
     {
         public int ID { get; set; }
-
+        
         public void PrintSofie(string text)
         {
 
