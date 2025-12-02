@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-///
-/// whatever
-///
+
 
 namespace ProjektLibrary.Models
 {
@@ -14,10 +12,7 @@ namespace ProjektLibrary.Models
     {
         public int ID { get; set; }
 
-        public void PrintBecca(string text)
-        {
-
-        }
+       
 
 
     }
