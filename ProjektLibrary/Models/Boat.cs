@@ -12,7 +12,6 @@ namespace ProjektLibrary.Models
     /// </summary>
     public class Boat
     {
-        //Martins kommentar
         public int ID { get; set; }
         
         public void PrintSofie(string text)
