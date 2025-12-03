@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    /// <summary>
-    /// Represents a boat with an unique identifier
-    /// </summary>
     public class Boat
     {
-        //Martins kommentar
-        public int ID { get; set; }
-        
-        public void PrintSofie(string text)
+        private string _name;
+        private string _model;
+        private List<Repair> _repairs;
+        private int _id;
+
+        public Boat(string name, string model, List<Repair> therepairs, int id)
         {
+            _name = name;
+            _model = model;
+            _repairs = therepairs;
+            _id = id;
 
         }
+
     }
-    
-}
