@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-    public class RepairRepository
+    public class RepairRepo
     {
     }
 }

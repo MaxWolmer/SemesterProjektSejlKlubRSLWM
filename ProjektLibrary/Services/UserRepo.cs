@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-    public class BookingRepository
+    public class UserRepo
     {
     }
 }
