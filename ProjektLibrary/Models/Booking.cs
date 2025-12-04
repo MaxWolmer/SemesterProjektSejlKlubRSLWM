@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektLibrary.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,12 @@ namespace ProjektLibrary.Models
         private Boat _aBoat;
         private static int _bookingID = 0;
         private bool _bookingdone = false;
+        private BookingRepository _bookingRepository;
 
-        public Booking(User theuser, Boat Aboat, int bookingdate, int bookinghourstart, int bookinghourend)
+        public Booking(BookingRepository arepo,User theuser, Boat Aboat, string month, int starthour, int startmintues, int endhour, int endminutes)
         {
-
+            _bookingRepository = arepo;
+            _bookingRepository.Bookingfree(month, starthour, startmintues, endhour, endminutes); 
             _aBoat = Aboat;
             _theuser = theuser;
             _thetime = new DateTime();

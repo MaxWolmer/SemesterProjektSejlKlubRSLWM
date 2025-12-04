@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    internal class Repair
+    public class Repair
     {
     }
 }
