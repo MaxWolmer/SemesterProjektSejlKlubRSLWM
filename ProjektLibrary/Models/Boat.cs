@@ -39,7 +39,7 @@ namespace ProjektLibrary.Models
 
         public override string ToString()
         {
-            return $"Boat id{_name} Boat name: {_id} Boat model: {_model}";
+            return $"Boat id{_id} Boat name: {_name} Boat model: {_model}";
         }
         
     }
