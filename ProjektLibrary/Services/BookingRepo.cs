@@ -17,13 +17,22 @@ namespace ProjektLibrary.Services
             _bookings = new List<Booking>();
         }
         
-        public void Bookingfree(string month,int bookinghourstart, int bookingminutes, int bookingendhour, int bookingendminutes)
+        public void Bookingfree(Boat aboatmodel, string month,int bookinghourstart, int bookingstartminutes, int bookingendhour, int bookingendminutes)
         {
             foreach (Booking Somebooking in _bookings)
             {
-                if(Abooking. == Somebooking.)
+                //if (Somebooking.Theboat.Boatmodel == aboatmodel.Boatmodel) ;
+                
+                   //{ 
+                   // switch 
+                   //    (Somebooking.starthour == bookingendhour  && Somebooking.endminutes > bookingstartminutes)
+                   // {
+                   //     Console.WriteLine("Booking taken");
+
+                   // }
+                
             }
-            else throw Exception 
+           
         }
 
         public void addbooking(Booking Abooking)
