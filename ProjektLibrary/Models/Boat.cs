@@ -20,6 +20,7 @@ namespace ProjektLibrary.Models
             _model = model;
             _repairs = therepairs;
             _id = id;
+            //test
 
         }
         public string Boatname { get { return _name; } set { _name = value; } }
