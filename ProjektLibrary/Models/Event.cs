@@ -18,6 +18,7 @@ namespace ProjektLibrary.Models
             _id = id;
             _eventnumber++;
             _thedate = Thedate;
+
         }
 
         public int id { get { return _id; } set { _id = value; } }

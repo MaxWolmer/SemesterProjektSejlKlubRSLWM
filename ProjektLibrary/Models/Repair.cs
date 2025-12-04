@@ -8,5 +8,6 @@ namespace ProjektLibrary.Models
 {
     public class Repair
     {
+        
     }
 }
