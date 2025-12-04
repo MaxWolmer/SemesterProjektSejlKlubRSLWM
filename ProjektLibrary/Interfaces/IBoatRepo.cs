@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Interfaces
 {
-    internal interface IBoatRepo
+    public interface IBoatRepo
     {
+
+        void AddBoat(Boat boat);
+        void DeleteBoat(string name);
+        void FindBoatByName(string name);
+        void PrintAllBoats();
     }
 }
