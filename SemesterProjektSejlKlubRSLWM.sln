@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36717.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjektLibrary", "ProjektLibrary\ProjektLibrary.csproj", "{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sofie Console", "Sofie Console\Sofie Console.csproj", "{A71237D8-CEF0-425E-940D-F8FC4B5F0BDA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZLukasConsoleApp", "ZLukasConsoleApp\ZLukasConsoleApp.csproj", "{5E05487E-F701-44D1-9118-002A339B47EF}"
 EndProject
 Global
@@ -17,6 +19,10 @@ Global
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71237D8-CEF0-425E-940D-F8FC4B5F0BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71237D8-CEF0-425E-940D-F8FC4B5F0BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71237D8-CEF0-425E-940D-F8FC4B5F0BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71237D8-CEF0-425E-940D-F8FC4B5F0BDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
