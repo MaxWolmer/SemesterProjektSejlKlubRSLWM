@@ -16,9 +16,9 @@ namespace ProjektLibrary.Models
 
         public User(string name, string email, string password)
         {
-            name = Name;
-            email = Email;
-            password = Password;
+            Name = name;
+            Email = email;
+            Password = password;
         }
 
 
