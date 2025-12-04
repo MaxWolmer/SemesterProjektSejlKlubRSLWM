@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-    public class BlogRepo
+    public class BlogpostRepo
     {
+
     }
 }
