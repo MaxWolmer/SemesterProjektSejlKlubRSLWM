@@ -21,15 +21,16 @@ namespace ProjektLibrary.Services
         {
             foreach (Booking Somebooking in _bookings)
             {
-                if( Somebooking.Theboat.Boatmodel == aboatmodel.Boatmodel)
+                //if (Somebooking.Theboat.Boatmodel == aboatmodel.Boatmodel) ;
                 
-                   { 
-                      if (Somebooking.starthour == bookingendhour  && Somebooking.endminutes > bookingstartminutes)
-                    {
-                        Console.WriteLine("Booking taken");
+                   //{ 
+                   // switch 
+                   //    (Somebooking.starthour == bookingendhour  && Somebooking.endminutes > bookingstartminutes)
+                   // {
+                   //     Console.WriteLine("Booking taken");
 
-                    }
-                }
+                   // }
+                
             }
            
         }

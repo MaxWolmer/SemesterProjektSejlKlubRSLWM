@@ -42,7 +42,7 @@ namespace ProjektLibrary.Models
         public int starthour {  get { return _bookingstarthour; }set { _bookingstarthour = value; } }
         public int startminute {  get { return _bookingstartminutes; } set { _bookingstartminutes = value; } }
         public int endhour {  get { return _bookingendhour; }  set { _bookingendhour = value; } }
-        public int endminutes {  get { return _bookingendminutes;} set {  _bookingendminutes} }
+        public int endminutes {  get { return _bookingendminutes;} set { _bookingendminutes = value; } }
         public int bookingid
         { get { return _bookingID; } }
 
