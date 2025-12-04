@@ -8,15 +8,15 @@ namespace ProjektLibrary.Models
 {
     public class Blogpost
     {
-        public string _blogtitle;
-        public string _description;
-        public DateTime _timestamp;
+        public string _blogtitle { get; set; }
+        public string _description { get; set; }
+        public DateTime _timestamp { get; set; }
 
         public Blogpost(string title, string description, DateTime timestamp)
         {
             _blogtitle = title;
             _description = description;
-            _timestamp = timestamp;
+            _timestamp = timestamp; 
         }
     }
 }
