@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36717.8 d17.14
+VisualStudioVersion = 17.14.36717.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemesterProjektSejlKlubRSLWM", "SemesterProjektSejlKlubRSLWM\SemesterProjektSejlKlubRSLWM.csproj", "{C34FB560-0654-436A-94E3-5C4D22A68C05}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjektLibrary", "ProjektLibrary\ProjektLibrary.csproj", "{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartinsConsoleApp", "MartinsConsoleApp\MartinsConsoleApp.csproj", "{D4D59677-4830-4DDF-AFEE-CEB3670BF89C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApp", "ConsoleApp", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3296CB-7D95-4ED4-B6D0-5DE4D3DE2FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D59677-4830-4DDF-AFEE-CEB3670BF89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D59677-4830-4DDF-AFEE-CEB3670BF89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D59677-4830-4DDF-AFEE-CEB3670BF89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D59677-4830-4DDF-AFEE-CEB3670BF89C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D4D59677-4830-4DDF-AFEE-CEB3670BF89C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13889140-2ADC-44DA-AD13-85973E5E3D99}
