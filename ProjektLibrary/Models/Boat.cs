@@ -20,7 +20,7 @@ namespace ProjektLibrary.Models
             _model = model;
             _repairs = therepairs;
             _id = id;
-            //test
+            //testq
 
         }
         public string Boatname { get { return _name; } set { _name = value; } }
@@ -34,7 +34,7 @@ namespace ProjektLibrary.Models
 
         public override string ToString()
         {
-            return $"Boat id{_id} Boat name: {_id} Boat model: {_model}";
+            return $"Boat id{_name} Boat name: {_id} Boat model: {_model}";
         }
 
     }
