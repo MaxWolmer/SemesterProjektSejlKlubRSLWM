@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,65 @@ namespace ProjektLibrary.Models
 {
     public class Repair
     {
-    }
+		private int _id=0;
+
+		public int Id
+		{
+			get { return _id; }
+			set { _id = value; }
+		}
+
+		private int _counter;
+
+		private DateTime _dateOfDamage;
+
+		public DateTime DateOfDamage
+		{
+			get { return _dateOfDamage; }
+			set { _dateOfDamage = value; }
+		}
+
+		private string _descriptionOfDamage;
+
+		public string DescriptionOfDamage
+		{
+			get { return _descriptionOfDamage; }
+			set { _descriptionOfDamage = value; }
+		}
+
+		private bool _statusOfRepair;
+
+		public bool StatusOfRepair
+		{
+			get { return _statusOfRepair; }
+			set { _statusOfRepair = value; }
+		}
+
+		private Boat _theBoat;
+
+		public Boat TheBoat
+		{
+			get { return _theBoat; }
+			set { _theBoat = value; }
+		}
+
+
+		//Denne skal tilknyttes til båd og en user, når det er klar
+
+		public Repair(DateTime dateOfDamage, string descriptionOfDamage, bool statusOfRepair) //Båd skal måske også med i constructor.
+		{
+			DateOfDamage = dateOfDamage;
+			DescriptionOfDamage = descriptionOfDamage;
+			StatusOfRepair = statusOfRepair;
+			Id = _counter++;
+		}
+
+
+		//Ret ToString efter at båd og bruger tilknyttet
+        public override string ToString()
+        {
+            return $"Reperations id: {Id}, tidspunkt for skaden: {DateOfDamage}, status på reperationen: {(StatusOfRepair ? "Reperareret. ": "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}.";
+        }
+
+	}
 }
