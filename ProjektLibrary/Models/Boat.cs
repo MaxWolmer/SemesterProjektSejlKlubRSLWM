@@ -11,14 +11,14 @@ namespace ProjektLibrary.Models
     {
         private string _name;
         private string _model;
-        //private List<Repair> _repairs;
+        private List<Repair> _repairs;
         private int _id;
 
-        public Boat(string name, string model,/* List<Repair> therepairs*/ int id)
+        public Boat(string name, string model, List<Repair> therepairs, int id)
         {
             _name = name;
             _model = model;
-            ////_repairs = therepairs;
+            _repairs = therepairs;
             _id = id;
              
 
@@ -27,10 +27,15 @@ namespace ProjektLibrary.Models
 
         public string Boatmodel { get { return _model; } set { _model = value; } }
 
-        //public List<Repair> getrepairs { get { return _repairs; } set { _repairs = value; } }
+        public List<Repair> getrepairs { get { return _repairs; } set { _repairs = value; } }
 
         public int boatid { get { return _id; }  set { _id = value; }}
 
+
+        public void addrepair(Repair Arepair)
+        {
+            _repairs.Add(Arepair);
+        }
 
         public override string ToString()
         {
