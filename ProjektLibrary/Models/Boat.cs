@@ -20,7 +20,21 @@ namespace ProjektLibrary.Models
             _model = model;
             _repairs = therepairs;
             _id = id;
+            //test
 
+        }
+        public string Boatname { get { return _name; } set { _name = value; } }
+
+        public string Boatmodel { get { return _model; } set { _model = value; } }
+
+        public List<Repair> getrepairs { get { return _repairs; } set { _repairs = value; } }
+
+        public int boatid { get { return _id; }  set { _id = value; }}
+
+
+        public override string ToString()
+        {
+            return $"Boat id{_id} Boat name: {_id} Boat model: {_model}";
         }
 
     }

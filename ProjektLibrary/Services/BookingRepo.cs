@@ -1,6 +1,7 @@
 ﻿using ProjektLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,15 @@ namespace ProjektLibrary.Services
         public BookingRepository()
         {
             _bookings = new List<Booking>();
+        }
+        
+        public void Bookingfree(string month,int bookinghourstart, int bookingminutes, int bookingendhour, int bookingendminutes)
+        {
+            foreach (Booking Somebooking in _bookings)
+            {
+                if(Abooking. == Somebooking.)
+            }
+            else throw Exception 
         }
 
         public void addbooking(Booking Abooking)
