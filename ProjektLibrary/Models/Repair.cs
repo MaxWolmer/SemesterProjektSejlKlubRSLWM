@@ -17,7 +17,7 @@ namespace ProjektLibrary.Models
 			set { _id = value; }
 		}
 
-		private int _counter;
+		private static int _counter;
 
 		private DateTime _dateOfDamage;
 
@@ -45,28 +45,30 @@ namespace ProjektLibrary.Models
 
 		private Boat _theBoat;
 
+		//Her tilknyttes båden til repairlog:
 		public Boat TheBoat
 		{
 			get { return _theBoat; }
 			set { _theBoat = value; }
 		}
 
+		//Der skal lige tilknyttes en user, når det er klar.
 
-		//Denne skal tilknyttes til båd og en user, når det er klar
 
-		public Repair(DateTime dateOfDamage, string descriptionOfDamage, bool statusOfRepair) //Båd skal måske også med i constructor.
+		public Repair(DateTime dateOfDamage, string descriptionOfDamage, bool statusOfRepair, Boat theBoat) //Båd skal måske også med i constructor.
 		{
 			DateOfDamage = dateOfDamage;
 			DescriptionOfDamage = descriptionOfDamage;
 			StatusOfRepair = statusOfRepair;
 			Id = _counter++;
+			TheBoat = theBoat;
 		}
 
 
 		//Ret ToString efter at båd og bruger tilknyttet
         public override string ToString()
         {
-            return $"Reperations id: {Id}, tidspunkt for skaden: {DateOfDamage}, status på reperationen: {(StatusOfRepair ? "Reperareret. ": "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}.";
+            return $"Reperations id: {Id}, Båd: {TheBoat}, \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reperationen: {(StatusOfRepair ? "Reperareret. ": "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}.";
         }
 
 	}
