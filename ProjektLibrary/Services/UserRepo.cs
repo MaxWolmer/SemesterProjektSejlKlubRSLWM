@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-    public class UserRepo:IUserRepo
+    public class UserRepo : IUserRepo
     {
         private Dictionary<string, User> _users;
         public int Count
@@ -21,19 +21,25 @@ namespace ProjektLibrary.Services
             _users = new Dictionary<string, User>();
         }
 
-        public void AddUser()
+        public void AddUser(User user)
         {
-            throw new NotImplementedException();
+            if (_users.ContainsKey(user.PhoneNumber) != true)
+            {
+                _users.Add(user.PhoneNumber, user);
+                Console.WriteLine($"{user.Name} is added");
+            }
         }
 
-        public void DeleteUser()
+        public void DeleteUser(string mobile)
         {
-            throw new NotImplementedException();
+            _users.Remove(mobile);
+            Console.WriteLine($"this user has been deleted by this number {mobile}");
         }
 
         public List<User> GetAllUsers()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"There are {_users.Count}");
+            return _users.Values.ToList();
         }
 
         public User GetMember()
@@ -41,7 +47,7 @@ namespace ProjektLibrary.Services
             throw new NotImplementedException();
         }
 
-        public void UpdateUser()
+        public void UpdateUser(string mobile)
         {
             throw new NotImplementedException();
         }

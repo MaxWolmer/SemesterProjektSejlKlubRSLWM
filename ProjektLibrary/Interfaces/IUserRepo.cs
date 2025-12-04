@@ -11,10 +11,10 @@ namespace ProjektLibrary.Interfaces
     {
         public int Count { get; }
 
-        void AddUser();
+        void AddUser(User user);
         User GetMember();
-        void DeleteUser();
-        void UpdateUser();
+        void DeleteUser(string mobile);
+        void UpdateUser(string mobile);
         List<User> GetAllUsers();
 
 

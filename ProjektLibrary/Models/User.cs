@@ -8,17 +8,35 @@ namespace ProjektLibrary.Models
 {
     public class User
     {
+        private bool _admin;
+        private string _phoneNumber;
         public string Name { get; set; }
 
         public string Email { get; set; }
 
         public string Password { get; set; }
+        public bool Admin 
+        { 
+            get { return _admin; } 
+            set { _admin = value; } 
+        }
+        public string PhoneNumber 
+        {
+            get { return _phoneNumber; } 
+            set { _phoneNumber = value; } 
+        }
 
-        public User(string name, string email, string password)
+        public User(string name, string email, string phoneNumber, bool admin)
         {
             Name = name;
             Email = email;
-            Password = password;
+            _phoneNumber = phoneNumber;
+            _admin = admin;
+        }
+
+        public string ToString()
+        {
+            return $"The Member {Name}";
         }
 
 
