@@ -17,20 +17,12 @@ namespace ProjektLibrary.Services
             _bookings = new List<Booking>();
         }
         
-        public void Bookingfree(Boat aboatmodel, string month,int bookinghourstart, int bookingstartminutes, int bookingendhour, int bookingendminutes)
+        public void Bookingfree(Boat aboatmodel, DateTime StarTime, DateTime Endtime)
         {
             foreach (Booking Somebooking in _bookings)
             {
-                //if (Somebooking.Theboat.Boatmodel == aboatmodel.Boatmodel) ;
-                
-                   //{ 
-                   // switch 
-                   //    (Somebooking.starthour == bookingendhour  && Somebooking.endminutes > bookingstartminutes)
-                   // {
-                   //     Console.WriteLine("Booking taken");
+               
 
-                   // }
-                
             }
            
         }
@@ -53,10 +45,27 @@ namespace ProjektLibrary.Services
                 }
             }
         }
-        public void printallbookings()
+        public List<Booking> printallbookings()
         {
+            List<Booking> bookinglist = new List<Booking>();
+
             foreach (Booking onebooking in _bookings)
-            { Console.WriteLine(onebooking); }
+            
+            { bookinglist.Add(onebooking); }
+
+            return bookinglist;
+        }
+
+        public void BookingsonBoat(Boat aboat)
+        {
+            foreach (Booking abooking in _bookings)
+            {
+                if(abooking.Theboat == aboat)
+                {
+                    Console.WriteLine(abooking);
+                }
+            }
+
         }
 
     }
