@@ -14,11 +14,11 @@ namespace ProjektLibrary.Models
         private List<Repair> _repairs;
         private int _id;
 
-        public Boat(string name, string model, List<Repair> therepairs, int id)
+        public Boat(string name, string model,  int id)
         {
+            _repairs = new List<Repair>();
             _name = name;
             _model = model;
-            _repairs = therepairs;
             _id = id;
              
 

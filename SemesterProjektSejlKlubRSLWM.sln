@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sofie Console", "Sofie Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZLukasConsoleApp", "ZLukasConsoleApp\ZLukasConsoleApp.csproj", "{5E05487E-F701-44D1-9118-002A339B47EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamConsole", "WilliamConsole\WilliamConsole.csproj", "{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E05487E-F701-44D1-9118-002A339B47EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
