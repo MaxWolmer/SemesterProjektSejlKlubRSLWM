@@ -12,9 +12,9 @@ namespace ProjektLibrary.Interfaces
         public int Count { get; }
 
         void AddUser(User user);
-        User GetMember();
+        User? GetMemberByMobile(string mobile);
         void DeleteUser(string mobile);
-        void UpdateUser(string mobile);
+        void UpdateUser(string mobile, User updateUser);
         List<User> GetAllUsers();
 
 

@@ -34,9 +34,9 @@ namespace ProjektLibrary.Models
             _admin = admin;
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return $"The Member {Name}";
+            return $"The Member Name: {Name}\nThe Email: {Email}\nThe PhoneNumber {_phoneNumber}\nIs Admin or Member: {(_admin ? "Admin" : "Member")}";
         }
 
 
