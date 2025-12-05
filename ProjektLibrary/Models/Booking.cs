@@ -13,14 +13,10 @@ namespace ProjektLibrary.Models
         private User _theuser;
         private Boat _aBoat;
         private static int _bookingID = 0;
+        private int _id;
         private bool _bookingdone = false;
         private BookingRepository _bookingRepository;
 
-        
-        private int _bookingstarthour;
-        private int _bookingstartminutes;
-        private int _bookingendhour;
-        private int _bookingendminutes;
 
         public Booking(BookingRepository arepo,User theuser, Boat Aboat,DateTime StartTime, DateTime Endtime )
         {
@@ -28,14 +24,10 @@ namespace ProjektLibrary.Models
             _bookingRepository.Bookingfree(Aboat, StartTime, Endtime); 
             _aBoat = Aboat;
             _theuser = theuser;
-            _bookingID++;
-            
-            
-
-
+             _id = _bookingID++;
+         
         }
        
-        
         public int bookingid
         { get { return _bookingID; } }
 
