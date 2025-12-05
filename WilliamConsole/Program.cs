@@ -14,8 +14,15 @@ DateTime date1 = new DateTime(2002, 3, 3);
 Event newevent = new Event(date, 2, "the best event");
 
 Registration aregi = new Registration(user1, newevent);
+Repair repair1 = new Repair(DateTime.Now, "damagealot", false, boat1, user1);
+boat1.addrepair(repair1);
 
+List<Repair> repiairlis = boat1.getrepairs;
 
+foreach(Repair arepair in repiairlis)
+{
+    Console.WriteLine(arepair);
+}
 
 Booking abooking = new Booking(user1, boat1, date, date1);
 
