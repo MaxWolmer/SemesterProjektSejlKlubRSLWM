@@ -8,15 +8,45 @@ namespace ProjektLibrary.Models
 {
     public class Blogpost
     {
-        public string _blogtitle { get; set; }
-        public string _description { get; set; }
-        public DateTime _timestamp { get; set; }
-
-        public Blogpost(string title, string description, DateTime timestamp)
+        private int _id=0;
+        public int Id
         {
-            _blogtitle = title;
-            _description = description;
-            _timestamp = timestamp; 
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        private string _blogtitle;
+        public string Blogtitle
+        {
+            get { return _blogtitle; }
+            set { _blogtitle = value; }
+        }
+
+        private string _description;
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+
+        private DateTime _createdat;
+        public DateTime CreatedAt
+        {
+            get { return _createdat; }
+            set { _createdat = value; }
+        }
+
+        public Blogpost(int id, string title, string description, DateTime timestamp)
+        {
+            Id = id;
+            Blogtitle = title;
+            Description = description;
+            CreatedAt = timestamp; 
+        }
+
+        public override string ToString()
+        {
+            return $"{Blogtitle}\n{Description}\nDette sker den {CreatedAt.ToShortDateString()}";
         }
     }
 }

@@ -10,21 +10,20 @@ namespace ProjektLibrary.Services
 {
     public class BookingRepository
     {
-        private List<Booking> _bookings;
 
-        public BookingRepository()
-        {
-            _bookings = new List<Booking>();
-        }
-        
+        private  List<Booking>? _bookings = new List<Booking>();
+
+
+
+
         public void Bookingfree(Boat aboatmodel, DateTime StarTime, DateTime Endtime)
         {
             foreach (Booking Somebooking in _bookings)
             {
-               
+                if (StarTime.Hour == Somebooking.Datestart.Hour) ;
 
             }
-           
+
         }
 
         public void addbooking(Booking Abooking)
@@ -50,7 +49,7 @@ namespace ProjektLibrary.Services
             List<Booking> bookinglist = new List<Booking>();
 
             foreach (Booking onebooking in _bookings)
-            
+
             { bookinglist.Add(onebooking); }
 
             return bookinglist;
@@ -60,7 +59,7 @@ namespace ProjektLibrary.Services
         {
             foreach (Booking abooking in _bookings)
             {
-                if(abooking.Theboat == aboat)
+                if (abooking.Theboat == aboat)
                 {
                     Console.WriteLine(abooking);
                 }
@@ -69,5 +68,6 @@ namespace ProjektLibrary.Services
         }
 
     }
+
 
 }

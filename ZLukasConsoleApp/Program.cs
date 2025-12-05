@@ -3,8 +3,10 @@ using ProjektLibrary.Models;
 
 Console.WriteLine("Hello, World!");
 
-DateTime d1 = new DateTime(2025, 12, 9);
+//mock data
 
-Blogpost b1 = new Blogpost("yay", "many cookies will be given out", d1);
+DateTime d1 = new DateTime(2025, 12,5);
 
-Console.WriteLine();
+Blogpost b1 = new Blogpost(1, "Fælles te!", "Alle får gratis te!", d1);
+
+Console.WriteLine(b1);
