@@ -13,13 +13,14 @@ namespace ProjektLibrary.Models
         private string _model;
         private List<Repair> _repairs;
         private int _id;
+        private static int _counter = 1;
 
         public Boat(string name, string model,  int id)
         {
             _repairs = new List<Repair>();
             _name = name;
             _model = model;
-            _id = id;
+            _id = _counter++;
              
 
         }

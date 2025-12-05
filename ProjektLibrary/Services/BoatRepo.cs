@@ -40,7 +40,7 @@ namespace ProjektLibrary.Services
 
         public void DeleteBoat(string name)
         {
-            throw new NotImplementedException();
+            //_boats.Remove(boatid);
         }
 
         public void FindBoatByName(string name)
