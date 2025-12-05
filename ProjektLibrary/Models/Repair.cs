@@ -10,8 +10,8 @@ namespace ProjektLibrary.Models
     public class Repair
     {
         #region Instance fields
-        private int _id=1;
-		private static int _counter;
+        private int _id=0;
+		private static int _counter = 1;
 
 		private DateTime _dateOfDamage;
 		private string _descriptionOfDamage;

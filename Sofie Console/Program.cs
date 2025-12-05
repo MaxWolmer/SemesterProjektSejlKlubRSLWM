@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjektLibrary.Exceptions.RepairExceptions;
 using ProjektLibrary.Models;
+using ProjektLibrary.Services;
 
 //Forløbig test af repair - 14/12 kl. 12.45:
 DateTime d1 = new DateTime(2025, 12, 04, 13, 00, 00);
@@ -13,3 +15,27 @@ Console.WriteLine();
 Console.WriteLine(r2);
 Console.WriteLine();
 Console.WriteLine(r3);
+
+Console.WriteLine("Testing af RepairRepo:");
+
+RepairRepo rRepo = new RepairRepo();
+rRepo.AddRepair(r1);
+rRepo.AddRepair(r2);
+
+rRepo.GetAllRepairs();
+
+rRepo.GetRepairById(2);
+Console.WriteLine(rRepo.GetRepairById(2));
+
+Console.WriteLine();
+
+try
+{
+Console.WriteLine(rRepo.GetRepairById(3));
+}
+catch (RepairIdDoesNotExistException IdEx)
+{
+    Console.WriteLine($"Fejlbesked: {IdEx.Message}");
+}
+
+

@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Interfaces;
+﻿using ProjektLibrary.Exceptions.RepairExceptions;
+using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -8,22 +9,39 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
+    
     public class RepairRepo : IRepairRepo
     {
+        //Liste
+        private List<Repair> _allRepairs;
 
+        //Constructor:
+        public RepairRepo()
+        {
+            _allRepairs = new List<Repair>();
+        }
+
+        //Methods:
         public void AddRepair(Repair damage)
         {
-            throw new NotImplementedException();
+            _allRepairs.Add(damage);
         }
 
         public List<Repair> GetAllRepairs()
         {
-            throw new NotImplementedException();
+            return _allRepairs;
         }
 
-        public void GetRepairById(Repair id)
+        public Repair GetRepairById(int id)
         {
-            throw new NotImplementedException();
+            foreach(Repair repairation in _allRepairs)
+            {
+                if(repairation.Id == id)
+                {
+                    return repairation;
+                }
+            }
+            throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke i listen.");
         }
 
         public void RemoveRepair(Repair id)
@@ -32,6 +50,11 @@ namespace ProjektLibrary.Services
         }
 
         public void UpdateRepairation()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IRepairRepo.GetRepairById(Repair id)
         {
             throw new NotImplementedException();
         }

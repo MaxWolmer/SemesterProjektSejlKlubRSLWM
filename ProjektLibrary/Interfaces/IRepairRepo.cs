@@ -17,6 +17,12 @@ namespace ProjektLibrary.Interfaces
 
         void UpdateRepairation();
 
+        ///TIlføjelser:
+        ///Get the lastestDamage()
+        ///GetAllOfTypeDamage()
+        ///GetDamagesfromTheLastweek()
+        ///PrintAllRepairs
+
 
        
 
