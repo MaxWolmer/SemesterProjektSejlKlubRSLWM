@@ -9,7 +9,7 @@ namespace ProjektLibrary.Interfaces
 {
     public interface IBoatRepo
     {
-
+        public int Count { get; }
         void AddBoat(Boat boat);
         void DeleteBoat(string name);
         void FindBoatByName(string name);

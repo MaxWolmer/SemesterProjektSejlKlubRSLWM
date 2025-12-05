@@ -9,7 +9,7 @@ namespace ProjektLibrary.Interfaces
 {
     public interface IBlogRepo
     {
-        Blogpost AddTitle();
-        Blogpost AddDescription();
+        void AddBlogpost(Blogpost blogpost);
+        void DeletePost(int id);
     }
 }

@@ -42,15 +42,25 @@ namespace ProjektLibrary.Services
             return _users.Values.ToList();
         }
 
-        public User GetMember()
+        public User? GetMemberByMobile(string mobile)
         {
-            throw new NotImplementedException();
+            if (_users.ContainsKey(mobile))
+            {
+                return _users[mobile];
+            }
+
+            return null;
         }
 
-        public void UpdateUser(string mobile)
+        public void UpdateUser(string oldMobile, User newUser)
         {
-            throw new NotImplementedException();
+            if (_users.ContainsKey(oldMobile)) 
+            {
+                AddUser(newUser);
+                DeleteUser(oldMobile);
+            }
         }
+    
 
         
     }

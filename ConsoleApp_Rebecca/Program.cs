@@ -32,7 +32,16 @@ userList.DeleteUser("14141414");
 userList.GetAllUsers();
 Console.WriteLine();
 
+Console.WriteLine("trying to get member by number");
+User? auser = userList.GetMemberByMobile("12345678");
+Console.WriteLine(auser);
+Console.WriteLine();
 
+Console.WriteLine("Updating the Member with new mobile number");
+User newUser = new User("Bobby Mazing", "BobMaster@gmail.com", "16161616", true);
+userList.UpdateUser("15151515", newUser);
+Console.WriteLine();
+Console.WriteLine(newUser);
 
 
 
