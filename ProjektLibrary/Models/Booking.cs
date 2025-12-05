@@ -9,25 +9,46 @@ namespace ProjektLibrary.Models
 {
     public class Booking
     {
-        
+
         private User _theuser;
         private Boat _aBoat;
         private static int _bookingID = 0;
-        private int _id;
         private bool _bookingdone = false;
-        private BookingRepository _bookingRepository;
+        private DateTime _startime;
+        private DateTime _endtime;
 
 
-        public Booking(BookingRepository arepo,User theuser, Boat Aboat,DateTime StartTime, DateTime Endtime )
+
+        public Booking(User theuser, Boat Aboat, DateTime StartTime, DateTime Endtime)
         {
-            _bookingRepository = arepo;
-            _bookingRepository.Bookingfree(Aboat, StartTime, Endtime); 
+
+            _startime = StartTime;
+            _endtime = Endtime;
+
             _aBoat = Aboat;
             _theuser = theuser;
-             _id = _bookingID++;
-         
+            _bookingID++;
+
+
+
+
         }
        
+
+        public DateTime Datestart
+        {
+            get { return _startime; }
+            set { _startime = value; }
+        }
+
+        public DateTime DateEnd
+        {
+            get { return _endtime; }
+            set { _endtime = value; }
+        }
+
+
+
         public int bookingid
         { get { return _bookingID; } }
 
@@ -55,7 +76,7 @@ namespace ProjektLibrary.Models
         public override string ToString()
         {
             return $"User that booked is {_theuser.Name} The boat that is booked is {_aBoat.Boatname} " +
-                $"the booking id is {_bookingID }";
+                $"the booking id is {_bookingID}";
         }
     }
 }
