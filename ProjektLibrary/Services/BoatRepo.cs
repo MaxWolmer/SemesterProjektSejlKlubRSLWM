@@ -10,9 +10,10 @@ namespace ProjektLibrary.Services
 {
     public class BoatRepo : IBoatRepo
     {
+
         public void AddBoat(Boat boat)
         {
-            throw new NotImplementedException();
+            Boat.Add(boat)
         }
 
         public void DeleteBoat(string name)
