@@ -9,17 +9,25 @@ namespace ProjektLibrary.Models
 {
     public class Repair
     {
-		private int _id=0;
+        #region Instance fields
+        private int _id=1;
+		private static int _counter;
 
-		public int Id
+		private DateTime _dateOfDamage;
+		private string _descriptionOfDamage;
+		private bool _statusOfRepair;
+		
+		private Boat _theBoat;
+		private User _theUser;
+
+        #endregion
+
+        #region Properties
+        public int Id
 		{
 			get { return _id; }
 			set { _id = value; }
 		}
-
-		private static int _counter;
-
-		private DateTime _dateOfDamage;
 
 		public DateTime DateOfDamage
 		{
@@ -27,7 +35,6 @@ namespace ProjektLibrary.Models
 			set { _dateOfDamage = value; }
 		}
 
-		private string _descriptionOfDamage;
 
 		public string DescriptionOfDamage
 		{
@@ -35,7 +42,6 @@ namespace ProjektLibrary.Models
 			set { _descriptionOfDamage = value; }
 		}
 
-		private bool _statusOfRepair;
 
 		public bool StatusOfRepair
 		{
@@ -43,7 +49,6 @@ namespace ProjektLibrary.Models
 			set { _statusOfRepair = value; }
 		}
 
-		private Boat _theBoat;
 
 		//Her tilknyttes båden til repairlog:
 		public Boat TheBoat
@@ -51,25 +56,35 @@ namespace ProjektLibrary.Models
 			get { return _theBoat; }
 			set { _theBoat = value; }
 		}
+        #endregion
 
-		//Der skal lige tilknyttes en user, når det er klar.
+        //Der tilknyttes der en user:
+		public User TheUser
+		{
+			get { return _theUser; }
+			set { _theUser = value; }
+		}
 
 
-		public Repair(DateTime dateOfDamage, string descriptionOfDamage, bool statusOfRepair, Boat theBoat) //Båd skal måske også med i constructor.
+        public Repair(DateTime dateOfDamage, string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser) 
 		{
 			DateOfDamage = dateOfDamage;
 			DescriptionOfDamage = descriptionOfDamage;
 			StatusOfRepair = statusOfRepair;
 			Id = _counter++;
 			TheBoat = theBoat;
+			TheUser = theUser;
 		}
 
+        #region Metoder
+        
 
-		//Ret ToString efter at båd og bruger tilknyttet
         public override string ToString()
         {
-            return $"Reperations id: {Id}, Båd: {TheBoat}, \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reperationen: {(StatusOfRepair ? "Reperareret. ": "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}.";
+            return $"Reperations id: {Id}, Båd: {TheBoat.Boatname}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reperationen: {(StatusOfRepair ? "Reperareret. ": "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}.";
         }
 
-	}
+
+        #endregion
+    }
 }
