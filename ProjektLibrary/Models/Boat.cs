@@ -15,7 +15,7 @@ namespace ProjektLibrary.Models
         private int _id;
         private static int _counter = 1;
 
-        public Boat(string name, string model,  int id)
+        public Boat(string name, string model)
         {
             _repairs = new List<Repair>();
             _name = name;
@@ -40,7 +40,7 @@ namespace ProjektLibrary.Models
 
         public override string ToString()
         {
-            return $"Boat id{_id} Boat name: {_name} Boat model: {_model}";
+            return $"Boat id: {_id}\nBoat name: {_name}\nBoat model: {_model}";
         }
         
     }
