@@ -9,19 +9,23 @@ namespace ProjektLibrary.Interfaces
 {
     public interface IRepairRepo
     {
+        int Count { get; }
+
         void AddRepair(Repair damage);
 
-        List<Repair> GetAllRepairs();
+        Repair GetRepairById(int id); //Ændrer til int i parameter.
 
-        void GetRepairById(Repair id);
+        void UpdateRepairationStatus(int id); //Tilføj parameter.
 
-        void UpdateRepairation();
+        Repair PrintAllRepairs();
+
+        List<Repair> PrintNonFixedRepairs();
 
         ///TIlføjelser:
         ///Get the lastestDamage()
         ///GetAllOfTypeDamage()
         ///GetDamagesfromTheLastweek()
-        ///PrintAllRepairs
+
 
 
        
