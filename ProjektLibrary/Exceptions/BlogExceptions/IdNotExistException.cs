@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjektLibrary.Exceptions.BlogExceptions
+{
+    public class IdNotExistException : Exception
+    {
+        public IdNotExistException(string message) : base(message)
+        {
+
+        }
+    }
+}
