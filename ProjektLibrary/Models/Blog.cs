@@ -6,47 +6,46 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    public class Blogpost
+    public class Blog
     {
-        private int _id=0;
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        //Instance Fields
+        private static int _id = 1;
 
         private string _blogtitle;
+        private string _description;
+        private DateTime _createdat;
+
+        //Properties
+        public int Id { get; private set; }
         public string Blogtitle
         {
             get { return _blogtitle; }
             set { _blogtitle = value; }
         }
-
-        private string _description;
         public string Description
         {
             get { return _description; }
             set { _description = value; }
         }
-
-        private DateTime _createdat;
         public DateTime CreatedAt
         {
             get { return _createdat; }
             set { _createdat = value; }
         }
 
-        public Blogpost(int id, string title, string description, DateTime timestamp)
+        //Constructors
+        public Blog(string title, string description, DateTime timestamp)
         {
-            Id = id;
+            Id = _id++;
             Blogtitle = title;
             Description = description;
-            CreatedAt = timestamp; 
+            CreatedAt = timestamp;
         }
 
+        //Methods
         public override string ToString()
         {
-            return $"{Blogtitle}\n{Description}\nDette sker den {CreatedAt.ToShortDateString()}";
+            return $"{Id}. {Blogtitle}\n{Description}\nDette sker den {CreatedAt.ToShortDateString()}\n";
         }
     }
 }

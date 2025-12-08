@@ -16,6 +16,7 @@ namespace ProjektLibrary.Interfaces
         void DeleteUser(string mobile);
         void UpdateUser(string mobile, User updateUser);
         List<User> GetAllUsers();
+        void PrintAllMembers();
 
 
     }

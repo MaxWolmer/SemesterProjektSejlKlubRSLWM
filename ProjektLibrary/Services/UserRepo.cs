@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Interfaces;
+﻿using ProjektLibrary.Exceptions.UserExceptions;
+using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace ProjektLibrary.Services
 
         public void AddUser(User user)
         {
-            if (_users.ContainsKey(user.PhoneNumber) != true)
+            if (user != null && !_users.ContainsKey(user.PhoneNumber))
             {
                 _users.Add(user.PhoneNumber, user);
                 Console.WriteLine($"{user.Name} is added");
@@ -38,9 +39,10 @@ namespace ProjektLibrary.Services
 
         public List<User> GetAllUsers()
         {
-            Console.WriteLine($"There are {_users.Count}");
+            Console.WriteLine($"There are {_users.Count} Members. ");
             return _users.Values.ToList();
         }
+
 
         public User? GetMemberByMobile(string mobile)
         {
@@ -60,8 +62,15 @@ namespace ProjektLibrary.Services
                 DeleteUser(oldMobile);
             }
         }
-    
+        public void PrintAllMembers()
+        {
+            foreach (User u in _users.Values)
+            {
+                Console.WriteLine(u.ToString());
+            }
+        }
 
-        
+
+
     }
 }

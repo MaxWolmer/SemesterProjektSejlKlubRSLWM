@@ -10,4 +10,8 @@
     <Folder Include="Helpers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Interfaces\IBlogRepo.cs" />
+  </ItemGroup>
+
 </Project>

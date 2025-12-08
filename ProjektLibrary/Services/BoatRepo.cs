@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.Design;
 
 namespace ProjektLibrary.Services
 {
     public class BoatRepo : IBoatRepo
     {
-        private Dictionary<int, Boat> _boats;
+        //Hvad er key'en i det her?
+        private Dictionary<int, Boat> _boats = new Dictionary<int, Boat>();
 
         public int Count
         {
@@ -28,29 +30,38 @@ namespace ProjektLibrary.Services
             {
                 throw new BoatIDAlreadyExistsException($"The boat ID {boat.boatid} already exists\n");
             }
-            //foreach (Boat b in _boats.Values)
-            //{
-            //    if (b.boatid == boat.boatid)
-            //    {
-            //        throw new BoatIDAlreadyExists($"The boat ID {boat.boatid} already exists\n");
-            //    }
-            //}
-            //_boats.Add(boat.boatid, boat);
+        }
+        public Boat? FindBoatByID(int boatid)
+        {
+            if (_boats.ContainsKey(boatid))
+            {
+                return _boats[boatid];
+            }
+            return null;
         }
 
-        public void DeleteBoat(string name)
+        public void UpdateBoat(int oldBoatID, Boat newBoat)
         {
-            //_boats.Remove(boatid);
+
+            if (!_boats.ContainsKey(oldBoatID))
+            {
+                newBoat.boatid = oldBoatID;
+                _boats[oldBoatID] = newBoat;
+            }
         }
 
-        public void FindBoatByName(string name)
+        public void DeleteBoat(int boatid)
         {
-            throw new NotImplementedException();
+            _boats.Remove(boatid);
         }
+
 
         public void PrintAllBoats()
         {
-            throw new NotImplementedException();
+            foreach (Boat boat in _boats.Values)
+            {
+                Console.WriteLine(boat.ToString());
+            }
         }
     }
 }

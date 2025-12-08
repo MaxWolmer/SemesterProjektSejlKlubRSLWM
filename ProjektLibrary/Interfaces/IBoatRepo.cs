@@ -11,8 +11,9 @@ namespace ProjektLibrary.Interfaces
     {
         public int Count { get; }
         void AddBoat(Boat boat);
-        void DeleteBoat(string name);
-        void FindBoatByName(string name);
+        Boat? FindBoatByID(int boatid);
+        void UpdateBoat(int oldBoatID, Boat newBoat);
+        void DeleteBoat(int boatid);
         void PrintAllBoats();
     }
 }
