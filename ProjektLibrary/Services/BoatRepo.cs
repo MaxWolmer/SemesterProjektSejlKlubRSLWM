@@ -12,7 +12,7 @@ namespace ProjektLibrary.Services
 {
     public class BoatRepo : IBoatRepo
     {
-        //Hvad er key'en i det her?
+        //boatid som er af typen int er key og Boat er value.
         private Dictionary<int, Boat> _boats = new Dictionary<int, Boat>();
 
         public int Count
@@ -40,21 +40,36 @@ namespace ProjektLibrary.Services
             return null;
         }
 
-        public void UpdateBoat(int oldBoatID, Boat newBoat)
+        public void UpdateBoat(int boatid, Boat newBoat)
         {
-
-            if (!_boats.ContainsKey(oldBoatID))
+            if (_boats.TryGetValue(boatid, out var existingBoat))
             {
-                newBoat.boatid = oldBoatID;
-                _boats[oldBoatID] = newBoat;
+                existingBoat.Boatname = newBoat.Boatname;
+                existingBoat.Boatmodel = newBoat.Boatmodel;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Boat ID {boatid} not found.");
             }
         }
+
+        //public void UpdateBoat2(int boatid, Boat newboat)
+        //{
+
+        //    if (_boats.ContainsKey)
+        //    {
+        //        return boatid;
+        //    }
+        //    else
+        //    {
+        //        throw new KeyNotFoundException($"Boat ID {boatid} not found.");
+        //    }
+        //}
 
         public void DeleteBoat(int boatid)
         {
             _boats.Remove(boatid);
         }
-
 
         public void PrintAllBoats()
         {
