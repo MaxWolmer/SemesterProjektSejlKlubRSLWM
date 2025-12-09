@@ -56,7 +56,7 @@ namespace ProjektLibrary.Models
 			get { return _theBoat; }
 			set { _theBoat = value; }
 		}
-        #endregion
+        
 
         //Der tilknyttes der en user:
 		public User TheUser
@@ -64,11 +64,11 @@ namespace ProjektLibrary.Models
 			get { return _theUser; }
 			set { _theUser = value; }
 		}
+		#endregion
 
-
-        public Repair(DateTime date, string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser) 
+		public Repair(string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser) 
 		{
-			DateOfDamage = date; //DateTime.Now;
+			DateOfDamage = DateTime.Now;
 			DescriptionOfDamage = descriptionOfDamage;
 			StatusOfRepair = statusOfRepair;
 			Id = _counter++;

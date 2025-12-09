@@ -10,21 +10,23 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-
     public class RepairRepo : IRepairRepo
     {
         //Dictionary:
         private Dictionary<int, Repair> _allRepairs;
 
         //Constructor:
+        #region constructor
         public RepairRepo()
         {
             _allRepairs = new Dictionary<int, Repair>();
         }
 
+        #region Property
         public int Count { get { return _allRepairs.Count; } }
+        #endregion
 
-        //Methods:
+        #region Methods
         public void AddRepair(Repair damage)
         {
             if (_allRepairs.ContainsKey(damage.Id) == false)
@@ -32,6 +34,7 @@ namespace ProjektLibrary.Services
                 _allRepairs.Add(damage.Id, damage);
             }
         }
+        #endregion 
 
         public List<Repair> GetAllRepairs()
         {
@@ -49,25 +52,22 @@ namespace ProjektLibrary.Services
 
         public void RemoveRepairById(int id)
         {
-            foreach (Repair r in _allRepairs.Values)
-            {
-                if (r.Id == id)
-                {
-                    _allRepairs.Remove(id);
-                }                
-            }
+            _allRepairs.Remove(id);
         }
 
-        public void UpdateRepairationStatus(int id)
+        public void UpdateReperationStatus(int id)
         {
             if (GetRepairById(id).StatusOfRepair == false)
             {
                 _allRepairs[id].StatusOfRepair = true;
             }
+            throw new TheRepairHasAlreadyBeenFixedException($"Skaden med Id'et{id}, er allerede repareret");
+
         }
 
         public Repair PrintAllRepairs()
         {
+            Console.WriteLine("Printer alle reperationer:");
             foreach (Repair repair in _allRepairs.Values)
             {
                 Console.WriteLine(repair);
@@ -75,7 +75,7 @@ namespace ProjektLibrary.Services
             return null;
         }
 
-        public List<Repair> PrintNonFixedRepairs()
+        public List<Repair> GetNonFixedRepairs()
         {
             List<Repair> nonFixedRepairs = new List<Repair>();
             foreach (Repair reperation in _allRepairs.Values)
@@ -87,5 +87,6 @@ namespace ProjektLibrary.Services
             }
             return nonFixedRepairs;
         }
+        #endregion
     }
 }

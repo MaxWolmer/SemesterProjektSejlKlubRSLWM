@@ -13,13 +13,13 @@ namespace ProjektLibrary.Interfaces
 
         void AddRepair(Repair damage);
 
-        Repair GetRepairById(int id); //Ændrer til int i parameter.
+        Repair GetRepairById(int id);
 
-        void UpdateRepairationStatus(int id); //Tilføj parameter.
+        void UpdateReperationStatus(int id);
 
         Repair PrintAllRepairs();
 
-        List<Repair> PrintNonFixedRepairs();
+        List<Repair> GetNonFixedRepairs();
 
         ///TIlføjelser:
         ///Get the lastestDamage()
