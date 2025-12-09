@@ -19,18 +19,19 @@ namespace ProjektLibrary.Services
             _postlist = new List<Blog>();
         }
 
-        public void AddBlogpost(Blog blogpost)
+        //Methods
+        public void AddPost(Blog blogpost)
         {
             _postlist.Add(blogpost);
         }
-        public void DeletePostById(int Id)
+        public void DeletePost(int Id)
         {
             Blog toRemove = null;
-            foreach (Blog post in _postlist)
+            foreach (Blog blogpost in _postlist)
             {
-                if (post.Id == Id)
+                if (blogpost.Id == Id)
                 {
-                    toRemove = post;
+                    toRemove = blogpost;
                     break;
                 }
             }
@@ -38,44 +39,30 @@ namespace ProjektLibrary.Services
             {
                 _postlist.Remove(toRemove);
             }
-            //else
-            //{
-            //    throw new IdNotExistException($"This post does not exist\n");
-            //}
         }
 
         public void UpdateTitle(int Id, string newTitle)
         {
-            Blog titleToChange = null;
             foreach (Blog post in _postlist)
             {
                 if (post.Id == Id)
                 {
-                    post.Blogtitle = newTitle;
+                    post.Title = newTitle;
                 }
-                //else
-                //{
-                //    throw new IdNotExistException($"This post does not exist\n");
-                //}
             }
         }
         public void UpdateDesc(int Id, string newDescription)
         {
-            Blog descToChange = null;
             foreach (Blog post in _postlist)
             {
                 if (post.Id == Id)
                 {
                     post.Description = newDescription;
                 }
-                //else
-                //{
-                //    throw new IdNotExistException($"This post does not exist\n");
-                //}
             }
         }
 
-        public void PrintListOfBlogposts()
+        public void PrintListOfPosts()
         {
             foreach (Blog b in _postlist)
             {

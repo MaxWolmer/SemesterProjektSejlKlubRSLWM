@@ -10,64 +10,58 @@ namespace ProjektLibrary.Models
     public class Booking
     {
 
-        private User _theuser;
+        private User _theUser;
         private Boat _aBoat;
-        private static int _bookingID = 0;
-        private bool _bookingdone = false;
-        private DateTime _startime;
-        private DateTime _endtime;
+        private static int _bookingID;
+        private static int _counter = 0;
+        private bool _bookingDone = false;
+        private DateTime _starTime;
+        private DateTime _endTime;
 
 
-
-        public Booking(User theuser, Boat Aboat, DateTime StartTime, DateTime Endtime)
+        public Booking(User TheUser, Boat ABoat, DateTime StartTime, DateTime EndTime)
         {
 
-            _startime = StartTime;
-            _endtime = Endtime;
+            _starTime = StartTime;
+            _endTime = EndTime;
+            _counter++;
+            _aBoat = ABoat;
+            _theUser = TheUser;
+            _bookingID = _counter;
 
-            _aBoat = Aboat;
-            _theuser = theuser;
-            _bookingID++;
+        }       
 
-
-
-
-        }
-       
-
-        public DateTime Datestart
+        public DateTime DateStart
         {
-            get { return _startime; }
-            set { _startime = value; }
+            get { return _starTime; }
+            set { _starTime = value; }
         }
 
         public DateTime DateEnd
         {
-            get { return _endtime; }
-            set { _endtime = value; }
+            get { return _endTime; }
+            set { _endTime = value; }
         }
 
-
-
-        public int bookingid
+        public int BookingId
         { get { return _bookingID; } }
 
-        public bool bookingdone
+        public bool BookingDone
         {
-            get { return _bookingdone; }
-            set { _bookingdone = value; }
+            get { return _bookingDone; }
+            set { _bookingDone = value; }
         }
-        public User Theuser
+        public User TheUser
         {
-            get { return _theuser; }
-            set { _theuser = value; }
+            get { return _theUser; }
+            set { _theUser = value; }
         }
-        public Boat Theboat
+        public Boat TheBoat
         {
             get { return _aBoat; }
             set { _aBoat = value; }
         }
-        public int bookings
+        public int Bookings
         {
             get { return _bookingID; }
             set { _bookingID = value; }
@@ -75,7 +69,7 @@ namespace ProjektLibrary.Models
 
         public override string ToString()
         {
-            return $"User that booked is {_theuser.Name} The boat that is booked is {_aBoat.Boatname} " +
+            return $"User that booked is {_theUser.Name} The boat that is booked is {_aBoat.BoatName} " +
                 $"the booking id is {_bookingID}";
         }
     }

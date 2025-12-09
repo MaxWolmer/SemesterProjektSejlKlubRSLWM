@@ -11,55 +11,53 @@ namespace ProjektLibrary.Services
     public class BookingRepository
     {
 
-        private  List<Booking>? _bookings = new List<Booking>();
+        private List<Booking> _bookings = new List<Booking>();
 
 
-
-
-        public void Bookingfree(Boat aboatmodel, DateTime StarTime, DateTime Endtime)
+        public void BookingFree(Boat aboat, DateTime StarTime, DateTime Endtime)
         {
             foreach (Booking Somebooking in _bookings)
             {
-                if (StarTime.Hour == Somebooking.Datestart.Hour) ;
-
+                if (Somebooking.TheBoat.BoatName == aboat.BoatName)
+                {
+                    if (Endtime.Date < Somebooking.DateStart.Date  || StarTime.Date > Somebooking.DateEnd.Date)
+                    {
+                        Console.WriteLine("booking  available");
+                    }
+                    else Console.WriteLine("boat not available");
+                }
             }
 
         }
 
-        public void addbooking(Booking Abooking)
+        public void AddBooking(Booking Abooking)
         {
             _bookings.Add(Abooking);
         }
-        public void deletebooking(Booking Abooking)
+        public void DeleteBooking(Booking AbooKing)
         {
-            _bookings.Remove(Abooking);
+            _bookings.Remove(AbooKing);
         }
-        public void findbooking(Booking Abooking)
+        public void FindBooking(Booking Abooking)
         {
             foreach (Booking onebooking in _bookings)
             {
-                if (Abooking.bookingid == onebooking.bookingid)
+                if (Abooking.BookingId == onebooking.BookingId)
                 {
                     Console.WriteLine(onebooking);
                 }
             }
         }
-        public List<Booking> printallbookings()
+        public List<Booking>? PrintAllBookings()
         {
-            List<Booking> bookinglist = new List<Booking>();
-
-            foreach (Booking onebooking in _bookings)
-
-            { bookinglist.Add(onebooking); }
-
-            return bookinglist;
+            return _bookings;
         }
 
-        public void BookingsonBoat(Boat aboat)
+        public void BookingsOnBoat(Boat aboat) //lav om til returnere liste
         {
             foreach (Booking abooking in _bookings)
             {
-                if (abooking.Theboat == aboat)
+                if (abooking.TheBoat == aboat)
                 {
                     Console.WriteLine(abooking);
                 }

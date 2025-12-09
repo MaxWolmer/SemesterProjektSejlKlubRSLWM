@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ProjektLibrary.Models
 {
@@ -11,16 +12,18 @@ namespace ProjektLibrary.Models
         //Instance Fields
         private static int _id = 1;
 
-        private string _blogtitle;
+        private string _title;
         private string _description;
         private DateTime _createdat;
 
+        private User _postedby;
+
         //Properties
         public int Id { get; private set; }
-        public string Blogtitle
+        public string Title
         {
-            get { return _blogtitle; }
-            set { _blogtitle = value; }
+            get { return _title; }
+            set { _title = value; }
         }
         public string Description
         {
@@ -33,19 +36,40 @@ namespace ProjektLibrary.Models
             set { _createdat = value; }
         }
 
+        public User PostedBy
+        {
+            get { return _postedby; }
+            set { _postedby = value; }
+        }
+
         //Constructors
-        public Blog(string title, string description, DateTime timestamp)
+        public Blog(string title, string description, DateTime timestamp) //User postedBy
         {
             Id = _id++;
-            Blogtitle = title;
+            Title = title;
             Description = description;
             CreatedAt = timestamp;
+            //PostedBy = postedBy;
+
+        }
+
+        //Automatisk timestamp constructor
+        public Blog(string title, string description) //User postedBy
+        {
+            Id = _id++;
+            Title = title;
+            Description = description;
+            CreatedAt = DateTime.Now;
+            //PostedBy = postedBy;
         }
 
         //Methods
         public override string ToString()
         {
-            return $"{Id}. {Blogtitle}\n{Description}\nDette sker den {CreatedAt.ToShortDateString()}\n";
+            return $"{Id}. {Title}\n" +
+                $"{Description}\n" +
+                $"Denne post er oprettet d. {CreatedAt.ToShortDateString()}.\n";
+                //$"Denne blog va delt af{PostedBy.Name}"
         }
     }
 }

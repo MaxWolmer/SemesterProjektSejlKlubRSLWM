@@ -13,41 +13,38 @@ namespace ProjektLibrary.Models
         private string _phoneNumber;
         private string _email;
         private int _id;
-        private static int _counter =1;
+        private static int _counter = 1;
         public string Name { get; set; }
 
-        public string Email 
+        public string Email
         {
-            get { return _email; } 
-            set 
-            { if (!value.Contains('@'))
+            get { return _email; }
+            set
+            {
+                if (!value.Contains('@'))
                 {
                     throw new GmailDoesNotContain_Exception($"Email is not valid need a @");
                 }
-                    _email = value;
+                _email = value;
             }
         }
 
         public string Password { get; set; }
-        public bool Admin 
-        { 
-            get { return _admin; } 
-            set { _admin = value; } 
-        }
-        public string PhoneNumber 
+        public bool Admin
         {
-            get { return _phoneNumber; } 
-            set { _phoneNumber = value; } 
+            get { return _admin; }
+            set { _admin = value; }
+        }
+        public string PhoneNumber
+        {
+            get { return _phoneNumber; }
+            set { _phoneNumber = value; }
         }
 
         public User(string name, string email, string phoneNumber, bool admin)
         {
             Name = name;
-            try { Email = email; }
-            catch (GmailDoesNotContain_Exception gex)
-            {
-                Console.WriteLine(gex.Message);
-            }
+            Email = email; 
             _phoneNumber = phoneNumber;
             _admin = admin;
             _id = _counter++;
