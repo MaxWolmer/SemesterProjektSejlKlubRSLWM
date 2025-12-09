@@ -44,8 +44,8 @@ namespace ProjektLibrary.Services
         {
             if (_boats.TryGetValue(boatid, out var existingBoat))
             {
-                existingBoat.Boatname = newBoat.Boatname;
-                existingBoat.Boatmodel = newBoat.Boatmodel;
+                existingBoat.BoatName = newBoat.BoatName;
+                existingBoat.BoatModel = newBoat.BoatModel;
             }
             else
             {
