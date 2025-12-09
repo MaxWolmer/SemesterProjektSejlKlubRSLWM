@@ -5,7 +5,7 @@ using ProjektLibrary.Services;
 
 Console.WriteLine("Hello, World!");
 
-//mock data
+#region Mock Data
 DateTime d1 = new DateTime(2025, 12, 5);
 DateTime d2 = new DateTime(2026, 3, 7);
 DateTime d3 = new DateTime(2026, 2, 1);
@@ -18,18 +18,23 @@ Blog b3 = new Blog("Fælles te!", "Alle fik gratis te!", d3);
 Blog b4 = new Blog("Grilaften", "Grilå-pøser og brød", d4);
 Blog b5 = new Blog("Haloween!", "Lidt tidligere end forventet", d5);
 
+//Automatisk timestamp afprøvning
+Blog b6 = new Blog("ny event", "eventbeskrivelse");
+#endregion
+
 BlogRepo postlist = new BlogRepo();
 
-postlist.AddBlogpost(b1);
-postlist.AddBlogpost(b2);
-postlist.AddBlogpost(b3);
-postlist.AddBlogpost(b4);
-postlist.AddBlogpost(b5);
+postlist.AddPost(b1);
+postlist.AddPost(b2);
+postlist.AddPost(b3);
+postlist.AddPost(b4);
+postlist.AddPost(b5);
+postlist.AddPost(b6);
 
-postlist.PrintListOfBlogposts();
+postlist.PrintListOfPosts();
 
-Console.WriteLine("Trying to delete post 2");
-postlist.DeletePostById(2);
+Console.WriteLine("Trying to delete post 2..");
+postlist.DeletePost(2);
 Console.WriteLine("Post 2 deleted\n");
 
 Console.WriteLine("Trying to change post 3 title..");
@@ -40,4 +45,4 @@ Console.WriteLine("Trying to change post 3 description..");
 postlist.UpdateDesc(3, "New description");
 Console.WriteLine("Description changed\n");
 
-postlist.PrintListOfBlogposts();
+postlist.PrintListOfPosts();

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConsoleApp_Rebecca\ZConsoleApp_Rebecca.csproj" />
     <ProjectReference Include="..\ProjektLibrary\ProjektLibrary.csproj" />
   </ItemGroup>
 
