@@ -68,7 +68,7 @@ namespace ProjektLibrary.Models
 
         public Repair(DateTime date, string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser) 
 		{
-			DateOfDamage = date; //DateTime.Now;
+			DateOfDamage = date;
 			DescriptionOfDamage = descriptionOfDamage;
 			StatusOfRepair = statusOfRepair;
 			Id = _counter++;
@@ -81,7 +81,7 @@ namespace ProjektLibrary.Models
 
 		public override string ToString()
 		{
-			return $"Reperations id: {Id}, Båd: {TheBoat.Boatname}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reperationen: {(StatusOfRepair ? "Reperareret. " : "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}\n.";
+			return $"Reperations id: {Id}, Båd: {TheBoat.BoatName}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reperationen: {(StatusOfRepair ? "Reperareret. " : "Ikke reperareret.")}\nBeskrivelse af skade: {DescriptionOfDamage}\n.";
 		}
 
         #endregion

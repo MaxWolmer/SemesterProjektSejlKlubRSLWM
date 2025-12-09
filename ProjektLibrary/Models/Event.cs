@@ -8,20 +8,26 @@ namespace ProjektLibrary.Models
 {
     public class Event
     {
-        private static int _eventnumber;
         private int _id;
-        private string _beskrivelse;
-        private DateTime _thedate;
-        public Event(DateTime Thedate, int id, string beskrivelse)
+        private static int _counter = 0;
+        private string _description;
+        private DateTime _theDate;
+        public Event(DateTime TheDate, string description)
         {
-            _beskrivelse = beskrivelse;
-            _id = id;
-            _eventnumber++;
-            _thedate = Thedate;
-
+            _description = description;
+            _id = _counter;
+            _counter++;
+            _theDate = TheDate;
         }
 
-        public int id { get { return _id; } set { _id = value; } }
-        public string beskrivlese {get { return _beskrivelse; } set { _beskrivelse = value; } }
+        public int Id { get { return _id; } set { _id = value; } }
+        public string Beskrivlese {get { return _description; } set { _description = value; } }
+
+
+        public override string ToString()
+        {
+            return $"EventNumber:{_counter}, Beskrivelse:{_description}, Dato:{_theDate}";
+        }
     }
+   
 }
