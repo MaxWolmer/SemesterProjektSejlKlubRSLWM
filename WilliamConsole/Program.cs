@@ -7,25 +7,24 @@ Console.WriteLine("Hello, World!");
 //Har udkommenteret grundet båd id ændringer
 //Boat boat1 = new Boat("best", "good", 343);
 User user1 = new User("hans", "gmail@", "303", true);
+Boat Boat1 = new Boat("bsetboat", "newmodel");
 
 
-DateTime date = new DateTime(2002, 2, 2);
-DateTime date1 = new DateTime(2002, 3, 3);
-Event newevent = new Event(date, 2, "the best event");
+DateTime BookingStart = new DateTime(2002, 2, 2);
+DateTime BookingEnd = new DateTime(2002, 2, 3);
 
-Registration aregi = new Registration(user1, newevent);
-//Repair repair1 = new Repair(DateTime.Now, "damagealot", false, boat1, user1);
-//boat1.addrepair(repair1);
+DateTime date3 = new DateTime(2002, 2, 1);
+DateTime date4 = new DateTime(2002, 2, 6);
 
-//List<Repair> repiairlis = boat1.getrepairs;
 
-//foreach(Repair arepair in repiairlis)
-//{
-//    Console.WriteLine(arepair);
-//}
+Booking booking1 = new Booking(user1, Boat1, BookingStart, BookingEnd);
+BookingRepository repo1 = new BookingRepository();
 
-//Booking abooking = new Booking(user1, boat1, date, date1);
+repo1.AddBooking(booking1);
 
+
+
+repo1.BookingFree(Boat1, date3, date4);
 
 
 

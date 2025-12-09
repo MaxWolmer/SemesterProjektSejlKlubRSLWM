@@ -8,30 +8,30 @@ namespace ProjektLibrary.Models
 {
     public class Registration
     {
-        private User _theuser;
-        private List<User> _Participants;
+        private User _theUser;
+   
         private Event _TheEvent;
+        private static int _registrationID = 0; //
+        private int _id;
+        private string _comment;
        
-        public Registration(User auser, Event theevent)
+        public Registration(User AUser, Event TheEvent, string Comment)
         {
-            _theuser = auser;
-            _TheEvent = theevent;
+            _theUser = AUser;
+            _TheEvent = TheEvent;
+            _registrationID++; 
+            _id = _registrationID;
+            _comment = Comment;
         }
 
 
 
-        public void addparticipants(List<User> Users)
-        {
-            _Participants = Users;
-        }
-        public void addparticipant(User User)
-        {
-            _Participants.Add(User);
-        }
+       
+        
 
         public override string ToString()
         {
-            return $"the users {_Participants} the list {_theuser} ";
+            return $"Opretter: {_theUser}, Comment:{_comment} ";
         }
     }
 }

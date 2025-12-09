@@ -22,13 +22,13 @@ namespace ProjektLibrary.Services
 
         public void AddBoat(Boat boat)
         {
-            if (!_boats.ContainsKey(boat.boatid))
+            if (!_boats.ContainsKey(boat.BoatId))
             {
-                _boats.Add(boat.boatid, boat);
+                _boats.Add(boat.BoatId, boat);
             }
             else
             {
-                throw new BoatIDAlreadyExistsException($"The boat ID {boat.boatid} already exists\n");
+                throw new BoatIDAlreadyExistsException($"The boat ID {boat.BoatId} already exists\n");
             }
         }
         public Boat? FindBoatByID(int boatid)
@@ -45,7 +45,7 @@ namespace ProjektLibrary.Services
 
             if (!_boats.ContainsKey(oldBoatID))
             {
-                newBoat.boatid = oldBoatID;
+                newBoat.BoatId = oldBoatID;
                 _boats[oldBoatID] = newBoat;
             }
         }
