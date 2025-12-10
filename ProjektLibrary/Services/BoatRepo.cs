@@ -20,7 +20,7 @@ namespace ProjektLibrary.Services
             get { return _boats.Count; }
         }
 
-        public void AddBoat(Boat boat)
+        public Boat AddBoat(Boat boat)
         {
             if (!_boats.ContainsKey(boat.BoatId))
             {
@@ -30,6 +30,7 @@ namespace ProjektLibrary.Services
             {
                 throw new BoatIDAlreadyExistsException($"The boat ID {boat.BoatId} already exists\n");
             }
+            return boat;
         }
         public Boat? FindBoatByID(int boatid)
         {
@@ -40,31 +41,33 @@ namespace ProjektLibrary.Services
             return null;
         }
 
-        public void UpdateBoat(int boatid, Boat newBoat)
-        {
-            if (_boats.TryGetValue(boatid, out var existingBoat))
-            {
-                existingBoat.BoatName = newBoat.BoatName;
-                existingBoat.BoatModel = newBoat.BoatModel;
-            }
-            else
-            {
-                throw new KeyNotFoundException($"Boat ID {boatid} not found.");
-            }
-        }
-
-        //public void UpdateBoat2(int boatid, Boat newboat)
+        //public void UpdateBoat2(int boatid, Boat newBoat)
         //{
-
-        //    if (_boats.ContainsKey)
+        //    if (_boats.TryGetValue(boatid, out var existingBoat))
         //    {
-        //        return boatid;
+        //        existingBoat.BoatName = newBoat.BoatName;
+        //        existingBoat.BoatModel = newBoat.BoatModel;
         //    }
         //    else
         //    {
         //        throw new KeyNotFoundException($"Boat ID {boatid} not found.");
         //    }
         //}
+
+        public void UpdateBoat(int boatid, Boat newboat)
+        {
+            if (_boats.ContainsKey(boatid))
+            {
+                Boat existingBoat = _boats[boatid];
+
+                existingBoat.BoatName = newboat.BoatName;
+                existingBoat.BoatModel = newboat.BoatModel;
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Boat ID {boatid} not found.");
+            }
+        }
 
         public void DeleteBoat(int boatid)
         {

@@ -10,7 +10,7 @@ namespace ProjektLibrary.Interfaces
     public interface IBoatRepo
     {
         public int Count { get; }
-        void AddBoat(Boat boat);
+        Boat AddBoat(Boat boat);
         Boat? FindBoatByID(int boatid);
         void UpdateBoat(int oldBoatID, Boat newBoat);
         void DeleteBoat(int boatid);
