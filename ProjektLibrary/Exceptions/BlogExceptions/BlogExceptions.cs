@@ -8,10 +8,16 @@ namespace ProjektLibrary.Exceptions.BlogExceptions
 {
     public class IdNotExistException : Exception //ineex
     {
+        public IdNotExistException(string message) : base(message)
+        {
 
+        }
     }
     public class SpaceCannotBeEmptyException : Exception //scbeex
     {
+        public SpaceCannotBeEmptyException(string message) : base(message)
+        {
 
+        }
     }
 }

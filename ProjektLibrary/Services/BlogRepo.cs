@@ -11,15 +11,16 @@ namespace ProjektLibrary.Services
 {
     public class BlogRepo : IBlogRepo
     {
-        //List Creations
+        #region List Creation
         private List<Blog> _postlist;
 
         public BlogRepo()
         {
             _postlist = new List<Blog>();
         }
+        #endregion
 
-        //Methods
+        #region Methods
         public void AddPost(Blog blogpost)
         {
             _postlist.Add(blogpost);
@@ -32,13 +33,14 @@ namespace ProjektLibrary.Services
                 if (blogpost.Id == Id)
                 {
                     toRemove = blogpost;
-                    break;
+                    return;
                 }
             }
             if (toRemove != null)
             {
                 _postlist.Remove(toRemove);
             }
+            throw new IdNotExistException("En post med dette ID findes ikke");
         }
 
         public void UpdateTitle(int Id, string newTitle)
@@ -48,8 +50,10 @@ namespace ProjektLibrary.Services
                 if (post.Id == Id)
                 {
                     post.Title = newTitle;
+                    return;
                 }
             }
+            throw new IdNotExistException("En post med dette ID findes ikke");
         }
         public void UpdateDesc(int Id, string newDescription)
         {
@@ -58,8 +62,10 @@ namespace ProjektLibrary.Services
                 if (post.Id == Id)
                 {
                     post.Description = newDescription;
+                    return;
                 }
             }
+            throw new IdNotExistException("En post med dette ID findes ikke");
         }
 
         public void PrintListOfPosts()
@@ -68,7 +74,8 @@ namespace ProjektLibrary.Services
             {
                 Console.WriteLine(b.ToString());
             }
-            Console.WriteLine(" - Has printed all Blogposts -\n");
+            Console.WriteLine("- Has printed all Blogposts -\n");
         }
+        #endregion
     }
 }

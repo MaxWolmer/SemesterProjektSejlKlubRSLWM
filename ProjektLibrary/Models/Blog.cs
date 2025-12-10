@@ -9,7 +9,7 @@ namespace ProjektLibrary.Models
 {
     public class Blog
     {
-        //Instance Fields
+        #region Instance Fields
         private static int _id = 1;
 
         private string _title;
@@ -17,8 +17,9 @@ namespace ProjektLibrary.Models
         private DateTime _createdat;
 
         private User _postedby;
+        #endregion
 
-        //Properties
+        #region Properties
         public int Id { get; private set; }
         public string Title
         {
@@ -41,8 +42,9 @@ namespace ProjektLibrary.Models
             get { return _postedby; }
             set { _postedby = value; }
         }
+        #endregion
 
-        //Constructors
+        #region Constructors
         public Blog(string title, string description, DateTime timestamp) //User postedBy
         {
             Id = _id++;
@@ -62,14 +64,16 @@ namespace ProjektLibrary.Models
             CreatedAt = DateTime.Now;
             //PostedBy = postedBy;
         }
+        #endregion
 
-        //Methods
+        #region Methods
         public override string ToString()
         {
             return $"{Id}. {Title}\n" +
                 $"{Description}\n" +
-                $"Denne post er oprettet d. {CreatedAt.ToShortDateString()}.\n";
+                $"Denne post er oprettet d. {CreatedAt}.\n";
                 //$"Denne blog va delt af{PostedBy.Name}"
         }
+        #endregion
     }
 }
