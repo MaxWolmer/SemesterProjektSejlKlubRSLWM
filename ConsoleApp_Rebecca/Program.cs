@@ -3,6 +3,7 @@ using ProjektLibrary.Exceptions.UserExceptions;
 using ProjektLibrary.Models;
 using ProjektLibrary.Services;
 using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 
 Console.WriteLine("Hello, World!");
 Console.WriteLine();
@@ -132,3 +133,51 @@ Console.WriteLine(newUser);
 Console.WriteLine();
 Console.WriteLine("Printing all members");
 userList.PrintAllMembers();
+
+try
+{
+    Console.WriteLine();
+    Console.WriteLine("trying to add a password to a user");
+    string pass = userList.AddPasswordToMobile("18181818", "DanFan1234");
+    Console.WriteLine(pass);
+}
+catch (InvalidPasswordException ipex)
+{
+    Console.WriteLine(ipex.Message);
+}
+
+try
+{
+    Console.WriteLine();
+    Console.WriteLine("trying to add a password to a user");
+    string pass = userList.AddPasswordToMobile("18181818", "DanFanstan");
+    Console.WriteLine(pass);
+}
+catch (InvalidPasswordException ipex)
+{
+    Console.WriteLine(ipex.Message);
+}
+
+try
+{
+    Console.WriteLine();
+    Console.WriteLine("trying to add a password to a user");
+    string pass = userList.AddPasswordToMobile("18181818", "DanFan1");
+    Console.WriteLine(pass);
+}
+catch (InvalidPasswordException ipex)
+{
+    Console.WriteLine(ipex.Message);
+}
+
+try
+{
+    Console.WriteLine();
+    Console.WriteLine("trying to add a password to a user");
+    string pass = userList.AddPasswordToMobile("18181818", "danfan1234");
+    Console.WriteLine(pass);
+}
+catch (InvalidPasswordException ipex)
+{
+    Console.WriteLine(ipex.Message);
+}

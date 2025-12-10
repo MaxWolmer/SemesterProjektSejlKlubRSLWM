@@ -17,6 +17,7 @@ namespace ProjektLibrary.Interfaces
         void UpdateUser(string mobile, User updateUser);
         List<User> GetAllUsers();
         void PrintAllMembers();
+        string AddPasswordToMobile(string mobile, string password);
 
 
     }

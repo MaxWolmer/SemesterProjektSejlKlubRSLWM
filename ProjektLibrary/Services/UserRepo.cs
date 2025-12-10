@@ -70,6 +70,24 @@ namespace ProjektLibrary.Services
             }
         }
 
+        public string AddPasswordToMobile(string mobile, string password)
+        {
+            bool toShort = password.Length < 8; 
+            bool hasUpperCase = password.Any(char.IsUpper); 
+            bool hasNumber = password.Any(char.IsDigit);
+
+            if (toShort || !hasUpperCase || !hasNumber)
+            {
+                throw new InvalidPasswordException("Password does not meet the criteria of \n" +
+                    " - less then 8 characters \n" +
+                    " - no Numbers\n" +
+                    " - no uppercase letters");
+            }
+            _users[mobile].Password = password;
+            return "Password was succesfully added";
+        }
+
+
 
 
     }
