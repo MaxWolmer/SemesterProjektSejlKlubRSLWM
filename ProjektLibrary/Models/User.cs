@@ -9,11 +9,15 @@ namespace ProjektLibrary.Models
 {
     public class User
     {
+        #region instance fields
         private bool _admin;
         private string _phoneNumber;
         private string _email;
         private int _id;
         private static int _counter = 1;
+        #endregion
+
+        #region properties
         public string Name { get; set; }
 
         public string Email
@@ -40,7 +44,10 @@ namespace ProjektLibrary.Models
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
+        #endregion
 
+
+        #region construktor
         public User(string name, string email, string phoneNumber, bool admin)
         {
             Name = name;
@@ -49,6 +56,7 @@ namespace ProjektLibrary.Models
             _admin = admin;
             _id = _counter++;
         }
+        #endregion
 
         public override string ToString()
         {

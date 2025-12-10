@@ -22,6 +22,7 @@ namespace ProjektLibrary.Services
             _users = new Dictionary<string, User>();
         }
 
+        #region methods
         public void AddUser(User user)
         {
             if (user != null && !_users.ContainsKey(user.PhoneNumber))
@@ -86,9 +87,6 @@ namespace ProjektLibrary.Services
             _users[mobile].Password = password;
             return "Password was succesfully added";
         }
-
-
-
-
+        #endregion
     }
 }
