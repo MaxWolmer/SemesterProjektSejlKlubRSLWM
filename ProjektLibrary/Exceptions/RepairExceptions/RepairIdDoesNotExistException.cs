@@ -8,7 +8,7 @@ namespace ProjektLibrary.Exceptions.RepairExceptions
 {
     public class RepairIdDoesNotExistException:Exception
     {
-        public RepairIdDoesNotExistException(string message):base(message)
+        public RepairIdDoesNotExistException(string message):base(message) //Forkortet til Idex
         {
              
         }

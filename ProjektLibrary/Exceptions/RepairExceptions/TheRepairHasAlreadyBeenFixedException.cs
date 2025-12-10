@@ -8,7 +8,7 @@ namespace ProjektLibrary.Exceptions.RepairExceptions
 {
     public class TheRepairHasAlreadyBeenFixedException:Exception
     {
-        public TheRepairHasAlreadyBeenFixedException(string message):base(message)
+        public TheRepairHasAlreadyBeenFixedException(string message):base(message)//Forkortet til afex
         {
             
         }

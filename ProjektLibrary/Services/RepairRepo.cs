@@ -21,9 +21,13 @@ namespace ProjektLibrary.Services
         {
             _allRepairs = new Dictionary<int, Repair>();
         }
+        #endregion
 
         #region Property
-        public int Count { get { return _allRepairs.Count; } }
+        public int Count 
+        { 
+            get { return _allRepairs.Count; } 
+        }
         #endregion
 
         #region Methods
@@ -34,7 +38,7 @@ namespace ProjektLibrary.Services
                 _allRepairs.Add(damage.Id, damage);
             }
         }
-        #endregion 
+        
 
         public List<Repair> GetAllRepairs()
         {
@@ -52,7 +56,15 @@ namespace ProjektLibrary.Services
 
         public void RemoveRepairById(int id)
         {
-            _allRepairs.Remove(id);
+            if(_allRepairs.ContainsKey(id))
+            {
+                _allRepairs.Remove(id);
+                return;
+            }
+            else
+            {
+                throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
+            }
         }
 
         public void UpdateReperationStatus(int id)
@@ -61,7 +73,7 @@ namespace ProjektLibrary.Services
             {
                 _allRepairs[id].StatusOfRepair = true;
             }
-            throw new TheRepairHasAlreadyBeenFixedException($"Skaden med Id'et{id}, er allerede repareret");
+            throw new TheRepairHasAlreadyBeenFixedException($"Skaden med Id'et {id}, er allerede repareret");
 
         }
 
