@@ -37,6 +37,7 @@ namespace ProjektLibrary.Models
         {
             _repairs = updatedrepair;
         }
+
         public void removeRepair(Repair Arepair)
         {
             bool Repairthere = false;
@@ -53,7 +54,7 @@ namespace ProjektLibrary.Models
             }
 
         }
-        }
+        
         public void AddRepair(Repair Arepair)
         {
             bool Repairthere = false;
