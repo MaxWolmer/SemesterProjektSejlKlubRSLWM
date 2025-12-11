@@ -12,13 +12,13 @@ namespace ProjektLibrary.Interfaces
         public int Count { get; }
 
         void AddUser(User user);
-        User? GetMemberByMobile(string mobile);
+        User? GetUserByMobile(string mobile);
         void DeleteUser(string mobile);
         void UpdateUser(string mobile, User updateUser);
         List<User> GetAllUsers();
-        void PrintAllMembers();
+        void PrintAllUsers();
         string AddPasswordToMobile(string mobile, string password);
-
+        void Login(string mobile, string password);
 
     }
 }

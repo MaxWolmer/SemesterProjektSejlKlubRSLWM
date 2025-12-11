@@ -120,7 +120,7 @@ userList.GetAllUsers();
 Console.WriteLine();
 
 Console.WriteLine("trying to get member by number");
-User? auser = userList.GetMemberByMobile("12345678");
+User? auser = userList.GetUserByMobile("12345678");
 Console.WriteLine(auser);
 Console.WriteLine();
 
@@ -132,7 +132,7 @@ Console.WriteLine(newUser);
 
 Console.WriteLine();
 Console.WriteLine("Printing all members");
-userList.PrintAllMembers();
+userList.PrintAllUsers();
 
 try
 {
@@ -181,3 +181,10 @@ catch (InvalidPasswordException ipex)
 {
     Console.WriteLine(ipex.Message);
 }
+
+
+Console.WriteLine();
+Console.WriteLine("trying to login");
+userList.Login("18181818", "DanFan1234");
+Console.WriteLine();
+userList.Login("18181818", "danfan123");

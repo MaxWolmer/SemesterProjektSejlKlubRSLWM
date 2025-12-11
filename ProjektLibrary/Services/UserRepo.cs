@@ -45,7 +45,7 @@ namespace ProjektLibrary.Services
         }
 
 
-        public User? GetMemberByMobile(string mobile)
+        public User? GetUserByMobile(string mobile)
         {
             if (_users.ContainsKey(mobile))
             {
@@ -59,11 +59,11 @@ namespace ProjektLibrary.Services
         {
             if (_users.ContainsKey(oldMobile)) 
             {
-                AddUser(newUser);
                 DeleteUser(oldMobile);
+                AddUser(newUser);
             }
         }
-        public void PrintAllMembers()
+        public void PrintAllUsers()
         {
             foreach (User u in _users.Values)
             {
@@ -80,13 +80,25 @@ namespace ProjektLibrary.Services
             if (toShort || !hasUpperCase || !hasNumber)
             {
                 throw new InvalidPasswordException("Password does not meet the criteria of \n" +
-                    " - less then 8 characters \n" +
-                    " - no Numbers\n" +
-                    " - no uppercase letters");
+                    " - more then 8 characters \n" +
+                    " - minimum one Numbers\n" +
+                    " - minimum one uppercase letter");
             }
             _users[mobile].Password = password;
             return "Password was succesfully added";
         }
+
+        public void Login(string mobile, string password)
+        {
+            User? gettingUser = GetUserByMobile(mobile);
+            if (gettingUser.Password == password)
+            {
+                Console.WriteLine("\tSuccesfull Login");
+            }else
+                Console.WriteLine("could not login USER or PASSWORD does not excist.");
+        }
+
+
         #endregion
     }
 }
