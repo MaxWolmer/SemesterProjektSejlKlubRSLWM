@@ -31,38 +31,58 @@ namespace ProjektLibrary.Services
 
         public void AddBooking(Booking Abooking)
         {
+            bool bookingthere = false;
+
             foreach(Booking Somebooking in _bookings)
             {
-                if(Somebooking.BookingId != Abooking.BookingId)
-                {
-                    _bookings.Add(Abooking);
+                if(Somebooking.BookingId == Abooking.BookingId)
+                {   
+                    bookingthere = true;
                 }
             }
-            Console.WriteLine("booking already there");
+            if(bookingthere == false)
+            {
+                _bookings.Add(Abooking);
+            }
+            else Console.WriteLine("booking there");
+            
         }
         public void DeleteBooking(Booking AbooKing)
         {
+            bool bookingthere = false;            
+ 
             foreach (Booking Somebooking in _bookings)
             {
                 if(Somebooking.BookingId == AbooKing.BookingId)
                 {
-                    _bookings.Remove(AbooKing);
+                    bookingthere = true;
 
                 }
+
             }
-            Console.WriteLine("booking not there to delete");
+            if (bookingthere == false)
+            {
+                _bookings.Remove(AbooKing);
+            }
+            else Console.WriteLine("booking was not there");
         }
 
         public void FindBooking(Booking Abooking)
         {
+            bool found = false;
             foreach (Booking onebooking in _bookings)
             {
                 if (Abooking.BookingId == onebooking.BookingId)
                 {
                     Console.WriteLine(onebooking);
+                    found = true;
                 }
+
             }
-            Console.WriteLine("booking not found");
+            if(found == false)
+            {
+                Console.WriteLine("booking not found");
+            }
         }
         public List<Booking>? GetAllBookings()
         {
@@ -81,8 +101,9 @@ namespace ProjektLibrary.Services
 
             }
             if(bookinglist == null)
-
-            { Console.WriteLine("zerobookings"); }
+                { 
+                  Console.WriteLine("zerobookings"); 
+                }
 
             return bookinglist;
 

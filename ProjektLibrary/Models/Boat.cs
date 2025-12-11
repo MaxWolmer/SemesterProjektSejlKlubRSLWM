@@ -33,6 +33,11 @@ namespace ProjektLibrary.Models
         public int BoatId { get { return _id; }  set { _id = value; }}
 
 
+        public void updaterepair(List<Repair> updatedrepair)
+        {
+            _repairs = updatedrepair;
+        }
+
         public void AddRepair(Repair Arepair)
         {
             bool Repairthere = false;

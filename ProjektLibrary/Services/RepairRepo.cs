@@ -37,8 +37,17 @@ namespace ProjektLibrary.Services
             {
                 _allRepairs.Add(damage.Id, damage);
             }
+            damage.TheBoat.updaterepair(GetAllRepairs());
         }
-        
+        public void AddRepairWilliam(Repair damage)
+        {
+            if (_allRepairs.ContainsKey(damage.Id) == false)
+            {
+                _allRepairs.Add(damage.Id, damage);
+            }
+            damage.TheBoat.updaterepair(GetAllRepairs());
+        }
+
 
         public List<Repair> GetAllRepairs()
         {
