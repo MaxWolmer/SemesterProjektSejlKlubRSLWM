@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace ProjektLibrary.Models
 {
-    public class Blog
+    public class Blogpost
     {
         #region Instance Fields
         private static int _id = 1;
@@ -45,24 +45,24 @@ namespace ProjektLibrary.Models
         #endregion
 
         #region Constructors
-        public Blog(string title, string description, DateTime timestamp) //User postedBy
+        public Blogpost(string title, string description, DateTime timestamp, User postedBy)
         {
             Id = _id++;
             Title = title;
             Description = description;
             CreatedAt = timestamp;
-            //PostedBy = postedBy;
+            PostedBy = postedBy;
 
         }
 
         //Automatisk timestamp constructor
-        public Blog(string title, string description) //User postedBy
+        public Blogpost(string title, string description, User postedBy)
         {
             Id = _id++;
             Title = title;
             Description = description;
             CreatedAt = DateTime.Now;
-            //PostedBy = postedBy;
+            PostedBy = postedBy;
         }
         #endregion
 

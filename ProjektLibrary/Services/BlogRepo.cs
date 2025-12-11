@@ -12,65 +12,67 @@ namespace ProjektLibrary.Services
     public class BlogRepo : IBlogRepo
     {
         #region List Creation
-        private List<Blog> _postlist;
+        private List<Blogpost> _postlist;
 
         public BlogRepo()
         {
-            _postlist = new List<Blog>();
+            _postlist = new List<Blogpost>();
         }
         #endregion
 
         #region Methods
-        public void AddPost(Blog blogpost)
+        public void AddPost(Blogpost blogpost)
         {
             _postlist.Add(blogpost);
         }
-        public void DeletePost(int Id)
+        public void DeletePost(int id)
         {
-            Blog toRemove = null;
-            foreach (Blog blogpost in _postlist)
-            {
-                if (blogpost.Id == Id)
-                {
-                    toRemove = blogpost;
-                    return;
-                }
-            }
+            Blogpost toRemove = FindPostById(id);
             if (toRemove != null)
             {
                 _postlist.Remove(toRemove);
+                return;
             }
             throw new IdNotExistException("En post med dette ID findes ikke");
         }
 
-        public void UpdateTitle(int Id, string newTitle)
+        public void UpdatePostTitle(int id, string newTitle)
         {
-            foreach (Blog post in _postlist)
+            Blogpost post = FindPostById(id);
+            if (post != null)
             {
-                if (post.Id == Id)
-                {
-                    post.Title = newTitle;
-                    return;
-                }
+                post.Title = newTitle;
+                return;
             }
             throw new IdNotExistException("En post med dette ID findes ikke");
         }
-        public void UpdateDesc(int Id, string newDescription)
+
+        public void UpdatePostDesc(int id, string newDescription)
         {
-            foreach (Blog post in _postlist)
+            Blogpost post = FindPostById(id);
+            if (post != null)
             {
-                if (post.Id == Id)
-                {
-                    post.Description = newDescription;
-                    return;
-                }
+                post.Description = newDescription;
+                return;
             }
             throw new IdNotExistException("En post med dette ID findes ikke");
+        }
+
+        public Blogpost FindPostById(int id)
+        {
+            foreach (Blogpost post in _postlist)
+            {
+                if (post.Id == id)
+                {
+                    return post;
+                }
+            }
+            return null;
         }
 
         public void PrintListOfPosts()
         {
-            foreach (Blog b in _postlist)
+            foreach (Blogpost b in _postlist)
             {
                 Console.WriteLine(b.ToString());
             }
