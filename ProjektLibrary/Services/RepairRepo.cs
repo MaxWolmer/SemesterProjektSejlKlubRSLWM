@@ -41,6 +41,7 @@ namespace ProjektLibrary.Services
             }
             damage.TheBoat.updaterepair(GetAllRepairs());
         }
+
         public void AddRepairWilliam(Repair damage)
         {
             if (_allRepairs.ContainsKey(damage.Id) == false)
