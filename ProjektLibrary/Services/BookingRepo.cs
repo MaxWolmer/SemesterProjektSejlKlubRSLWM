@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Models;
+﻿using ProjektLibrary.Interfaces;
+using ProjektLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Services
 {
-    public class BookingRepository
+    public class BookingRepository : IBookingRepo
     {
 
         private List<Booking> _bookings = new List<Booking>();
@@ -18,26 +19,40 @@ namespace ProjektLibrary.Services
         {
             foreach (Booking Somebooking in _bookings)
             {
-                if (Somebooking.TheBoat.BoatName == aboat.BoatName)
+                if (Somebooking.TheBoat.BoatName == aboat.BoatName && Endtime.Date < Somebooking.DateStart.Date || StarTime.Date > Somebooking.DateEnd.Date)
                 {
-                    if (Endtime.Date < Somebooking.DateStart.Date  || StarTime.Date > Somebooking.DateEnd.Date)
-                    {
-                        Console.WriteLine("booking  available");
-                    }
-                    else Console.WriteLine("boat not available");
+                    Console.WriteLine("booking  available");
                 }
+                else Console.WriteLine("boat not available");
+
             }
 
         }
 
         public void AddBooking(Booking Abooking)
         {
-            _bookings.Add(Abooking);
+            foreach(Booking Somebooking in _bookings)
+            {
+                if(Somebooking.BookingId != Abooking.BookingId)
+                {
+                    _bookings.Add(Abooking);
+                }
+            }
+            Console.WriteLine("booking already there");
         }
         public void DeleteBooking(Booking AbooKing)
         {
-            _bookings.Remove(AbooKing);
+            foreach (Booking Somebooking in _bookings)
+            {
+                if(Somebooking.BookingId == AbooKing.BookingId)
+                {
+                    _bookings.Remove(AbooKing);
+
+                }
+            }
+            Console.WriteLine("booking not there to delete");
         }
+
         public void FindBooking(Booking Abooking)
         {
             foreach (Booking onebooking in _bookings)
@@ -47,21 +62,29 @@ namespace ProjektLibrary.Services
                     Console.WriteLine(onebooking);
                 }
             }
+            Console.WriteLine("booking not found");
         }
-        public List<Booking>? PrintAllBookings()
+        public List<Booking>? GetAllBookings()
         {
             return _bookings;
         }
 
-        public void BookingsOnBoat(Boat aboat) //lav om til returnere liste
+        public List<Booking> BookingsOnBoat(Boat aboat) //lav om til returnere liste
         {
+            List<Booking> bookinglist = new List<Booking>();
             foreach (Booking abooking in _bookings)
             {
                 if (abooking.TheBoat == aboat)
                 {
-                    Console.WriteLine(abooking);
+                    bookinglist.Add(abooking);
                 }
+
             }
+            if(bookinglist == null)
+
+            { Console.WriteLine("zerobookings"); }
+
+            return bookinglist;
 
         }
 

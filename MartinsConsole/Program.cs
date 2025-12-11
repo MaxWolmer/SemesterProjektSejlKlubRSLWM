@@ -23,7 +23,7 @@ try
     bRepo.AddBoat(b4);
     bRepo.AddBoat(b5);
     bRepo.AddBoat(b6);
-    //bRepo.AddBoat(b6);
+
     #endregion
 
     Console.WriteLine($"Number of boats {bRepo.Count}");
@@ -45,7 +45,7 @@ Console.WriteLine("------------------------------------------------------\n");
 
 try
 {
-    Console.WriteLine("Updating boat name and model");
+    Console.WriteLine("Updating boat name and model\n");
     Boat newBoat = new Boat("Speedy Sussie", "Hydroplane");
     bRepo.UpdateBoat(4, newBoat);
 

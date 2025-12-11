@@ -14,14 +14,18 @@ DateTime d3 = new DateTime(2026, 2, 1);
 DateTime d4 = new DateTime(2026, 7, 19);
 DateTime d5 = new DateTime(2026, 6, 4);
 
-Blog b1 = new Blog("Nyeste sejlads", "Se hvor godt de klarede det!", d1);
-Blog b2 = new Blog("fælles måltid", "Vi hygger os!", d2);
-Blog b3 = new Blog("Fælles te!", "Alle fik gratis te!", d3);
-Blog b4 = new Blog("Grilaften", "Grilpøser og brød", d4);
-Blog b5 = new Blog("Haloween!", "Lidt tidligere end forventet", d5);
+User user7 = new User("lukas", "Lukas@grr.la", "42424242", true);
+
+Blogpost b1 = new Blogpost("Nyeste sejlads", "Se hvor godt de klarede det!", d1, user7);
+Blogpost b2 = new Blogpost("fælles måltid", "Vi hygger os!", d2, user7);
+Blogpost b3 = new Blogpost("Fælles te!", "Alle fik gratis te!", d3, user7);
+Blogpost b4 = new Blogpost("Grilaften", "Grilpøser og brød", d4, user7);
+Blogpost b5 = new Blogpost("Haloween!", "Lidt tidligere end forventet", d5, user7);
+
+Console.WriteLine("Afprøver timestamp");
 
 //Automatisk timestamp afprøvning
-Blog b6 = new Blog("ny event", "eventbeskrivelse");
+Blogpost b6 = new Blogpost("ny event", "eventbeskrivelser", user7);
 #endregion
 
 BlogRepo postlist = new BlogRepo();
@@ -33,7 +37,7 @@ postlist.AddPost(b4);
 postlist.AddPost(b5);
 postlist.AddPost(b6);
 
-//postlist.PrintListOfPosts();
+postlist.PrintListOfPosts();
 
 try
 {
@@ -49,7 +53,7 @@ catch (IdNotExistException ineex)
 try
 {
     Console.WriteLine("Trying to change post 3 title..");
-    postlist.UpdateTitle(3, "Fuclk uoy");
+    postlist.UpdatePostTitle(3, "Lol nyt navn");    
     Console.WriteLine("Title changed\n");
 }
 catch (IdNotExistException ineex)
@@ -60,7 +64,7 @@ catch (IdNotExistException ineex)
 try
 {
     Console.WriteLine("Trying to change post 3 description..");
-    postlist.UpdateDesc(3, "New description");
+    postlist.UpdatePostDesc(3, "New description");
     Console.WriteLine("Description changed\n");
 }
 catch (IdNotExistException ineex)
@@ -68,7 +72,7 @@ catch (IdNotExistException ineex)
     Console.WriteLine(ineex.Message);
 }
 
-//postlist.PrintListOfPosts();
+postlist.PrintListOfPosts();
 
 //Try catch fejltest
 
@@ -85,7 +89,7 @@ catch (IdNotExistException ineex)
 try
 {
     Console.WriteLine("Trying to change post 8 title (this does not exist)..");
-    postlist.UpdateTitle(8, "Fuclk uoy");
+    postlist.UpdatePostTitle(8, "New Title");
 }
 catch (IdNotExistException ineex)
 {
@@ -94,7 +98,7 @@ catch (IdNotExistException ineex)
 try
 {
     Console.WriteLine("Trying to change post 8 description (this does not exist)..");
-    postlist.UpdateDesc(8, "New description");
+    postlist.UpdatePostDesc(8, "New description");
 }
 catch (IdNotExistException ineex)
 {

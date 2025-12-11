@@ -22,6 +22,9 @@ BookingRepository repo1 = new BookingRepository();
 
 repo1.AddBooking(booking1);
 
+Repair repair1 = new Repair("alot", false, Boat1, user1);
+
+Boat1.AddRepair(repair1);
 
 
 repo1.BookingFree(Boat1, date3, date4);

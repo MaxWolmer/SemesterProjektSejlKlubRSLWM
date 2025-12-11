@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Design;
+using ProjektLibrary.Data;
 
 namespace ProjektLibrary.Services
 {
@@ -15,6 +16,11 @@ namespace ProjektLibrary.Services
         //boatid som er af typen int er key og Boat er value.
         private Dictionary<int, Boat> _boats = new Dictionary<int, Boat>();
 
+
+        public BoatRepo()
+        {
+            _boats = BoatMockData.BoatData;
+        }
         public int Count
         {
             get { return _boats.Count; }
