@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Exceptions.RepairExceptions;
+﻿using ProjektLibrary.Data;
+using ProjektLibrary.Exceptions.RepairExceptions;
 using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
@@ -19,14 +20,14 @@ namespace ProjektLibrary.Services
         #region constructor
         public RepairRepo()
         {
-            _allRepairs = new Dictionary<int, Repair>();
+            _allRepairs = RepairMockData.RepairData;
         }
         #endregion
 
         #region Property
-        public int Count 
-        { 
-            get { return _allRepairs.Count; } 
+        public int Count
+        {
+            get { return _allRepairs.Count; }
         }
         #endregion
 
@@ -36,9 +37,20 @@ namespace ProjektLibrary.Services
             if (_allRepairs.ContainsKey(damage.Id) == false)
             {
                 _allRepairs.Add(damage.Id, damage);
+                damage.TheBoat.AddRepair(damage);
             }
+            damage.TheBoat.updaterepair(GetAllRepairs());
         }
-        
+
+        public void AddRepairWilliam(Repair damage)
+        {
+            if (_allRepairs.ContainsKey(damage.Id) == false)
+            {
+                _allRepairs.Add(damage.Id, damage);
+            }
+            damage.TheBoat.updaterepair(GetAllRepairs());
+        }
+
 
         public List<Repair> GetAllRepairs()
         {
@@ -54,12 +66,11 @@ namespace ProjektLibrary.Services
             throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
         }
 
-        public void RemoveRepairById(int id)
+        public void RemoveRepairById(int id) //Denne skal kobles sammen med repair liste i Boat. 
         {
-            if(_allRepairs.ContainsKey(id))
+            if (_allRepairs.ContainsKey(id))
             {
                 _allRepairs.Remove(id);
-                return;
             }
             else
             {
@@ -69,12 +80,14 @@ namespace ProjektLibrary.Services
 
         public void UpdateReperationStatus(int id)
         {
-            if (GetRepairById(id).StatusOfRepair == false)
+            if (GetRepairById(id).StatusOfRepair == false) //Der bliver kastet en exception fra GetRepairById()-metoden.
             {
                 _allRepairs[id].StatusOfRepair = true;
             }
-            throw new TheRepairHasAlreadyBeenFixedException($"Skaden med Id'et {id}, er allerede repareret");
-
+            else
+            {
+                _allRepairs[id].StatusOfRepair = false;
+            }
         }
 
         public Repair PrintAllRepairs()
@@ -84,7 +97,7 @@ namespace ProjektLibrary.Services
             {
                 Console.WriteLine(repair);
             }
-            return null;
+            return null; //evt. ny exception?
         }
 
         public List<Repair> GetNonFixedRepairs()

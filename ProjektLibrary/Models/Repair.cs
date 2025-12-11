@@ -66,6 +66,7 @@ namespace ProjektLibrary.Models
 		}
 		#endregion
 
+
 		public Repair(string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser) 
 		{
 			DateOfDamage = DateTime.Now;
