@@ -22,10 +22,8 @@ namespace ProjektLibrary.Models
             _name = Name;
             _model = Model;
             _id = _counter++;
-             
-
         }
-        //public bool CanSail { get{return } lav logik til cansail
+        
         public string BoatName { get { return _name; } set { _name = value; } }
 
         public string BoatModel { get { return _model; } set { _model = value; } }
@@ -37,7 +35,19 @@ namespace ProjektLibrary.Models
 
         public void AddRepair(Repair Arepair)
         {
-            _repairs.Add(Arepair);
+            bool Repairthere = false;
+            foreach (Repair Anrepair in _repairs)
+            {
+                if(Anrepair == Arepair)
+                    Console.WriteLine("repair already there");
+                    Repairthere = true; 
+
+            }
+            if(Repairthere ==false)
+            {
+                _repairs.Add(Arepair);
+            }
+            
         }
 
         public override string ToString()
