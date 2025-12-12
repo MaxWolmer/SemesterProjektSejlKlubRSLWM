@@ -16,6 +16,12 @@ try
     Console.WriteLine("Getting first boat");
     Console.WriteLine(1.ToString());
     Console.WriteLine(2.ToString());
+
+    Console.WriteLine("\nAdding and printing boat");
+
+    Boat b7 = new Boat("Feisty Fiona", "Ferry");
+    bRepo.AddBoat(b7);
+    Console.WriteLine($"\n{ b7}");
 }
 catch (BoatIDAlreadyExistsException bae)
 {
