@@ -7,31 +7,15 @@ Console.WriteLine("Hello, World!\n\n");
 
 BoatRepo bRepo = new BoatRepo();
 
-#region MockData
+
 try
 {
-    Boat b1 = new Boat("Big Bertha", "Catamaran");
-    Boat b2 = new Boat("Small Bessie", "Ironclad");
-    Boat b3 = new Boat("Furious Freja", "Uboat");
-    Boat b4 = new Boat("Mad Maddie", "Tireme");
-    Boat b5 = new Boat("Talkative Tuna", "Frigate");
-    Boat b6 = new Boat("Jealous Jane", "Submarine");
-
-    bRepo.AddBoat(b1);
-    bRepo.AddBoat(b2);
-    bRepo.AddBoat(b3);
-    bRepo.AddBoat(b4);
-    bRepo.AddBoat(b5);
-    bRepo.AddBoat(b6);
-
-    #endregion
-
     Console.WriteLine($"Number of boats {bRepo.Count}");
     Console.WriteLine("------------------------------------------------------\n");
 
     Console.WriteLine("Getting first boat");
-    Console.WriteLine(b1.ToString());
-    Console.WriteLine(b2.ToString());
+    Console.WriteLine(1.ToString());
+    Console.WriteLine(2.ToString());
 }
 catch (BoatIDAlreadyExistsException bae)
 {
