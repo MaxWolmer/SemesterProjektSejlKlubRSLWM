@@ -6,10 +6,12 @@ using ProjektLibrary.Services;
 
 RepairRepo rRepo = new RepairRepo();
 #region Ekstra Data
-Repair r5 = new Repair("Malingen er skallet af bagbordside", false, RepairMockData.b1, RepairMockData.u2);
-Repair r6 = new Repair("Flænge i sejlet", false, RepairMockData.b1, RepairMockData.u1);
 Boat b1 = new Boat("Svane","FEVA");
 User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false);
+
+Repair r5 = new Repair("Malingen er skallet af bagbordside", false, b1, u1);
+Repair r6 = new Repair("Flænge i sejlet", false, b1, u1);
+
 #endregion
 
 #region Test af Test af AddRepair(Repair repair)
@@ -130,14 +132,14 @@ Console.WriteLine();
 
 #region Test af GetRepairsInBoat(int boatId)
 Console.WriteLine("Test af GetRepairsInBoat:");
-rRepo.GetRepairsForBoat(RepairMockData.b1.BoatId);
+rRepo.GetRepairsForBoat(b1.BoatId);
 
-foreach (Repair r in rRepo.GetRepairsForBoat(RepairMockData.b1.BoatId))
+foreach (Repair r in rRepo.GetRepairsForBoat(b1.BoatId))
 {
     Console.WriteLine(r.ToString());
 }
 Console.WriteLine("test med anden båd:");
-foreach (Repair r in rRepo.GetRepairsForBoat(RepairMockData.b2.BoatId))
+foreach (Repair r in rRepo.GetRepairsForBoat(b1.BoatId))
 {
     Console.WriteLine(r);
 }
