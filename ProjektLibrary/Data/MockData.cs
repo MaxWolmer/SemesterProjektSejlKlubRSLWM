@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Data
 {
-    public static class UserMockData
+    public static class MockData
     {
         private static Dictionary<string, User> _users = new Dictionary<string, User>()
         {
@@ -24,6 +24,21 @@ namespace ProjektLibrary.Data
         public static Dictionary<string, User> UserData
         {
             get { return _users; }
+        }
+
+        private static List<Blogpost> _postlist = new List<Blogpost>()
+        {
+            new Blogpost("Nyeste sejlads", "Se hvor godt de klarede det!",new DateTime(2026, 6, 4), _users["12345678"]),
+            new Blogpost("Fælles måltid", "Vi hygger os!", new DateTime(2026, 3, 7), _users["12121212"]),
+            new Blogpost("Fælles te!", "Alle fik gratis te!", new DateTime(2026, 2, 1), _users["13131313"]),
+            new Blogpost("Grillaften", "Grilpøser og brød", new DateTime(2026, 7, 19), _users["14141414"]),
+            new Blogpost("Halloween!", "Lidt tidligere end forventet", new DateTime(2026, 6, 4), _users["15151515"]),
+            new Blogpost("ny event", "eventbeskrivelser", _users["17171717"]),
+        };
+
+        public static List<Blogpost> PostList
+        {
+            get { return _postlist; }
         }
     }
 }

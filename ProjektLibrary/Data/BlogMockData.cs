@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Data
 {
-    internal class BlogMockData
+    public static class BlogMockData
     {
+        private static List<Blogpost> _postlist = new List<Blogpost>()
+        {
+
+        };
     }
 }

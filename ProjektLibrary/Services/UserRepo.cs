@@ -20,7 +20,7 @@ namespace ProjektLibrary.Services
 
         public UserRepo()
         {
-            _users = UserMockData.UserData; //new Dictionary<string, User>();
+            _users = MockData.UserData; //new Dictionary<string, User>();
         }
 
         #region methods
