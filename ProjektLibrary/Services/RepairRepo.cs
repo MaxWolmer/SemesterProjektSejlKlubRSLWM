@@ -37,8 +37,7 @@ namespace ProjektLibrary.Services
             if (_allRepairs.ContainsKey(damage.Id) == false)
             {
                 _allRepairs.Add(damage.Id, damage);
-            }
-            
+            }            
         }
 
         public List<Repair> GetAllRepairs()
@@ -66,9 +65,10 @@ namespace ProjektLibrary.Services
                 throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
             }
         }
+
         public void UpdateReperationStatus(int id)
         {
-            if (GetRepairById(id).StatusOfRepair == false) //Der bliver kastet en exception fra GetRepairById()-metoden, hvis Id'et ikke eksisterer.
+            if (GetRepairById(id).StatusOfRepair == false)//Der bliver kastet en exception fra GetRepairById()-metoden, hvis Id'et ikke eksisterer.
             {
                 _allRepairs[id].StatusOfRepair = true;
             }

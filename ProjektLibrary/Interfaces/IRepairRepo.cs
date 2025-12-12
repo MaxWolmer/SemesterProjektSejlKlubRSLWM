@@ -13,7 +13,11 @@ namespace ProjektLibrary.Interfaces
 
         void AddRepair(Repair damage);
 
+        List<Repair> GetAllRepairs();
+
         Repair GetRepairById(int id);
+
+        void RemoveRepairById(int id);
 
         void UpdateReperationStatus(int id);
 
