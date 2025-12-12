@@ -1,11 +1,13 @@
 ﻿using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
+using ProjektLibrary.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjektLibrary.Exceptions.BookingExceptions;
 
 namespace ProjektLibrary.Services
 {
@@ -14,7 +16,7 @@ namespace ProjektLibrary.Services
 
         private List<Booking> _bookings = new List<Booking>();
 
-
+        #region metoder
         public void BookingFree(Boat aboat, DateTime StarTime, DateTime Endtime)
         {
             foreach (Booking Somebooking in _bookings)
@@ -40,11 +42,12 @@ namespace ProjektLibrary.Services
                     bookingthere = true;
                 }
             }
-            if(bookingthere == false)
+            if (bookingthere == false)
             {
                 _bookings.Add(Abooking);
             }
-            else Console.WriteLine("booking there");
+
+            else throw new BookingException("no");
             
         }
         public void DeleteBooking(Booking AbooKing)
@@ -108,7 +111,7 @@ namespace ProjektLibrary.Services
             return bookinglist;
 
         }
-
+        #endregion
     }
 
 

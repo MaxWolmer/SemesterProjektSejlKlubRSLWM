@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjektLibrary.Exceptions.BookingExceptions;
 using ProjektLibrary.Models;
 using ProjektLibrary.Services;
 
@@ -18,13 +19,23 @@ DateTime date4 = new DateTime(2002, 2, 6);
 
 
 Booking booking1 = new Booking(user1, Boat1, BookingStart, BookingEnd);
+Booking booking2 = new Booking(user1, Boat1, BookingStart, BookingEnd);
+
+
 BookingRepository repo1 = new BookingRepository();
 
+try 
+{ 
 repo1.AddBooking(booking1);
-
+repo1.AddBooking(booking1);
+}
+catch (BookingException something)
+{
+    Console.WriteLine(something.Message);
+}
 Repair repair1 = new Repair("alot", false, Boat1, user1);
 
-Boat1.AddRepair(repair1);
+
 
 
 repo1.BookingFree(Boat1, date3, date4);

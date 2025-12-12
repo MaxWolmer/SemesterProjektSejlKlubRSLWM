@@ -39,7 +39,6 @@ namespace ProjektLibrary.Services
                 _allRepairs.Add(damage.Id, damage);
                 damage.TheBoat.AddRepair(damage);
             }
-            damage.TheBoat.updaterepair(GetAllRepairs());
         }
 
         public void AddRepairWilliam(Repair damage)
@@ -48,7 +47,6 @@ namespace ProjektLibrary.Services
             {
                 _allRepairs.Add(damage.Id, damage);
             }
-            damage.TheBoat.updaterepair(GetAllRepairs());
         }
 
 
