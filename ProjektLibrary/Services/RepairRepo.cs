@@ -37,20 +37,9 @@ namespace ProjektLibrary.Services
             if (_allRepairs.ContainsKey(damage.Id) == false)
             {
                 _allRepairs.Add(damage.Id, damage);
-                damage.TheBoat.AddRepair(damage);
             }
-            damage.TheBoat.updaterepair(GetAllRepairs());
+            
         }
-
-        public void AddRepairWilliam(Repair damage)
-        {
-            if (_allRepairs.ContainsKey(damage.Id) == false)
-            {
-                _allRepairs.Add(damage.Id, damage);
-            }
-            damage.TheBoat.updaterepair(GetAllRepairs());
-        }
-
 
         public List<Repair> GetAllRepairs()
         {
@@ -66,7 +55,7 @@ namespace ProjektLibrary.Services
             throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
         }
 
-        public void RemoveRepairById(int id) //Denne skal kobles sammen med repair liste i Boat. 
+        public void RemoveRepairById(int id)
         {
             if (_allRepairs.ContainsKey(id))
             {
@@ -77,10 +66,9 @@ namespace ProjektLibrary.Services
                 throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
             }
         }
-
         public void UpdateReperationStatus(int id)
         {
-            if (GetRepairById(id).StatusOfRepair == false) //Der bliver kastet en exception fra GetRepairById()-metoden.
+            if (GetRepairById(id).StatusOfRepair == false) //Der bliver kastet en exception fra GetRepairById()-metoden, hvis Id'et ikke eksisterer.
             {
                 _allRepairs[id].StatusOfRepair = true;
             }
@@ -92,7 +80,7 @@ namespace ProjektLibrary.Services
 
         public Repair PrintAllRepairs()
         {
-            Console.WriteLine("Printer alle reperationer:");
+
             foreach (Repair repair in _allRepairs.Values)
             {
                 Console.WriteLine(repair);
@@ -111,6 +99,19 @@ namespace ProjektLibrary.Services
                 }
             }
             return nonFixedRepairs;
+        }
+            
+        public List<Repair> GetRepairsForBoat(int boatId)
+        {
+            List<Repair> repairsInTheBoat = new List<Repair>();
+            foreach (Repair r in _allRepairs.Values)
+            {
+                if (boatId == r.TheBoat.BoatId)
+                {
+                    repairsInTheBoat.Add(r);
+                }
+            }
+            return repairsInTheBoat;
         }
         #endregion
     }
