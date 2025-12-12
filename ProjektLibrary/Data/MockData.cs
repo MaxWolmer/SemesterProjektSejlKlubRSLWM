@@ -70,6 +70,13 @@ namespace ProjektLibrary.Data
             get { return _repairData; }
         }
         #endregion
+        #endregion
+
+        #region Booking data
+
+        #endregion
+
+        #region Registration
 
         #endregion
 

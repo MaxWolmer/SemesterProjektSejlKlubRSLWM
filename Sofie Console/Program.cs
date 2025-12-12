@@ -43,6 +43,21 @@ catch (Exception ex)
 {
     Console.WriteLine($"Fejlbesked: {ex.Message}");
 }
+
+Console.WriteLine("Test af exceptionen: RepairIdDoesNotExistException:");
+
+try
+{
+    Console.WriteLine(rRepo.GetRepairById(60));
+}
+catch (RepairIdDoesNotExistException IdEx)
+{
+    Console.WriteLine($"Fejlbesked: {IdEx.Message}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Fejlbesked: {ex.Message}");
+}
 #endregion
 
 #region Test af RemoveRepairById(int id)
@@ -50,7 +65,7 @@ Console.WriteLine("Testing RemoveRepairById:");
 Console.WriteLine($"Der er {rRepo.Count} antal reperationer før remove.");
 try
 {
-    rRepo.RemoveRepairById(4);
+    rRepo.RemoveRepairById(3);
 }
 catch (RepairIdDoesNotExistException idex)
 {
