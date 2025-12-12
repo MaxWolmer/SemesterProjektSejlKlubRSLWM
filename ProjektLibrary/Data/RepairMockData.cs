@@ -22,6 +22,7 @@ namespace ProjektLibrary.Data
 
         #endregion
 
+        #region Instance fields
         private static Dictionary<int, Repair> _repairData = new Dictionary<int, Repair>()
           {
               {1, new Repair("Masten er knekket", false, b1, u1) },
@@ -29,12 +30,15 @@ namespace ProjektLibrary.Data
               {3, new Repair("Der er skarbet maling af bunden", false, b3, u3) },
               {4, new Repair("Der er kommet en flænge i sejlet", false, b4, u4) }
           };
+        #endregion
 
+        #region Property
         public static Dictionary<int, Repair> RepairData
         {
             get { return _repairData; }
         }
-            
+        #endregion
+
     }
 
 }

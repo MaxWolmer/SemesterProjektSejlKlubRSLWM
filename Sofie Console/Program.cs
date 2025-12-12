@@ -9,6 +9,7 @@ RepairRepo rRepo = new RepairRepo();
 Repair r5 = new Repair("Malingen er skallet af bagbordside", false, RepairMockData.b1, RepairMockData.u2);
 Repair r6 = new Repair("Flænge i sejlet", false, RepairMockData.b1, RepairMockData.u1);
 Boat b1 = new Boat("Svane","FEVA");
+User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false);
 #endregion
 
 #region Test af Test af AddRepair(Repair repair)
@@ -133,5 +134,4 @@ foreach (Repair r in rRepo.GetRepairsForBoat(b1.BoatId))
 }
 
 #endregion
-
 

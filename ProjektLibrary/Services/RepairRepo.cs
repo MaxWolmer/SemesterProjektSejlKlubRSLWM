@@ -20,7 +20,7 @@ namespace ProjektLibrary.Services
         #region constructor
         public RepairRepo()
         {
-            _allRepairs = RepairMockData.RepairData;
+            _allRepairs = MockData.RepairData;
         }
         #endregion
 
