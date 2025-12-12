@@ -19,7 +19,7 @@ namespace ProjektLibrary.Services
 
         public BoatRepo()
         {
-            //_boats = BoatMockData.BoatData; - udkommenteret i forbindelse med samling af MockData
+            _boats = MockData.BoatData;
         }
         public int Count
         {
