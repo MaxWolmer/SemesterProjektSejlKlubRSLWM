@@ -19,7 +19,7 @@ namespace ProjektLibrary.Services
 
         public BoatRepo()
         {
-            _boats = BoatMockData.BoatData;
+            _boats = MockData.BoatData;
         }
         public int Count
         {
