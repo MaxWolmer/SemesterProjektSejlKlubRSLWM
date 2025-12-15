@@ -90,17 +90,19 @@ namespace ProjektLibrary.Services
             return "Password was succesfully added";
         }
 
-        public void Login(string mobile, string password) //kunne være bool
+        public bool? Login(string mobile, string password) 
         {
+            bool userlogin = false;
             User? gettingUser = GetUserByMobile(mobile);
             if (gettingUser.Password == password)
             {
-                Console.WriteLine("\tSuccesfull Login");
-            }else
-                Console.WriteLine("could not login USER or PASSWORD does not excist.");
+                userlogin = true;
+                return userlogin;
+            }
+            return null;  
         }
 
-
+        
         #endregion
     }
 }

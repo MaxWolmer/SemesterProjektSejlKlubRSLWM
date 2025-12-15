@@ -50,7 +50,7 @@ namespace ProjektLibrary.Data
         #endregion
         #endregion
 
-        #region Repair
+        #region Repair Data
         #region Instance fields
         private static Dictionary<int, Repair> _repairData = new Dictionary<int, Repair>()
         {

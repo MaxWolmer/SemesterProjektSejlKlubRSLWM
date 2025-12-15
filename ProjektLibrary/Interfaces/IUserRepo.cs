@@ -18,7 +18,7 @@ namespace ProjektLibrary.Interfaces
         List<User> GetAllUsers();
         void PrintAllUsers();
         string AddPasswordToMobile(string mobile, string password);
-        void Login(string mobile, string password);
+        bool? Login(string mobile, string password);
 
     }
 }
