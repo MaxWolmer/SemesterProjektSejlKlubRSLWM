@@ -13,7 +13,7 @@ namespace ProjektLibrary.Services
 {
     public class BookingRepository : IBookingRepo
     {
-
+        
         private List<Booking> _bookings = new List<Booking>();
 
         #region metoder
@@ -30,6 +30,40 @@ namespace ProjektLibrary.Services
             }
 
         }
+        public List<string> userbookingnames()
+        {
+            List<string> Userlist = new List<string>();
+
+            foreach (Booking abooking in _bookings)
+            {
+                Userlist.Add(abooking.TheUser.Name);
+            }
+            return Userlist;
+        }
+
+        //public void userwithmostbookings()
+        //{
+        //    List<string> userswithnames = userbookingnames();
+
+             
+        //    foreach (string Aname in userswithnames)
+        //    {
+        //        Aname = Aname + "1";
+        //    }
+            
+        //}
+
+
+        public void BookingDone(DateTime timeback, Boat boat)
+        {
+            foreach(Booking abooking in _bookings)
+            {
+                if(boat.BoatId == abooking.TheBoat.BoatId)
+                {
+                    abooking.DateEnd = timeback;
+                }
+            }
+        }
 
         public void AddBooking(Booking Abooking)
         {
@@ -39,16 +73,17 @@ namespace ProjektLibrary.Services
             {
                 if(Somebooking.BookingId == Abooking.BookingId)
                 {   
-                    bookingthere = true;
+                    bookingthere = true;    
                 }
             }
             if (bookingthere == false)
             {
                 _bookings.Add(Abooking);
             }
+            
 
             else throw new BookingException("no");
-            
+                     
         }
         public void DeleteBooking(Booking AbooKing)
         {

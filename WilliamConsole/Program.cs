@@ -8,7 +8,7 @@ Console.WriteLine("Hello, World!");
 //Har udkommenteret grundet båd id ændringer
 //Boat boat1 = new Boat("best", "good", 343);
 User user1 = new User("hans", "gmail@", "303", true);
-Boat Boat1 = new Boat("bsetboat", "newmodel");
+Boat Boat1 = new Boat("bsetboat", "newmodel", true);
 
 
 DateTime BookingStart = new DateTime(2002, 2, 2);

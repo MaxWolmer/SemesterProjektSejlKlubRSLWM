@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran") },
-        { 2, new Boat("Small Bessie", "Ironclad") },
-        { 3, new Boat("Furious Freja", "Uboat") },
-        { 4, new Boat("Mad Maddie", "Tireme") },
-        { 5, new Boat("Talkative Tuna", "Frigate") },
-        { 6, new Boat("Jealous Jane", "Submarine") }
+        { 1, new Boat("Big Bertha", "Catamaran", true) },
+        { 2, new Boat("Small Bessie", "Ironclad", true) },
+        { 3, new Boat("Furious Freja", "Uboat", true) },
+        { 4, new Boat("Mad Maddie", "Tireme", true) },
+        { 5, new Boat("Talkative Tuna", "Frigate", true) },
+        { 6, new Boat("Jealous Jane", "Submarine", true) }
         };
         #endregion
         
@@ -101,10 +101,10 @@ namespace ProjektLibrary.Data
         public static List<Event> _Events = new List<Event>()
 
         {
-         new Event (new DateTime(2002,3,12), "someevent") ,
-         new Event (new DateTime(2001,2,23), "goodevent") ,
-         new Event (new DateTime(2000,3,22), "newevent")  ,
-         new Event (new DateTime(2010,1,2), "newevent")
+         new Event (new DateTime(2002,3,12), "someevent", true) ,
+         new Event (new DateTime(2001,2,23), "goodevent", true) ,
+         new Event (new DateTime(2000,3,22), "newevent", true)  ,
+         new Event (new DateTime(2010,1,2), "newevent", true)
 
         };
         #endregion
