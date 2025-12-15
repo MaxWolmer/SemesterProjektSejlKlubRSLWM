@@ -16,6 +16,7 @@ namespace ProjektLibrary.Models
         private int _id;
         private static int _counter = 1;
         private DateTime _creationDate;
+        private int _bookingcounter = 0;
 
 
         #endregion
@@ -51,7 +52,7 @@ namespace ProjektLibrary.Models
         {
             get { return _creationDate; }
         }
-        public int BookingCounter { get; set; }
+        public int BookingCounter { get { return _bookingcounter; } set { _bookingcounter = value; } }
         #endregion
 
 
@@ -64,7 +65,7 @@ namespace ProjektLibrary.Models
             _admin = admin;
             _id = _counter++;
             _creationDate = DateTime.Now;
-            BookingCounter = 0;
+            
         }
         #endregion
 

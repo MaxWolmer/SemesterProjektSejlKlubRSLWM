@@ -30,20 +30,28 @@ namespace ProjektLibrary.Services
             }
 
         }
-        public void userwithmostnames()
+        public void userwithmostbookings()
         {
-           
 
+            int currenthighest = 0;
+            string currenthighestname = "";
             foreach (Booking abooking in _bookings)
             {
-                abooking.TheUser.BookingCounter = abooking.TheUser.BookingCounter + 1;
+                abooking.TheUser.BookingCounter++;
+             
                 
             }
-           
+            
             foreach(Booking Auser in _bookings)
             {
-                Console.WriteLine($"bookings{Auser.TheUser.Name} with {Auser.TheUser.BookingCounter}");
+                if(Auser.TheUser.BookingCounter > currenthighest)
+                {
+                    currenthighest = Auser.TheUser.BookingCounter;
+                    currenthighestname = Auser.TheUser.Name;
+                }
             }
+
+            Console.WriteLine($"{currenthighest} is {currenthighestname}");
         }
 
        
