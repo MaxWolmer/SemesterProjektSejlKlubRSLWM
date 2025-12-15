@@ -8,5 +8,6 @@ namespace ProjektLibrary.Services
 {
     public class EventRepo
     {
+     
     }
 }

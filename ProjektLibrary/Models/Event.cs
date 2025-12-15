@@ -12,16 +12,39 @@ namespace ProjektLibrary.Models
         private static int _counter = 0;
         private string _description;
         private DateTime _theDate;
-        public Event(DateTime TheDate, string description)
+        private bool _admin;
+        public Event(DateTime TheDate, string description, bool admin)
         {
             _description = description;
             _id = _counter;
             _counter++;
             _theDate = TheDate;
+            _admin = admin;
         }
 
-        public int Id { get { return _id; } set { _id = value; } }
-        public string Beskrivlese {get { return _description; } set { _description = value; } }
+        public int Id
+        {
+            get { return _id; }
+
+            set
+            {
+                if (_admin) { _id = value; }
+            }
+        }
+        public string Description
+        {
+            get { return _description; }
+
+            set
+            {
+                if (_admin)
+                {
+                    _description = value;
+                }
+            }
+        }
+
+
 
 
         public override string ToString()
@@ -29,5 +52,5 @@ namespace ProjektLibrary.Models
             return $"EventNumber:{_counter}, Beskrivelse:{_description}, Dato:{_theDate}";
         }
     }
-   
+
 }
