@@ -11,27 +11,35 @@ namespace ProjektLibrary.Models
     {
         private string _name;
         private string _model;
-       
         private int _id;
         private static int _counter = 1;
-        private bool _admin;
+        private User _auser;
+        private int _bookingcounter;
         
 
-        public Boat(string Name, string Model, bool admin)
+        public Boat(string Name, string Model, User auser)
         {
             _name = Name;
             _model = Model;
             _id = _counter++;
-            _admin = admin;
+            _auser = auser;
         }
+
         
-        public string BoatName { get { return _name; } set { if (_admin) { { _name = value; } } } } 
+
+        public int Boatcounterr
+        {
+            get { return _bookingcounter; }
+            set { _bookingcounter = value; }
+        }
+
+        public string BoatName { get { return _name; } set { if (_auser.Admin) { { _name = value; } } } } 
 
 
-        public string BoatModel { get { return _model; } set { if (_admin) { { _model = value; } } } }
+        public string BoatModel { get { return _model; } set { if (_auser.Admin) { { _model = value; } } } }
 
 
-        public int BoatId { get { return _id; }  set { if (_admin) { { _id = value; } } } }
+        public int BoatId { get { return _id; }  set { if (_auser.Admin) { { _id = value; } } } }
 
 
       
