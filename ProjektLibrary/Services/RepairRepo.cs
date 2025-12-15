@@ -14,11 +14,11 @@ namespace ProjektLibrary.Services
     public class RepairRepo : IRepairRepo
     {
         //Dictionary:
-        private Dictionary<int, Repair> _allRepairs;
+        private Dictionary<int, Repair> _allRepairs; //Her er key-value værdien det Id, der er tilknyttet til den enkelte repair.
 
         //Constructor:
         #region constructor
-        public RepairRepo()
+        public RepairRepo() //Der er lavet MockData til Repair, som bliver hentet i konstruktøren. 
         {
             _allRepairs = MockData.RepairData;
         }
@@ -45,7 +45,7 @@ namespace ProjektLibrary.Services
             return _allRepairs.Values.ToList();
         }
 
-        public Repair GetRepairById(int id)
+        public Repair GetRepairById(int id) //Der bliver kastet en exception, hvis Id'et ikke eksisterer.
         {
             if (_allRepairs.ContainsKey(id))
             {
@@ -85,7 +85,7 @@ namespace ProjektLibrary.Services
             {
                 Console.WriteLine(repair);
             }
-            return null; //evt. ny exception?
+            return null;
         }
 
         public List<Repair> GetNonFixedRepairs()
