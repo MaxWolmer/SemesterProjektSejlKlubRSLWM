@@ -21,6 +21,8 @@ namespace ProjektLibrary.Interfaces
 
         List<Repair> GetNonFixedRepairs();
 
+        List<Repair> GetRepairsForBoat(int boatId);
+
         ///TIlføjelser:
         ///Get the lastestDamage()
         ///GetAllOfTypeDamage()
@@ -28,7 +30,7 @@ namespace ProjektLibrary.Interfaces
 
 
 
-       
+
 
     }
 }

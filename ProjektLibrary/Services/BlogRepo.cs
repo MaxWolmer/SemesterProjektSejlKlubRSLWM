@@ -69,7 +69,6 @@ namespace ProjektLibrary.Services
             }
             return null;
         }
-
         public void PrintListOfPosts()
         {
             foreach (Blogpost b in _postlist)

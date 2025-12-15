@@ -2,6 +2,7 @@
 using ProjektLibrary.Exceptions.UserExceptions;
 using ProjektLibrary.Models;
 using ProjektLibrary.Services;
+using System.Data.Common;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 
@@ -9,63 +10,12 @@ Console.WriteLine("Hello, World!");
 Console.WriteLine();
 
 Console.WriteLine();
+Console.WriteLine("just added a new list");
 UserRepo userList = new UserRepo();
+userList.GetAllUsers();
+Console.WriteLine("done adding list");
+Console.WriteLine();
 
-try
-{
-    User user1 = new User("Steve", "SteveBoneMan@Gmail.com", "12345678", true);
-    userList.AddUser(user1);
-}
-catch (GmailDoesNotContain_Exception gex)
-{
-    Console.WriteLine(gex.Message);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-
-try
-{
-    User user2 = new User("Poul", "Pohe@Gmail.com", "12121212", true);
-    userList.AddUser(user2);
-}
-catch (GmailDoesNotContain_Exception gex)
-{
-    Console.WriteLine(gex.Message);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-
-try
-{
-    User user3 = new User("Mikkel", "Mikkel@gmail.com", "13131313", false);
-    userList.AddUser(user3);
-}
-catch (GmailDoesNotContain_Exception gex)
-{
-    Console.WriteLine(gex.Message);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
-
-try
-{
-    User user4 = new User("Charlotte", "Char@gmail.com", "14141414", false);
-    userList.AddUser(user4);
-}
-catch (GmailDoesNotContain_Exception gex)
-{
-    Console.WriteLine(gex.Message);
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
 
 try
 {
@@ -83,8 +33,8 @@ catch (Exception ex)
 
 try
 {
-    User user6 = new User("Dan", "danmail.com", "17171717", false);
-    userList.AddUser(user6);
+    User user8 = new User("Danniella", "danmail.com", "19191919", false);
+    userList.AddUser(user8);
 }
 catch (GmailDoesNotContain_Exception gex)
 {
@@ -97,8 +47,8 @@ catch (Exception ex)
 
 try
 {
-    User user7 = new User("Danny", "dan@gmail.com", "18181818", false);
-    userList.AddUser(user7);
+    User user9 = new User("Daniel", "daniel@gmail.com", "20202020", false);
+    userList.AddUser(user9);
 }
 catch (GmailDoesNotContain_Exception gex)
 {
@@ -129,6 +79,11 @@ User newUser = new User("Bobby Mazing", "BobMaster@gmail.com", "16161616", true)
 userList.UpdateUser("15151515", newUser);
 Console.WriteLine();
 Console.WriteLine(newUser);
+
+Console.WriteLine("updating name but keeping the old number");
+User newUser1 = new User("Steve BoneMan", "SteveBoneMan@Gmail.com", "12345678", true);
+userList.UpdateUser("12345678", newUser1);
+Console.WriteLine(newUser1);
 
 Console.WriteLine();
 Console.WriteLine("Printing all members");

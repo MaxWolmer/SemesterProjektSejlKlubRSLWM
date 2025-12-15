@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Exceptions.UserExceptions;
+﻿using ProjektLibrary.Data;
+using ProjektLibrary.Exceptions.UserExceptions;
 using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
@@ -19,7 +20,7 @@ namespace ProjektLibrary.Services
 
         public UserRepo()
         {
-            _users = new Dictionary<string, User>();
+            _users = MockData.UserData; //new Dictionary<string, User>();
         }
 
         #region methods
@@ -29,7 +30,8 @@ namespace ProjektLibrary.Services
             {
                 _users.Add(user.PhoneNumber, user);
                 Console.WriteLine($"{user.Name} is added");
-            }
+            }else
+                Console.WriteLine("User already excist");
         }
 
         public void DeleteUser(string mobile)
@@ -88,7 +90,7 @@ namespace ProjektLibrary.Services
             return "Password was succesfully added";
         }
 
-        public void Login(string mobile, string password)
+        public void Login(string mobile, string password) //kunne være bool
         {
             User? gettingUser = GetUserByMobile(mobile);
             if (gettingUser.Password == password)
