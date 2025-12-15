@@ -87,5 +87,35 @@ namespace ProjektLibrary.Services
                 Console.WriteLine(boat.ToString());
             }
         }
+
+        public List<Boat> MakingAList()
+        {
+            return _boats.Values.ToList();
+        }
+
+        public List<string> OnlyNamesInOrder()
+        {
+            List<Boat> Sort = MakingAList();
+            List<string> Names = new List<string>();
+            foreach (Boat b in Sort)
+            {
+                Names.Add(b.BoatName);
+            }
+            Names.Sort();
+            return Names;
+        }
+
+        public List<string> TypeInOrder()
+        {
+            List<Boat> Sort = MakingAList();
+            List<string> Names = new List<string>();
+            foreach (Boat b in Sort)
+            {
+                Names.Add(b.BoatName);
+            }
+            Names.Sort();
+            return Names;
+
+        }
     }
 }
