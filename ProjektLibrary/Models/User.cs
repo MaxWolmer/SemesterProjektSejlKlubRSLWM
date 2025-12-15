@@ -16,6 +16,7 @@ namespace ProjektLibrary.Models
         private int _id;
         private static int _counter = 1;
         private DateTime _creationDate;
+
         #endregion
 
         #region properties

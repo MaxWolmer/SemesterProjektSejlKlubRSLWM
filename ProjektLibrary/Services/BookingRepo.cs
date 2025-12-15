@@ -41,17 +41,25 @@ namespace ProjektLibrary.Services
             return Userlist;
         }
 
-        //public void userwithmostbookings()
-        //{
-        //    List<string> userswithnames = userbookingnames();
+        public string userwithmostbookings()
+        {
+            List<string> userswithnames = userbookingnames();
 
-             
-        //    foreach (string Aname in userswithnames)
-        //    {
-        //        Aname = Aname + "1";
-        //    }
-            
-        //}
+
+            for (int i = 0; i < userswithnames.Count; i++)
+            {
+                userswithnames[i] = userswithnames[i] + "1";
+            }
+
+
+          
+
+
+
+            return $"user with most bookings is {mostbookings} he has {currentbiggest} bookings";
+
+
+        }
 
 
         public void BookingDone(DateTime timeback, Boat boat)
