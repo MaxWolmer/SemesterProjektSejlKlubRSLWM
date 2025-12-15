@@ -24,7 +24,8 @@ namespace ProjektLibrary.Models
             _id = _counter++;
         }
         
-        public string BoatName { get { return _name; } set { _name = value; } }
+        public string BoatName { get { return _name; }
+            set { _name = value; } }
 
         public string BoatModel { get { return _model; } set { _model = value; } }
 
