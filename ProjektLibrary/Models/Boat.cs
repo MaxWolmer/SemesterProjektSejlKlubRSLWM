@@ -27,6 +27,7 @@ namespace ProjektLibrary.Models
         
         public string BoatName { get { return _name; } set { if (_admin) { { _name = value; } } } } 
 
+
         public string BoatModel { get { return _model; } set { if (_admin) { { _model = value; } } } }
 
 
