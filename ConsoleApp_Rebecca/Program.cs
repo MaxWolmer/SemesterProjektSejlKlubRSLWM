@@ -161,3 +161,14 @@ else
 {
     Console.WriteLine("login invalid Mobile or Password does not excist");
 }
+
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Trying to sort in alphabetic order");
+
+Console.WriteLine();
+foreach (string s in userList.OnlyNamesInOrder())
+{
+    Console.WriteLine(s);
+}
+

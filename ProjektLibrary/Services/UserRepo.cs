@@ -4,6 +4,7 @@ using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -102,10 +103,24 @@ namespace ProjektLibrary.Services
             return null;  
         }
 
-        //public List<User> AlphabeticalOrder()
-        //{
+        public List<string> OnlyNamesInOrder()
+        {
+            List<User> Sort = MakingAList();
+            List<string> Names = new List<string>();
+            foreach (User u in Sort)
+            {
+                Names.Add(u.Name);
+            }
+            Names.Sort();
+            return Names;
+        }
 
-        //}
+        public List<User> MakingAList()
+        {
+            
+            return _users.Values.ToList();
+            
+        }
         //students.Sort((s1, s2) => s1.Name.CompareTo(s2.Name));
 
         #endregion
