@@ -64,6 +64,7 @@ namespace ProjektLibrary.Models
             _admin = admin;
             _id = _counter++;
             _creationDate = DateTime.Now;
+            BookingCounter = 0;
         }
         #endregion
 

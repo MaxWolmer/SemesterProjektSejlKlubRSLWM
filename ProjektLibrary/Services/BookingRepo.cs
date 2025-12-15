@@ -30,36 +30,23 @@ namespace ProjektLibrary.Services
             }
 
         }
-        public List<string> userbookingnames()
+        public void userwithmostnames()
         {
-            List<string> Userlist = new List<string>();
+           
 
             foreach (Booking abooking in _bookings)
             {
-                Userlist.Add(abooking.TheUser.Name);
+                abooking.TheUser.BookingCounter = abooking.TheUser.BookingCounter + 1;
+                
             }
-            return Userlist;
-        }
-
-        public string userwithmostbookings()
-        {
-            List<string> userswithnames = userbookingnames();
-
-
-            for (int i = 0; i < userswithnames.Count; i++)
+           
+            foreach(Booking Auser in _bookings)
             {
-                userswithnames[i] = userswithnames[i] + "1";
+                Console.WriteLine($"bookings{Auser.TheUser.Name} with {Auser.TheUser.BookingCounter}");
             }
-
-
-          
-
-
-
-            return $"user with most bookings is {mostbookings} he has {currentbiggest} bookings";
-
-
         }
+
+       
 
 
         public void BookingDone(DateTime timeback, Boat boat)
@@ -90,7 +77,7 @@ namespace ProjektLibrary.Services
             }
             
 
-            else throw new BookingException("no");
+           
                      
         }
         public void DeleteBooking(Booking AbooKing)

@@ -21,22 +21,23 @@ DateTime date4 = new DateTime(2002, 2, 6);
 
 
 Booking booking1 = new Booking(user1, Boat1, BookingStart, BookingEnd);
+Booking booking4 = new Booking(user1, Boat1, BookingStart, BookingEnd);
 Booking booking2 = new Booking(user1, Boat1, BookingStart, BookingEnd);
 Booking booking3 = new Booking(user2, Boat1, BookingStart, BookingEnd);
 
 
 BookingRepository repo1 = new BookingRepository();
 
-try 
-{ 
+
+
 repo1.AddBooking(booking1);
 repo1.AddBooking(booking2);
-    repo1.AddBooking(booking3);
-}
-catch (BookingException something)
-{
-    Console.WriteLine(something.Message);
-}
+repo1.AddBooking(booking3);
+repo1.AddBooking(booking4);
+
+
+
+
 Repair repair1 = new Repair("alot", false, Boat1, user1);
 
 
@@ -45,7 +46,7 @@ Repair repair1 = new Repair("alot", false, Boat1, user1);
 repo1.BookingFree(Boat1, date3, date4);
 
 
-Console.WriteLine(repo1.userwithmostbookings());
+repo1.userwithmostnames();
 
 
 
