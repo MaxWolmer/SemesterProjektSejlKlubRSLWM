@@ -30,21 +30,27 @@ namespace ProjektLibrary.Services
             if (user != null && !_users.ContainsKey(user.PhoneNumber))
             {
                 _users.Add(user.PhoneNumber, user);
-                Console.WriteLine($"{user.Name} is added");
-            }else
+                
+            }
+            else
                 Console.WriteLine("User already excist");
         }
 
         public void DeleteUser(string mobile)
         {
             _users.Remove(mobile);
-            Console.WriteLine($"this user has been deleted by this number {mobile}");
+            
         }
 
-        public List<User> GetAllUsers()
+        public List<User> GetAllUsers(User user)
         {
-            Console.WriteLine($"There are {_users.Count} Members. ");
-            return _users.Values.ToList();
+            if (user.Admin == true)
+            {
+                Console.WriteLine($"There are {_users.Count} Members. ");
+                return _users.Values.ToList();
+            }
+            else
+                throw new UserDoNotHaveAccessAdminOnlyException("User is not an Admin, Cannot access this");
         }
 
 
@@ -60,7 +66,7 @@ namespace ProjektLibrary.Services
 
         public void UpdateUser(string oldMobile, User newUser)
         {
-            if (_users.ContainsKey(oldMobile)) 
+            if (_users.ContainsKey(oldMobile))
             {
                 DeleteUser(oldMobile);
                 AddUser(newUser);
@@ -76,8 +82,8 @@ namespace ProjektLibrary.Services
 
         public string AddPasswordToMobile(string mobile, string password)
         {
-            bool toShort = password.Length < 8; 
-            bool hasUpperCase = password.Any(char.IsUpper); 
+            bool toShort = password.Length < 8;
+            bool hasUpperCase = password.Any(char.IsUpper);
             bool hasNumber = password.Any(char.IsDigit);
 
             if (toShort || !hasUpperCase || !hasNumber)
@@ -91,7 +97,7 @@ namespace ProjektLibrary.Services
             return "Password was succesfully added";
         }
 
-        public bool? Login(string mobile, string password) 
+        public bool? Login(string mobile, string password)
         {
             bool userlogin = false;
             User? gettingUser = GetUserByMobile(mobile);
@@ -100,7 +106,13 @@ namespace ProjektLibrary.Services
                 userlogin = true;
                 return userlogin;
             }
-            return null;  
+            return null;
+        }
+        public List<User> MakingAList()
+        {
+
+            return _users.Values.ToList();
+
         }
 
         public List<string> OnlyNamesInOrder()
@@ -115,13 +127,29 @@ namespace ProjektLibrary.Services
             return Names;
         }
 
-        public List<User> MakingAList()
+        public void AdminChanges(User user, string mobile)
         {
-            
-            return _users.Values.ToList();
-            
+            if (user.Admin == true)
+            {
+                if (_users[mobile].Admin == false)
+                {
+                    GetUserByMobile(mobile);
+                    _users[mobile].Admin = true;
+                    Console.WriteLine($"{_users[mobile].Name} is is now an {(_users[mobile].Admin ? "Admin" : "Member")}");
+                }
+                else
+                if (_users[mobile].Admin == true)
+                {
+                    GetUserByMobile(mobile);
+                    _users[mobile].Admin = false;
+                    Console.WriteLine($"{_users[mobile].Name} is is now an {(_users[mobile].Admin ? "Admin" : "Member")}");
+                }
+            }else
+                throw new UserDoNotHaveAccessAdminOnlyException("User is Not Admin and cannot change the status of others.");
+
         }
-        //students.Sort((s1, s2) => s1.Name.CompareTo(s2.Name));
+
+
 
         #endregion
     }
