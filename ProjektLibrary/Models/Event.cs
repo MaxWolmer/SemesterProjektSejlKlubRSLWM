@@ -12,14 +12,14 @@ namespace ProjektLibrary.Models
         private static int _counter = 0;
         private string _description;
         private DateTime _theDate;
-        private bool _admin;
-        public Event(DateTime TheDate, string description, bool admin)
+        private User _auser;
+        public Event(DateTime TheDate, string description, User auser)
         {
             _description = description;
             _id = _counter;
             _counter++;
             _theDate = TheDate;
-            _admin = admin;
+            _auser = auser;
         }
 
         public int Id
@@ -28,7 +28,7 @@ namespace ProjektLibrary.Models
 
             set
             {
-                if (_admin) { _id = value; }
+                if (_auser.Admin) { _id = value; }
             }
         }
         public string Description
@@ -37,7 +37,7 @@ namespace ProjektLibrary.Models
 
             set
             {
-                if (_admin)
+                if (_auser.Admin)
                 {
                     _description = value;
                 }

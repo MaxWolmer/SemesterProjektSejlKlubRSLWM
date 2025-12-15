@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran", true) },
-        { 2, new Boat("Small Bessie", "Ironclad", true) },
-        { 3, new Boat("Furious Freja", "Uboat", true) },
-        { 4, new Boat("Mad Maddie", "Tireme", true) },
-        { 5, new Boat("Talkative Tuna", "Frigate", true) },
-        { 6, new Boat("Jealous Jane", "Submarine", true) }
+        { 1, new Boat("Big Bertha", "Catamaran",_users["12345678"]) },
+        { 2, new Boat("Small Bessie", "Ironclad", _users["12121212"]) },
+        { 3, new Boat("Furious Freja", "Uboat", _users["13131313"]) },
+        { 4, new Boat("Mad Maddie", "Tireme", _users["15151515"]) },
+        { 5, new Boat("Talkative Tuna", "Frigate", _users["15151515"]) },
+        { 6, new Boat("Jealous Jane", "Submarine", _users["15151515"]) }
         };
         #endregion
         
@@ -101,10 +101,10 @@ namespace ProjektLibrary.Data
         public static List<Event> _Events = new List<Event>()
 
         {
-         new Event (new DateTime(2002,3,12), "someevent", true) ,
-         new Event (new DateTime(2001,2,23), "goodevent", true) ,
-         new Event (new DateTime(2000,3,22), "newevent", true)  ,
-         new Event (new DateTime(2010,1,2), "newevent", true)
+         new Event (new DateTime(2002,3,12), "someevent", _users["15151515"]) ,
+         new Event (new DateTime(2001,2,23), "goodevent", _users["15151515"]) ,
+         new Event (new DateTime(2000,3,22), "newevent", _users["15151515"])  ,
+         new Event (new DateTime(2010,1,2), "newevent", _users["15151515"])
 
         };
         #endregion

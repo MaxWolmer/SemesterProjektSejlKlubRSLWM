@@ -10,7 +10,7 @@ Console.WriteLine("Hello, World!");
 User user1 = new User("hans", "gmail@", "303", true);
 User user2 = new User("mikkel", "gmail@", "303", true);
 
-Boat Boat1 = new Boat("bsetboat", "newmodel", true);
+Boat Boat1 = new Boat("bsetboat", "newmodel", user1);
 
 
 DateTime BookingStart = new DateTime(2002, 2, 2);
