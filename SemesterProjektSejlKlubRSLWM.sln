@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamConsole", "WilliamCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMartinsConsole", "MartinsConsole\ZMartinsConsole.csproj", "{02FE2545-F0B2-4B0B-8C00-D36356E27848}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zControlMenu", "ControlMenu\zControlMenu.csproj", "{26925E08-5EB6-46D2-98EE-B5CC940C2B14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{02FE2545-F0B2-4B0B-8C00-D36356E27848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02FE2545-F0B2-4B0B-8C00-D36356E27848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02FE2545-F0B2-4B0B-8C00-D36356E27848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26925E08-5EB6-46D2-98EE-B5CC940C2B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26925E08-5EB6-46D2-98EE-B5CC940C2B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26925E08-5EB6-46D2-98EE-B5CC940C2B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26925E08-5EB6-46D2-98EE-B5CC940C2B14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

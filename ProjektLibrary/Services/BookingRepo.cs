@@ -1,20 +1,22 @@
 ﻿using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
+using ProjektLibrary.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjektLibrary.Exceptions.BookingExceptions;
 
 namespace ProjektLibrary.Services
 {
     public class BookingRepository : IBookingRepo
     {
-
+        
         private List<Booking> _bookings = new List<Booking>();
 
-
+        #region metoder
         public void BookingFree(Boat aboat, DateTime StarTime, DateTime Endtime)
         {
             foreach (Booking Somebooking in _bookings)
@@ -28,6 +30,43 @@ namespace ProjektLibrary.Services
             }
 
         }
+        public void userwithmostbookings()
+        {
+
+            int currenthighest = 0;
+            string currenthighestname = "";
+            foreach (Booking abooking in _bookings)
+            {
+                abooking.TheUser.BookingCounter++;
+             
+                
+            }
+            
+            foreach(Booking Auser in _bookings)
+            {
+                if(Auser.TheUser.BookingCounter > currenthighest)
+                {
+                    currenthighest = Auser.TheUser.BookingCounter;
+                    currenthighestname = Auser.TheUser.Name;
+                }
+            }
+
+            Console.WriteLine($"{currenthighest} is {currenthighestname}");
+        }
+
+       
+
+
+        public void BookingDone(DateTime timeback, Boat boat)
+        {
+            foreach(Booking abooking in _bookings)
+            {
+                if(boat.BoatId == abooking.TheBoat.BoatId)
+                {
+                    abooking.DateEnd = timeback;
+                }
+            }
+        }
 
         public void AddBooking(Booking Abooking)
         {
@@ -37,15 +76,18 @@ namespace ProjektLibrary.Services
             {
                 if(Somebooking.BookingId == Abooking.BookingId)
                 {   
-                    bookingthere = true;
+                    bookingthere = true;    
                 }
             }
-            if(bookingthere == false)
+            if (bookingthere == false)
             {
                 _bookings.Add(Abooking);
+                Abooking.TheBoat.Boatcounterr++;
             }
-            else Console.WriteLine("booking there");
             
+
+           
+                     
         }
         public void DeleteBooking(Booking AbooKing)
         {
@@ -89,26 +131,29 @@ namespace ProjektLibrary.Services
             return _bookings;
         }
 
-        public List<Booking> BookingsOnBoat(Boat aboat) //lav om til returnere liste
+        public int? BookingsOnBoat(Boat aboat) //lav om til returnere liste
         {
-            List<Booking> bookinglist = new List<Booking>();
+          
+
             foreach (Booking abooking in _bookings)
             {
                 if (abooking.TheBoat == aboat)
                 {
-                    bookinglist.Add(abooking);
+                    return abooking.TheBoat.Boatcounterr;                                  
                 }
 
             }
-            if(bookinglist == null)
+
+
+            if(aboat.Boatcounterr == 0)
                 { 
                   Console.WriteLine("zerobookings"); 
                 }
 
-            return bookinglist;
+            return null;
 
         }
-
+        #endregion
     }
 
 

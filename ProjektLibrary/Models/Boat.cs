@@ -11,66 +11,38 @@ namespace ProjektLibrary.Models
     {
         private string _name;
         private string _model;
-        private List<Repair> _repairs;
         private int _id;
         private static int _counter = 1;
+        private User _auser;
+        private int _bookingcounter;
         
 
-        public Boat(string Name, string Model)
+        public Boat(string Name, string Model, User auser)
         {
-            _repairs = new List<Repair>();
             _name = Name;
             _model = Model;
             _id = _counter++;
+            _auser = auser;
         }
+
         
-        public string BoatName { get { return _name; } set { _name = value; } }
 
-        public string BoatModel { get { return _model; } set { _model = value; } }
-
-        public List<Repair> GetRepairs { get { return _repairs; } set { _repairs = value; } }
-
-        public int BoatId { get { return _id; }  set { _id = value; }}
-
-
-        public void updaterepair(List<Repair> updatedrepair)
+        public int Boatcounterr
         {
-            _repairs = updatedrepair;
+            get { return _bookingcounter; }
+            set { _bookingcounter = value; }
         }
 
-        public void removeRepair(Repair Arepair)
-        {
-            bool Repairthere = false;
-            foreach (Repair Anrepair in _repairs)
-            {
-                if (Anrepair == Arepair)
-                    Console.WriteLine("repair already there");
-                Repairthere = true;
+        public string BoatName { get { return _name; } set { if (_auser.Admin) { { _name = value; } } } } 
 
-            }
-            if (Repairthere == false)
-            {
-                _repairs.Remove(Arepair);
-            }
 
-        }
-        
-        public void AddRepair(Repair Arepair)
-        {
-            bool Repairthere = false;
-            foreach (Repair Anrepair in _repairs)
-            {
-                if(Anrepair == Arepair)
-                    Console.WriteLine("repair already there");
-                    Repairthere = true; 
+        public string BoatModel { get { return _model; } set { if (_auser.Admin) { { _model = value; } } } }
 
-            }
-            if(Repairthere ==false)
-            {
-                _repairs.Add(Arepair);
-            }
-            
-        }
+
+        public int BoatId { get { return _id; }  set { if (_auser.Admin) { { _id = value; } } } }
+
+
+      
 
         public override string ToString()
         {

@@ -12,7 +12,7 @@ namespace ProjektLibrary.Models
 
         private User _theUser;
         private Boat _aBoat;
-        private static int _bookingID;
+        private int _bookingID;
         private static int _counter = 0;
         private bool _bookingDone = false;
         private DateTime _starTime;

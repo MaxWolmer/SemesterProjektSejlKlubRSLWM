@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran") },
-        { 2, new Boat("Small Bessie", "Ironclad") },
-        { 3, new Boat("Furious Freja", "Uboat") },
-        { 4, new Boat("Mad Maddie", "Tireme") },
-        { 5, new Boat("Talkative Tuna", "Frigate") },
-        { 6, new Boat("Jealous Jane", "Submarine") }
+        { 1, new Boat("Big Bertha", "Catamaran",_users["12345678"]) },
+        { 2, new Boat("Small Bessie", "Ironclad", _users["12121212"]) },
+        { 3, new Boat("Furious Freja", "Uboat", _users["13131313"]) },
+        { 4, new Boat("Mad Maddie", "Tireme", _users["15151515"]) },
+        { 5, new Boat("Talkative Tuna", "Frigate", _users["15151515"]) },
+        { 6, new Boat("Jealous Jane", "Submarine", _users["15151515"]) }
         };
         #endregion
         
@@ -50,7 +50,7 @@ namespace ProjektLibrary.Data
         #endregion
         #endregion
 
-        #region Repair
+        #region Repair Data
         #region Instance fields
         private static Dictionary<int, Repair> _repairData = new Dictionary<int, Repair>()
         {

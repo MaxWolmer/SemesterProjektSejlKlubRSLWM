@@ -14,11 +14,11 @@ namespace ProjektLibrary.Services
     public class RepairRepo : IRepairRepo
     {
         //Dictionary:
-        private Dictionary<int, Repair> _allRepairs;
+        private Dictionary<int, Repair> _allRepairs; //Her er key-value værdien det Id, der er tilknyttet til den enkelte repair.
 
         //Constructor:
         #region constructor
-        public RepairRepo()
+        public RepairRepo() //Der er lavet MockData til Repair, som bliver hentet i konstruktøren. 
         {
             _allRepairs = MockData.RepairData;
         }
@@ -37,8 +37,7 @@ namespace ProjektLibrary.Services
             if (_allRepairs.ContainsKey(damage.Id) == false)
             {
                 _allRepairs.Add(damage.Id, damage);
-            }
-            
+            }            
         }
 
         public List<Repair> GetAllRepairs()
@@ -46,7 +45,7 @@ namespace ProjektLibrary.Services
             return _allRepairs.Values.ToList();
         }
 
-        public Repair GetRepairById(int id)
+        public Repair GetRepairById(int id) //Der bliver kastet en exception, hvis Id'et ikke eksisterer.
         {
             if (_allRepairs.ContainsKey(id))
             {
@@ -66,9 +65,10 @@ namespace ProjektLibrary.Services
                 throw new RepairIdDoesNotExistException($"Id'et {id} eksisterer ikke - Prøv et andet id");
             }
         }
+
         public void UpdateReperationStatus(int id)
         {
-            if (GetRepairById(id).StatusOfRepair == false) //Der bliver kastet en exception fra GetRepairById()-metoden, hvis Id'et ikke eksisterer.
+            if (GetRepairById(id).StatusOfRepair == false)//Der bliver kastet en exception fra GetRepairById()-metoden, hvis Id'et ikke eksisterer.
             {
                 _allRepairs[id].StatusOfRepair = true;
             }
@@ -85,7 +85,7 @@ namespace ProjektLibrary.Services
             {
                 Console.WriteLine(repair);
             }
-            return null; //evt. ny exception?
+            return null;
         }
 
         public List<Repair> GetNonFixedRepairs()

@@ -15,6 +15,10 @@ namespace ProjektLibrary.Models
         private string _email;
         private int _id;
         private static int _counter = 1;
+        private DateTime _creationDate;
+        private int _bookingcounter = 0;
+
+
         #endregion
 
         #region properties
@@ -44,6 +48,11 @@ namespace ProjektLibrary.Models
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
+        public DateTime CreationDate
+        {
+            get { return _creationDate; }
+        }
+        public int BookingCounter { get { return _bookingcounter; } set { _bookingcounter = value; } }
         #endregion
 
 
@@ -55,12 +64,15 @@ namespace ProjektLibrary.Models
             _phoneNumber = phoneNumber;
             _admin = admin;
             _id = _counter++;
+            _creationDate = DateTime.Now;
+            
         }
         #endregion
 
         public override string ToString()
         {
-            return $"The Id: {_id}\nThe Member Name: {Name}\nThe Email: {Email}\nThe PhoneNumber {_phoneNumber}\nIs Admin or Member: {(_admin ? "Admin" : "Member")}\n";
+            return $"The Id: {_id}\nThe Member Name: {Name}\nThe Email: {Email}\nThe PhoneNumber {_phoneNumber}\n" +
+                $"Is Admin or Member: {(_admin ? "Admin" : "Member")}\nThis Member was added {_creationDate}\n";
         }
 
 

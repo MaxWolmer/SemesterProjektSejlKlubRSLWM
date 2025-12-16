@@ -50,7 +50,7 @@ namespace ProjektLibrary.Models
 		}
 
 
-		//Her tilknyttes båden til repairlog:
+		//Her tilknyttes båden til den enkelte repair:
 		public Boat TheBoat
 		{
 			get { return _theBoat; }
@@ -58,7 +58,7 @@ namespace ProjektLibrary.Models
 		}
         
 
-        //Der tilknyttes der en user:
+        //Der tilknyttes der en user, som er den, som raporterer:
 		public User TheUser
 		{
 			get { return _theUser; }

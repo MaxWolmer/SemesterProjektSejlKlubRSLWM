@@ -19,7 +19,7 @@ try
 
     Console.WriteLine("\nAdding and printing boat");
 
-    Boat b7 = new Boat("Feisty Fiona", "Ferry");
+    Boat b7 = new Boat("Feisty Fiona", "Ferry", true);
     bRepo.AddBoat(b7);
     Console.WriteLine($"\n{ b7}");
 }
@@ -36,10 +36,10 @@ Console.WriteLine("------------------------------------------------------\n");
 try
 {
     Console.WriteLine("Updating boat name and model\n");
-    Boat newBoat = new Boat("Speedy Sussie", "Hydroplane");
+    Boat newBoat = new Boat("Speedy Sussie", "Hydroplane", true);
     bRepo.UpdateBoat(4, newBoat);
 
-    Boat newBoat1 = new Boat("Speedy Sussie", "Hydroplane");
+    Boat newBoat1 = new Boat("Speedy Sussie", "Hydroplane", true);
     bRepo.UpdateBoat(9, newBoat);
 }
 catch (KeyNotFoundException knf)
@@ -59,4 +59,10 @@ Boat aFoundBoat = bRepo.FindBoatByID(2);
 if (aFoundBoat != null)
 {
     Console.WriteLine($"{aFoundBoat}\n");
+}
+
+
+foreach(string b in bRepo.OnlyNamesInOrder())
+{
+    Console.WriteLine(b);
 }
