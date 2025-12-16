@@ -21,7 +21,7 @@ namespace ProjektLibrary.Models
         private int _bookingcounter;
         
 
-        public Boat(string Model, string Brand, string Name, string Dimensions, bool Available, bool admin)
+        public Boat(string Model, string Brand, string Name, string Dimensions, bool Available, bool admin, User auser)
         {
             _id = _counter++;
             _name = Name;
