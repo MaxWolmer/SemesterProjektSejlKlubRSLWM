@@ -17,12 +17,12 @@ namespace ProjektLibrary.Models
         private int _bookingcounter;
         
 
-        public Boat(string Name, string Model, User auser)
+        public Boat(string Name, string Model, User Auser)
         {
             _name = Name;
             _model = Model;
             _id = _counter++;
-            _auser = auser;
+            _auser = Auser;
         }
 
         
