@@ -98,15 +98,18 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Event Data
-        public static List<Event> _Events = new List<Event>()
-
+        private static List<Eventpost> _eventList = new List<Eventpost>()
         {
-         new Event (new DateTime(2002,3,12), "someevent") ,
-         new Event (new DateTime(2001,2,23), "goodevent") ,
-         new Event (new DateTime(2000,3,22), "newevent")  ,
-         new Event (new DateTime(2010,1,2), "newevent")
-
+            new Eventpost("Ny event 1", "Beskrivelse 1", new DateTime(2025,12,15), new DateTime(2025,12,25)),
+            new Eventpost("Ny event 2", "Beskrivelse 2", new DateTime(2026,1,1), new DateTime(2026,1,7)),
+            new Eventpost("Ny event 3", "Beskrivelse 3", new DateTime(2026,3,1), new DateTime(2026,3,29)),
+            new Eventpost("Ny event 4", "Beskrivelse 4", new DateTime(2026,4,7), new DateTime(2026,4,21))
         };
+
+        public static List<Eventpost> EventList
+        {
+            get { return _eventList; }
+        }
         #endregion
     }
 }
