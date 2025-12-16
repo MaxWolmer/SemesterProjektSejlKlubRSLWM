@@ -12,35 +12,35 @@ namespace ProjektLibrary.Models
         #region Instance Fields
         private static int _id = 1;
 
-        private string _title;
-        private string _description;
-        private DateTime _createdat;
+        private string _blogtitle;
+        private string _blogdescription;
+        private DateTime _blogcreatedat;
 
-        private User _postedby;
+        private User _blogpostedby;
         #endregion
 
         #region Properties
         public int Id { get; private set; }
-        public string Title
+        public string BlogTitle
         {
-            get { return _title; }
-            set { _title = value; }
+            get { return _blogtitle; }
+            set { _blogtitle = value; }
         }
-        public string Description
+        public string BlogDescription
         {
-            get { return _description; }
-            set { _description = value; }
+            get { return _blogdescription; }
+            set { _blogdescription = value; }
         }
-        public DateTime CreatedAt
+        public DateTime BlogCreatedAt
         {
-            get { return _createdat; }
-            set { _createdat = value; }
+            get { return _blogcreatedat; }
+            set { _blogcreatedat = value; }
         }
 
-        public User PostedBy
+        public User BlogPostedBy
         {
-            get { return _postedby; }
-            set { _postedby = value; }
+            get { return _blogpostedby; }
+            set { _blogpostedby = value; }
         }
         #endregion
 
@@ -48,10 +48,10 @@ namespace ProjektLibrary.Models
         public Blogpost(string title, string description, DateTime timestamp, User postedBy)
         {
             Id = _id++;
-            Title = title;
-            Description = description;
-            CreatedAt = timestamp;
-            PostedBy = postedBy;
+            BlogTitle = title;
+            BlogDescription = description;
+            BlogCreatedAt = timestamp;
+            BlogPostedBy = postedBy;
 
         }
 
@@ -59,20 +59,20 @@ namespace ProjektLibrary.Models
         public Blogpost(string title, string description, User postedBy)
         {
             Id = _id++;
-            Title = title;
-            Description = description;
-            CreatedAt = DateTime.Now;
-            PostedBy = postedBy;
+            BlogTitle = title;
+            BlogDescription = description;
+            BlogCreatedAt = DateTime.Now;
+            BlogPostedBy = postedBy;
         }
         #endregion
 
         #region Methods
         public override string ToString()
         {
-            return $"{Id}. {Title}\n" +
-                $"{Description}\n" +
-                $"Denne post er oprettet d. {CreatedAt}.\n";
-                //$"Denne blog va delt af{PostedBy.Name}"
+            return $"{Id}. {BlogTitle}\n" +
+                $"{BlogDescription}\n" +
+                $"Denne post er oprettet d. {BlogCreatedAt}.\n" +
+                $"Denne blog va delt af {BlogPostedBy.Name}.\n";
         }
         #endregion
     }

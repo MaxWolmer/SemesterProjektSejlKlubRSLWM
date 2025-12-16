@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Exceptions.BlogExceptions
 {
-    public class IdNotExistException : Exception //ineex
+    public class BlogIdNotExistException : Exception //bineex
     {
-        public IdNotExistException(string message) : base(message)
+        public BlogIdNotExistException(string message) : base(message)
         {
 
         }
     }
-    public class SpaceCannotBeEmptyException : Exception //scbeex
+    public class SpaceCannotBeEmptyException : Exception //bscbeex
     {
         public SpaceCannotBeEmptyException(string message) : base(message)
         {

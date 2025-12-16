@@ -82,6 +82,7 @@ namespace ProjektLibrary.Services
             if (bookingthere == false)
             {
                 _bookings.Add(Abooking);
+                Abooking.TheBoat.Boatcounterr++;
             }
             
 
@@ -130,23 +131,26 @@ namespace ProjektLibrary.Services
             return _bookings;
         }
 
-        public List<Booking> BookingsOnBoat(Boat aboat) //lav om til returnere liste
+        public int? BookingsOnBoat(Boat aboat) //lav om til returnere liste
         {
-            List<Booking> bookinglist = new List<Booking>();
+          
+
             foreach (Booking abooking in _bookings)
             {
                 if (abooking.TheBoat == aboat)
                 {
-                    bookinglist.Add(abooking);
+                    return abooking.TheBoat.Boatcounterr;                                  
                 }
 
             }
-            if(bookinglist == null)
+
+
+            if(aboat.Boatcounterr == 0)
                 { 
                   Console.WriteLine("zerobookings"); 
                 }
 
-            return bookinglist;
+            return null;
 
         }
         #endregion

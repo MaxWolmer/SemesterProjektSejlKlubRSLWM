@@ -17,6 +17,8 @@ namespace ProjektLibrary.Models
         private string _dimensions;
         private bool _available;             
         private bool _admin;
+        private User _auser;
+        private int _bookingcounter;
         
 
         public Boat(string Model, string Brand, string Name, string Dimensions, bool Available, bool admin)
@@ -28,6 +30,16 @@ namespace ProjektLibrary.Models
             _dimensions = Dimensions;
             _available = Available;
             _admin = admin;
+            _id = _counter++;
+            _auser = auser;
+        }
+
+        
+
+        public int Boatcounterr
+        {
+            get { return _bookingcounter; }
+            set { _bookingcounter = value; }
         }
         public int BoatId { get { return _id; }  set { if (_admin) { { _id = value; } } } }
         

@@ -1,4 +1,5 @@
-﻿using ProjektLibrary.Exceptions.BlogExceptions;
+﻿using ProjektLibrary.Data;
+using ProjektLibrary.Exceptions.BlogExceptions;
 using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
@@ -12,28 +13,28 @@ namespace ProjektLibrary.Services
     public class BlogRepo : IBlogRepo
     {
         #region List Creation
-        private List<Blogpost> _postlist;
+        private List<Blogpost> _blogpostlist;
 
         public BlogRepo()
         {
-            _postlist = new List<Blogpost>();
+            _blogpostlist = MockData.PostList;
         }
         #endregion
 
         #region Methods
         public void AddPost(Blogpost blogpost)
         {
-            _postlist.Add(blogpost);
+            _blogpostlist.Add(blogpost);
         }
         public void DeletePost(int id)
         {
             Blogpost toRemove = FindPostById(id);
             if (toRemove != null)
             {
-                _postlist.Remove(toRemove);
+                _blogpostlist.Remove(toRemove);
                 return;
             }
-            throw new IdNotExistException("En post med dette ID findes ikke");
+            throw new BlogIdNotExistException("En post med dette ID findes ikke");
         }
 
         public void UpdatePostTitle(int id, string newTitle)
@@ -41,10 +42,10 @@ namespace ProjektLibrary.Services
             Blogpost post = FindPostById(id);
             if (post != null)
             {
-                post.Title = newTitle;
+                post.BlogTitle = newTitle;
                 return;
             }
-            throw new IdNotExistException("En post med dette ID findes ikke");
+            throw new BlogIdNotExistException("En post med dette ID findes ikke");
         }
 
         public void UpdatePostDesc(int id, string newDescription)
@@ -52,15 +53,15 @@ namespace ProjektLibrary.Services
             Blogpost post = FindPostById(id);
             if (post != null)
             {
-                post.Description = newDescription;
+                post.BlogDescription = newDescription;
                 return;
             }
-            throw new IdNotExistException("En post med dette ID findes ikke");
+            throw new BlogIdNotExistException("En post med dette ID findes ikke");
         }
 
         public Blogpost FindPostById(int id)
         {
-            foreach (Blogpost post in _postlist)
+            foreach (Blogpost post in _blogpostlist)
             {
                 if (post.Id == id)
                 {
@@ -71,7 +72,7 @@ namespace ProjektLibrary.Services
         }
         public void PrintListOfPosts()
         {
-            foreach (Blogpost b in _postlist)
+            foreach (Blogpost b in _blogpostlist)
             {
                 Console.WriteLine(b.ToString());
             }

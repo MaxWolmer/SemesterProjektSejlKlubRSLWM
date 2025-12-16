@@ -9,12 +9,12 @@ namespace ProjektLibrary.Models
     public class Registration
     {
         private User _theUser;
-        private Event _TheEvent;
+        private Eventpost _TheEvent;
         private static int _registrationID = 0; //
         private int _id;
         private string _comment;
        
-        public Registration(User AUser, Event TheEvent, string Comment)
+        public Registration(User AUser, Eventpost TheEvent, string Comment)
         {
             _theUser = AUser;
             _TheEvent = TheEvent;
