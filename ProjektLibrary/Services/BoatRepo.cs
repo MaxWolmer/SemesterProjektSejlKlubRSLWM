@@ -38,6 +38,7 @@ namespace ProjektLibrary.Services
             }
             return boat;
         }
+
         public Boat? FindBoatByID(int boatid)
         {
             if (_boats.ContainsKey(boatid))
@@ -46,19 +47,6 @@ namespace ProjektLibrary.Services
             }
             return null;
         }
-
-        //public void UpdateBoat2(int boatid, Boat newBoat)
-        //{
-        //    if (_boats.TryGetValue(boatid, out var existingBoat))
-        //    {
-        //        existingBoat.BoatName = newBoat.BoatName;
-        //        existingBoat.BoatModel = newBoat.BoatModel;
-        //    }
-        //    else
-        //    {
-        //        throw new KeyNotFoundException($"Boat ID {boatid} not found.");
-        //    }
-        //}
 
         public void UpdateBoat(int boatid, Boat newboat)
         {
@@ -88,23 +76,15 @@ namespace ProjektLibrary.Services
             }
         }
 
+
+
+
+        //Sorting methods
+       
         public List<Boat> MakingAList()
         {
             return _boats.Values.ToList();
         }
-
-        //Sorting methods
-        //public List<Boat> NamesInOrder()
-        //{
-        //    List<Boat> Sort = MakingAList();
-        //    List<string> Boats = new List<string>();
-        //    foreach (Boat b in Sort)
-        //    {
-        //        Boats.Add(b.BoatName);
-        //    }
-        //    Boats.Sort();
-        //    return Boats;
-        //}
 
         public List<string> ModelsInOrder()
         {
@@ -116,6 +96,39 @@ namespace ProjektLibrary.Services
             }
             Models.Sort();
             return Models;
+        }
+
+        public List<string> BrandsInOrder()
+        {
+            List<Boat> Sort = MakingAList();
+            List<string> Brands = new List<string>();
+            List<string> Models = new List<string>();
+            foreach (Boat b in Sort)
+            {
+                Brands.Add(b.BoatBrand);
+                Models.Add(b.BoatModel);
+            }
+            Models.Sort();
+            Brands.Sort();
+
+            Console.WriteLine("Brands:");
+            foreach (string brand in Brands)
+            {
+                
+            }
+            return Brands;
+        }
+
+        public List<string> NamesInOrder()
+        {
+            List<Boat> Sort = MakingAList();
+            List<string> Names = new List<string>();
+            foreach (Boat b in Sort)
+            {
+                Console.WriteLine($"Model: {b.BoatModel}\nBrand: {b.BoatBrand}\nName: {b.BoatName}\n");
+            }
+            Names.Sort();
+            return Names;
         }
     }
 }
