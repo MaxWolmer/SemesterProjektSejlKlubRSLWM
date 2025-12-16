@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran",_users["12345678"]) },
-        { 2, new Boat("Small Bessie", "Ironclad", _users["12121212"]) },
-        { 3, new Boat("Furious Freja", "Uboat", _users["13131313"]) },
-        { 4, new Boat("Mad Maddie", "Tireme", _users["15151515"]) },
-        { 5, new Boat("Talkative Tuna", "Frigate", _users["15151515"]) },
-        { 6, new Boat("Jealous Jane", "Submarine", _users["15151515"]) }
+        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true , _users["12345678"]) },
+        { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
+        { 3, new Boat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["13131313"]) },
+        { 4, new Boat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 5, new Boat("Frigate", "Tracker", "Talkative Tuna", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 6, new Boat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
         };
         #endregion
         
