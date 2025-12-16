@@ -19,15 +19,15 @@ Repair r6 = new Repair("Flænge i sejlet", false, b1, u1);
 #endregion
 
 #region Test af Test af AddRepair(Repair repair)
-Console.WriteLine("Test af AddRepair");
+//Console.WriteLine("Test af AddRepair");
 
-Console.WriteLine($"Der er antal {rRepo.Count} reperationer før AddRepair er brugt.");
-rRepo.AddRepair(r5);
-rRepo.AddRepair(r6);
+//Console.WriteLine($"Der er antal {rRepo.Count} reperationer før AddRepair er brugt.");
+//rRepo.AddRepair(r5);
+//rRepo.AddRepair(r6);
 
-Console.WriteLine();
-Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt x2.");
-Console.WriteLine();
+//Console.WriteLine();
+//Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt x2.");
+//Console.WriteLine();
 #endregion
 
 #region Test af PrintAllRepairs()
@@ -151,5 +151,18 @@ Console.WriteLine();
 //{
 //    Console.WriteLine(r);
 //}
+
+#endregion
+
+#region Test af SailRepair
+SailRepair sr1 = new SailRepair("Der er kommet et hul i sejlet", false, b1, u2, "polyester", "MainSail", 3.7);
+
+Console.WriteLine(sr1.ToString());
+
+Console.WriteLine("Test om SailRepair kan add'et til samlingen af reparationer:");
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer før AddRepair er brugt.");
+rRepo.AddRepair(sr1);
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt.");
+rRepo.PrintAllRepairs(); //Der bliver kun printet den del af ToString til sr1, som den får af Repair, men ikke det ekstra.
 
 #endregion
