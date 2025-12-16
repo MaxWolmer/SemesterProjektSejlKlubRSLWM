@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran", true) },
-        { 2, new Boat("Small Bessie", "Ironclad", true) },
-        { 3, new Boat("Furious Freja", "Uboat", true) },
-        { 4, new Boat("Mad Maddie", "Tireme", true) },
-        { 5, new Boat("Talkative Tuna", "Frigate", true) },
-        { 6, new Boat("Jealous Jane", "Submarine", true) }
+        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) },
+        { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) },
+        { 3, new Boat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) },
+        { 4, new Boat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) },
+        { 5, new Boat("Frigate", "Tracker", "Talkative Tuna", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) },
+        { 6, new Boat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true) }
         };
         #endregion
         

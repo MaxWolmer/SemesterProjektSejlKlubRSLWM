@@ -7,8 +7,8 @@ using ProjektLibrary.Services;
 RepairRepo rRepo = new RepairRepo();
 
 #region Ekstra Data
-Boat b1 = new Boat("Svane","FEVA", true);
-Boat b2 = new Boat("Havfruen", "FEVA", true);
+Boat b1 = new Boat("FEVA", "Volksbotten", "Svane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true);
+Boat b2 = new Boat("FEVA", "Sea Viking", "Havfruen", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true);
 User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false);
 
 Repair r5 = new Repair("Malingen er skallet af bagbordside", false, b1, u1);
