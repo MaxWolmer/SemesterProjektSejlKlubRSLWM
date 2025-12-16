@@ -18,14 +18,14 @@ namespace zControlMenu
         private BookingRepository _bookingRepo;
         private BlogRepo _blogRepo;
         private BoatRepo _boatRepo;
-        public controller(UserRepo Arepo, EventRepo AEventrepo, RepairRepo RepairRepo, BookingRepository Bookingrepo,BlogRepo ABlogrepo, BoatRepo Boatrepo)
+        public controller()
         {
-            _userRepo = Arepo;
-            _eventRepo = AEventrepo;
-            _repairRepo = RepairRepo;
-            _bookingRepo = Bookingrepo;
-            _blogRepo = ABlogrepo;
-            _boatRepo = Boatrepo;
+            BlogRepo blog1 = new BlogRepo();
+            BoatRepo boat1 = new BoatRepo();
+            BookingRepository booking1 = new BookingRepository();
+            EventRepo event1 = new EventRepo();
+            RepairRepo repair1 = new RepairRepo();
+            UserRepo userRepo1 = new UserRepo();
         }
    
         public UserRepo UserRepo

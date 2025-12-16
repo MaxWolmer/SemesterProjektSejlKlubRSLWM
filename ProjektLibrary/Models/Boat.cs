@@ -31,7 +31,7 @@ namespace ProjektLibrary.Models
             _available = Available;
             _admin = admin;
             _id = _counter++;
-            _auser = Auser;
+            _auser = auser;
         }
 
         

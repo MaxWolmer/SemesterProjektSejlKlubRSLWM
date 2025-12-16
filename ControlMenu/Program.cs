@@ -6,21 +6,14 @@ using zControlMenu;
 
 
 
-controller Acontroller = new controller();
+controller controller = new controller();
+             
+bool Loop = true;
 
-string options = " press 1 to " +
-                "\n press 2 " +
-                "\n press 3 " +
-                "\n press 4 " +
-                "\n press 5 \n";
-
-
-bool loop = true;
-
-while (loop)
+while (Loop)
 {
     
-    Console.WriteLine(options);
+    Console.WriteLine(ControllerMenuText.startmenutext());
 
     string keyinput = Console.ReadLine();
 
@@ -28,35 +21,158 @@ while (loop)
     {
         case "1":
             {
-                Console.WriteLine("you press 1");
+                Console.Clear();
+                Console.WriteLine(ControllerMenuText.option1text());
+
+                string theinput = Console.ReadLine();
+
+                switch(theinput)
+                {
+                    case "1":
+                    {
+                            Console.WriteLine(ControllerMenuText.option1Type()); 
+                            string input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "1": { }break;
+                                case "2": { } break;
+                                case "3": { } break;
+                                case "4": { } break;
+                            }
+                            Console.Clear();
+                        }
+                        break;
+                        
+                    case "2":
+                        {
+                            Console.WriteLine(ControllerMenuText.option1Type());
+                            string input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "1": { } break;
+                                case "2": { } break;
+                                case "3": { } break;
+                                case "4": { } break;
+                                    
+                            }
+                            Console.Clear();
+                        }   break;
+                    case "3":
+                        {
+                            Console.WriteLine(ControllerMenuText.option1Type());
+                            string input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "1": { } break;
+                                case "2": { } break;
+                                case "3": { } break;
+                                case "4": { } break;
+                                    
+                            }
+                            Console.Clear();
+                        } break;
+                    case "4":
+                        {
+                            {
+                                Console.WriteLine(ControllerMenuText.option1Type());
+                                string input = Console.ReadLine();
+                                switch (input)
+                                {
+                                    case "1": { } break;
+                                    case "2": { } break;
+                                    case "3": { } break;
+                                    case "4": { } break;
+                                     
+                                }
+                                Console.Clear();
+                            }
+                            break;
+                        }
+                        break;
+                }
             }
             break;
 
         case "2":
             {
-                Console.WriteLine("2");
+                Console.Clear();
+                Console.WriteLine(ControllerMenuText.option2text());
+                string theinput = Console.ReadLine();
+               
+
+                switch (theinput)
+                {
+                    case "1":
+                        {
+
+                        }
+                        break;
+                    case "2":
+                        {
+
+                        }
+                        break;
+                    case "3":
+                        {
+
+                        }
+                        break;
+                    case "4":
+                        {
+
+                        }
+                        break;
+                    case "5":
+                        {
+
+                        }
+                        break;
+                    case "6":
+                        {
+
+                        }
+                        break;
+                }
             }
             break;
         case "3":
             {
-                Console.WriteLine("2");
+                Console.Clear();
+                Console.WriteLine(ControllerMenuText.option3text());
+                
+                string theinput = Console.ReadLine();
+
+                switch (theinput)
+                {
+                    case "1":
+                        {
+
+                        }
+                        break;
+                    case "2":
+                        {
+
+                        }
+                        break;
+                    case "3":
+                        {
+
+                        }
+                        break;
+                    case "4":
+                        {
+
+                        }
+                        break;
+                    case "5":
+                        {
+
+                        }
+                        break;
+                }
             }
             break;
-        case "4":
-            {
-                Console.WriteLine("2");
-            }
-            break;
-        case "5":
-            {
-                Console.WriteLine("2");
-            }
-            break;
-        case "6":
-            {
-                Console.WriteLine("2");
-            }
-            break;
+       
 
 
     }
