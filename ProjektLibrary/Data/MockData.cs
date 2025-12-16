@@ -33,12 +33,12 @@ namespace ProjektLibrary.Data
         private static Dictionary<int, Boat> _boatData =
             new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Big Bertha", "Catamaran",_users["12345678"]) },
-        { 2, new Boat("Small Bessie", "Ironclad", _users["12121212"]) },
-        { 3, new Boat("Furious Freja", "Uboat", _users["13131313"]) },
-        { 4, new Boat("Mad Maddie", "Tireme", _users["15151515"]) },
-        { 5, new Boat("Talkative Tuna", "Frigate", _users["15151515"]) },
-        { 6, new Boat("Jealous Jane", "Submarine", _users["15151515"]) }
+        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true , _users["12345678"]) },
+        { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
+        { 3, new Boat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["13131313"]) },
+        { 4, new Boat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 5, new Boat("Frigate", "Tracker", "Talkative Tuna", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 6, new Boat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
         };
         #endregion
         
@@ -98,15 +98,18 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Event Data
-        public static List<Event> _Events = new List<Event>()
-
+        private static List<Eventpost> _eventList = new List<Eventpost>()
         {
-         new Event (new DateTime(2002,3,12), "someevent", _users["15151515"]) ,
-         new Event (new DateTime(2001,2,23), "goodevent", _users["15151515"]) ,
-         new Event (new DateTime(2000,3,22), "newevent", _users["15151515"])  ,
-         new Event (new DateTime(2010,1,2), "newevent", _users["15151515"])
-
+            new Eventpost("Ny event 1", "Beskrivelse 1", new DateTime(2025,12,15), new DateTime(2025,12,25)),
+            new Eventpost("Ny event 2", "Beskrivelse 2", new DateTime(2026,1,1), new DateTime(2026,1,7)),
+            new Eventpost("Ny event 3", "Beskrivelse 3", new DateTime(2026,3,1), new DateTime(2026,3,29)),
+            new Eventpost("Ny event 4", "Beskrivelse 4", new DateTime(2026,4,7), new DateTime(2026,4,21))
         };
+
+        public static List<Eventpost> EventList
+        {
+            get { return _eventList; }
+        }
         #endregion
     }
 }

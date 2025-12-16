@@ -93,29 +93,29 @@ namespace ProjektLibrary.Services
             return _boats.Values.ToList();
         }
 
-        public List<string> OnlyNamesInOrder()
+        //Sorting methods
+        //public List<Boat> NamesInOrder()
+        //{
+        //    List<Boat> Sort = MakingAList();
+        //    List<string> Boats = new List<string>();
+        //    foreach (Boat b in Sort)
+        //    {
+        //        Boats.Add(b.BoatName);
+        //    }
+        //    Boats.Sort();
+        //    return Boats;
+        //}
+
+        public List<string> ModelsInOrder()
         {
             List<Boat> Sort = MakingAList();
-            List<string> Names = new List<string>();
+            List<string> Models = new List<string>();
             foreach (Boat b in Sort)
             {
-                Names.Add(b.BoatName);
+                Console.WriteLine($"Model: {b.BoatModel}\nBrand: {b.BoatBrand}\nName: {b.BoatName}\n");
             }
-            Names.Sort();
-            return Names;
-        }
-
-        public List<string> TypeInOrder()
-        {
-            List<Boat> Sort = MakingAList();
-            List<string> Names = new List<string>();
-            foreach (Boat b in Sort)
-            {
-                Names.Add(b.BoatName);
-            }
-            Names.Sort();
-            return Names;
-
+            Models.Sort();
+            return Models;
         }
     }
 }

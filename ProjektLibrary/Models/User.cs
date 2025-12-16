@@ -56,7 +56,7 @@ namespace ProjektLibrary.Models
         #endregion
 
 
-        #region construktor
+        #region constructor
         public User(string name, string email, string phoneNumber, bool admin)
         {
             Name = name;
