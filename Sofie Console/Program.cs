@@ -28,6 +28,10 @@ Repair r6 = new Repair("Flænge i sejlet", false, b1, u1);
 //Console.WriteLine();
 //Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt x2.");
 //Console.WriteLine();
+
+Console.WriteLine("inter name:");
+string name;
+
 #endregion
 
 #region Test af PrintAllRepairs()
@@ -155,14 +159,38 @@ Repair r6 = new Repair("Flænge i sejlet", false, b1, u1);
 #endregion
 
 #region Test af SailRepair
-SailRepair sr1 = new SailRepair("Der er kommet et hul i sejlet", false, b1, u2, "polyester", "MainSail", 3.7);
+SailRepair sr1 = new SailRepair("Flænge på sejlet", false, b2, u2, "Polyester", "MainSail", 2.1);
+SailRepair sr2 = new SailRepair("Hul i sejlet", false, b2, u2, "Bomuld", "Genoa", 4.6);
 
-Console.WriteLine(sr1.ToString());
+Console.WriteLine(sr1);
+Console.WriteLine(sr2);
 
 Console.WriteLine("Test om SailRepair kan add'et til samlingen af reparationer:");
 Console.WriteLine($"Der er antal {rRepo.Count} reperationer før AddRepair er brugt.");
 rRepo.AddRepair(sr1);
+rRepo.AddRepair(sr2);
 Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt.");
 rRepo.PrintAllRepairs(); //Der bliver kun printet den del af ToString til sr1, som den får af Repair, men ikke det ekstra.
+
+Console.WriteLine("Test af UpdateRepair fra repareret til ikke-repareret:");
+Console.WriteLine("Bådens status før:" + sr1.StatusOfRepair);
+try
+{
+    rRepo.UpdateReperationStatus(sr1.Id);
+}
+catch (RepairIdDoesNotExistException idex)
+{
+    Console.WriteLine(idex.Message);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+Console.WriteLine($"Bådens status efter: {sr1.StatusOfRepair}");
+
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer før  er brugt.");
+rRepo.RemoveRepairById(sr1.Id);
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt.");
+rRepo.PrintAllRepairs();
 
 #endregion
