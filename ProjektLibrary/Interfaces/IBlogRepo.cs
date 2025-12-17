@@ -11,7 +11,7 @@ namespace ProjektLibrary.Interfaces
     {
         void AddPost(Blogpost blogpost);
         void DeletePost(int Id);
-        void UpdatePost(int id);
+        void UpdatePost(int id, string newTitle, string newDescription);
         Blogpost FindPostById(int id);
 
         void PrintListOfPosts();

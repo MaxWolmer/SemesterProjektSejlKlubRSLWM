@@ -13,9 +13,9 @@ namespace ProjektLibrary.Exceptions.EventExceptions
 
         }
     }
-    public class SpaceCannotBeEmptyException : Exception // scbeex
+    public class EventDateNotValidException : Exception //ednvex
     {
-        public SpaceCannotBeEmptyException(string message) : base(message)
+        public EventDateNotValidException(string message) : base(message)
         {
 
         }
