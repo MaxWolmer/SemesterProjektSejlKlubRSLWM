@@ -27,6 +27,7 @@ namespace ProjektLibrary.Services
         #region methods
         public void AddUser(User user)
         {
+
             if (user != null && !_users.ContainsKey(user.PhoneNumber))
             {
                 _users.Add(user.PhoneNumber, user);

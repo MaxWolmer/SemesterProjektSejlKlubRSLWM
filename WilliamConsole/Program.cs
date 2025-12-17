@@ -7,8 +7,8 @@ Console.WriteLine("Hello, World!");
 
 //Har udkommenteret grundet båd id ændringer
 //Boat boat1 = new Boat("best", "good", 343);
-User user1 = new User("hans", "gmail@", "303", true);
-User user2 = new User("mikkel", "gmail@", "303", true);
+User user1 = new User("hans", "gmail@", "303", true, UserTypeEnum.Senior);
+User user2 = new User("mikkel", "gmail@", "303", true, UserTypeEnum.Passive);
 
 Boat Boat1 = new Boat("newmodel", "boatbrand", "boatname", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, user1);
 

@@ -9,8 +9,8 @@ Console.WriteLine("Hello, World!\n\n");
 BoatRepo bRepo = new BoatRepo();
 
 
-    User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false);
-    User u2 = new User("Kasper", "Kasper@gmail.com", "12345678", true);
+    User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false, UserTypeEnum.Passive);
+    User u2 = new User("Kasper", "Kasper@gmail.com", "12345678", true, UserTypeEnum.Senior);
 try
 {
     Console.WriteLine($"Number of boats {bRepo.Count}");

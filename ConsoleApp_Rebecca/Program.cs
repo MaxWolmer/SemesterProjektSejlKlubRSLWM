@@ -15,7 +15,7 @@ Console.WriteLine();
 Console.WriteLine("just added a new list");
 UserRepo userList = new UserRepo();
 
-User user10 = new User("Dave", "da@gmail.com", "20202020", true);
+User user10 = new User("Dave", "da@gmail.com", "20202020", true, UserTypeEnum.Passive);
 userList.AddUser(user10);
 
 try
@@ -33,7 +33,7 @@ Console.WriteLine();
 Console.WriteLine("testing add user");
 try
 {
-    User user5 = new User("Bobby", "BobMaster@gmail.com", "15151515", true);
+    User user5 = new User("Bobby", "BobMaster@gmail.com", "15151515", true, UserTypeEnum.Senior);
     userList.AddUser(user5);
 }
 catch (GmailDoesNotContain_Exception gex)
@@ -47,7 +47,7 @@ catch (Exception ex)
 
 try
 {
-    User user8 = new User("Danniella", "danmail.com", "19191919", false);
+    User user8 = new User("Danniella", "danmail.com", "19191919", false, UserTypeEnum.Junior);
     userList.AddUser(user8);
 }
 catch (GmailDoesNotContain_Exception gex)
@@ -61,7 +61,7 @@ catch (Exception ex)
 
 try
 {
-    User user9 = new User("Daniel", "daniel@gmail.com", "20202020", false);
+    User user9 = new User("Daniel", "daniel@gmail.com", "20202020", false, UserTypeEnum.Passive);
     userList.AddUser(user9);
 }
 catch (GmailDoesNotContain_Exception gex)
@@ -77,7 +77,7 @@ Console.WriteLine();
 Console.WriteLine("------------------------------------------------------------");
 Console.WriteLine();
 
-User user11 = new User("Sam", "sam@gmail.com", "21212121", false);
+User user11 = new User("Sam", "sam@gmail.com", "21212121", false, UserTypeEnum.Junior);
 
 Console.WriteLine();
 Console.WriteLine("getting all Users");
@@ -123,7 +123,7 @@ Console.WriteLine("------------------------------------------------------------"
 Console.WriteLine();
 
 Console.WriteLine("Updating the Member with new mobile number");
-User newUser = new User("Bobby Mazing", "BobMaster@gmail.com", "16161616", true);
+User newUser = new User("Bobby Mazing", "BobMaster@gmail.com", "16161616", true, UserTypeEnum.Senior);
 userList.UpdateUser("15151515", newUser);
 Console.WriteLine();
 Console.WriteLine(newUser);
@@ -132,7 +132,7 @@ Console.WriteLine("------------------------------------------------------------"
 Console.WriteLine();
 
 Console.WriteLine("updating name but keeping the old number");
-User newUser1 = new User("Steve BoneMan", "SteveBoneMan@Gmail.com", "12345678", true);
+User newUser1 = new User("Steve BoneMan", "SteveBoneMan@Gmail.com", "12345678", true, UserTypeEnum.Junior);
 userList.UpdateUser("12345678", newUser1);
 Console.WriteLine(newUser1);
 Console.WriteLine();
@@ -236,8 +236,8 @@ Console.WriteLine();
 
 Console.WriteLine();
 Console.WriteLine("trying to change the status of admin");
-User u1 = new User("Stan", "star@mail.com", "22222222", true);
-User u2 = new User("Bella", "Bell@mail.com", "23232323", false);
+User u1 = new User("Stan", "star@mail.com", "22222222", true, UserTypeEnum.Passive);
+User u2 = new User("Bella", "Bell@mail.com", "23232323", false, UserTypeEnum.Senior);
 userList.AddUser(u1);
 userList.AddUser(u2);
 try
@@ -268,3 +268,5 @@ Console.WriteLine();
 Console.WriteLine("------------------------------------------------------------");
 Console.WriteLine();
 
+
+Console.WriteLine("enter name");
