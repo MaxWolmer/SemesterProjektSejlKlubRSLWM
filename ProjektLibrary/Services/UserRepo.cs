@@ -13,16 +13,23 @@ namespace ProjektLibrary.Services
 {
     public class UserRepo : IUserRepo
     {
+        #region Instance Fields
         private Dictionary<string, User> _users;
+        #endregion
+
+        #region Property
         public int Count
         {
             get { return _users.Count; }
         }
+        #endregion
 
+        #region Constuctor
         public UserRepo()
         {
             _users = MockData.UserData; //new Dictionary<string, User>();
         }
+        #endregion
 
         #region methods
         public void AddUser(User user)
