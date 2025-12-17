@@ -30,8 +30,7 @@ namespace ProjektLibrary.Data
 
         #region Boat Data
         #region Instance fields
-        private static Dictionary<int, Boat> _boatData =
-            new Dictionary<int, Boat>()
+        private static Dictionary<int, Boat> _boatData = new Dictionary<int, Boat>()
         {
         { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true , _users["12345678"]) },
         { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
@@ -73,7 +72,7 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Booking data
-
+        
         #endregion
 
         #region Registration
