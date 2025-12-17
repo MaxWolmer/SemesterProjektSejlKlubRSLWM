@@ -25,7 +25,7 @@ namespace ProjektLibrary.Models
 
         public override string ToString()
         {
-            return "--------------\n" + $"Reperations id: {Id}, Båd: {TheBoat.BoatName}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reparationen: {(StatusOfRepair ? "Reperareret." : "Ikke reperareret.")} \nBeskrivelse af skade: {DescriptionOfDamage} \nSejl Materiale: {SailMaterial}, SejlType: {TypeOfSail}, skadens areal: {AreaOfSailDamage} cm";
+            return "--------------\n" + $"Reperations id: {Id}, Båd: {TheBoat.BoatName}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reparationen: {(StatusOfRepair ? "Reperareret." : "Ikke reperareret.")} \nBeskrivelse af skade: {DescriptionOfDamage} \nSejl Materiale: {SailMaterial}, SejlType: {TypeOfSail}, skadens areal: {AreaOfSailDamage} cm\n";
         }
         
     }

@@ -8,7 +8,7 @@ RepairRepo rRepo = new RepairRepo();
 
 #region Ekstra Data
 User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false, UserTypeEnum.Passive);
-User u2 = new User("Jytte","Jytte@mail.com", "20202020", true, UserTypeEnum.Senior);
+User u2 = new User("Jytte", "Jytte@mail.com", "20202020", true, UserTypeEnum.Senior);
 Boat b1 = new Boat("FEVA", "Volksbotten", "Svane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u1);
 Boat b2 = new Boat("FEVA", "Sea Viking", "Havfruen", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u2);
 
@@ -25,13 +25,10 @@ Repair r6 = new Repair("Flænge i sejlet", false, b1, u1);
 //rRepo.AddRepair(r5);
 //rRepo.AddRepair(r6);
 
+
 //Console.WriteLine();
 //Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt x2.");
 //Console.WriteLine();
-
-Console.WriteLine("inter name:");
-string name;
-
 #endregion
 
 #region Test af PrintAllRepairs()
@@ -164,14 +161,16 @@ SailRepair sr2 = new SailRepair("Hul i sejlet", false, b2, u2, "Bomuld", "Genoa"
 
 Console.WriteLine(sr1);
 Console.WriteLine(sr2);
-
+#region Test om add til Repository + print af alle Repairs
 Console.WriteLine("Test om SailRepair kan add'et til samlingen af reparationer:");
 Console.WriteLine($"Der er antal {rRepo.Count} reperationer før AddRepair er brugt.");
 rRepo.AddRepair(sr1);
 rRepo.AddRepair(sr2);
 Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt.");
-rRepo.PrintAllRepairs(); //Der bliver kun printet den del af ToString til sr1, som den får af Repair, men ikke det ekstra.
+//rRepo.PrintAllRepairs(); 
+#endregion
 
+#region Test af UpdateStatusById
 Console.WriteLine("Test af UpdateRepair fra repareret til ikke-repareret:");
 Console.WriteLine("Bådens status før:" + sr1.StatusOfRepair);
 try
@@ -187,10 +186,23 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 Console.WriteLine($"Bådens status efter: {sr1.StatusOfRepair}");
+#endregion
+#region Test af RemoveRepairById
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer før RemoveRepairById er brugt.");
+try
+{
+    rRepo.RemoveRepairById(sr1.Id);
+}
+catch (RepairIdDoesNotExistException Idex)
+{
+    Console.WriteLine("Fejlbesked:" + Idex.Message);
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"FejlBesked: {ex.Message}");
+}
+Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter RemoveRepairById er brugt.");
+#endregion 
 
-Console.WriteLine($"Der er antal {rRepo.Count} reperationer før  er brugt.");
-rRepo.RemoveRepairById(sr1.Id);
-Console.WriteLine($"Der er antal {rRepo.Count} reperationer efter AddRepair er brugt.");
-rRepo.PrintAllRepairs();
 
 #endregion
