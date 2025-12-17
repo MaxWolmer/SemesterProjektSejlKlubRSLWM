@@ -26,65 +26,39 @@ namespace ProjektLibrary.Services
         #region Methods
         public void AddEvent(Eventpost eventpost)
         {
+            if (DateTime.Now > eventpost.EventStartDate && DateTime.Now > eventpost.EventEndDate)
+            {
+                throw new EventDateNotValidException("Et Event kan ikke starte før dagens dato");
+            }
             _eventpostlist.Add(eventpost);
         }
-
-        //public void AddEvent(Eventpost eventpost)
-        //{
-        //    Console.WriteLine("Skriv titel:");
-        //    string Title = Console.ReadLine();
-        //    Console.WriteLine("Skriv beskrivelse:");
-        //    string Description = Console.ReadLine();
-        //}
 
         public void DeleteEvent(int id)
         {
             Eventpost toRemove = FindEventById(id);
-            if (toRemove != null)
+            if (toRemove == null)
             {
-                _eventpostlist.Remove(toRemove);
-                return;
+                throw new EventIdNotExistException("Et Event med dette ID findes ikke");
             }
-            throw new EventIdNotExistException("Et Event med dette ID findes ikke");
+            _eventpostlist.Remove(toRemove);
+            return;
         }
 
-        //public void DeleteEvent(int id)
-        //{
-        //    Eventpost toRemove = FindEventById(id);
-        //    if (toRemove == null)
-        //    {
-        //        throw new EventIdNotExistException("Et Event med dette ID findes ikke");
-        //    }
-        //    _eventpostlist.Remove(toRemove);
-        //    return;
-        //}
-
-
-        //public void UpdateEvent(int id)
-        //{
-        //    Eventpost post = FindEventById(id);
-        //    if (post == null)
-        //    {
-        //        throw new EventIdNotExistException("En post med dette ID findes ikke");
-        //    }
-        //    Console.WriteLine("Skriv ny titel:");
-        //    string newTitle = Console.ReadLine();
-        //    post.EventTitle = newTitle;
-
-        //    Console.WriteLine("Skriv ny beskrivelse:");
-        //    string newDescription = Console.ReadLine();
-        //    post.EventDescription = newDescription;
-        //}
-
-        public void UpdateEvent(int id, string newTitle, string newDescription)
+        public void UpdateEvent(int id, string newTitle, string newDescription, DateTime newStartDate, DateTime newEndDate)
         {
             Eventpost post = FindEventById(id);
             if (post == null)
             {
-                throw new EventIdNotExistException("En post med dette ID findes ikke");
+                throw new EventIdNotExistException("Et Event med dette ID findes ikke");
+            }
+            if (DateTime.Now > newStartDate && DateTime.Now > newEndDate)
+            {
+                throw new EventDateNotValidException("Et Event kan ikke starte før dagens dato");
             }
             post.EventTitle = newTitle;
             post.EventDescription = newDescription;
+            post.EventStartDate = newStartDate; //Formuleres xx-xx-xxxx
+            post.EventEndDate = newEndDate; //Formuleres xx-xx-xxxx
         }
 
         public Eventpost FindEventById(int id)

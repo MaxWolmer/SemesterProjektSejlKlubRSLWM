@@ -11,7 +11,7 @@ namespace ProjektLibrary.Interfaces
     {
         void AddEvent(Eventpost eventpost);
         void DeleteEvent(int id);
-        void UpdateEvent(int id, string newTitle, string newDescription);
+        void UpdateEvent(int id, string newTitle, string newDescription, DateTime newStartDate, DateTime newEndDate);
         Eventpost FindEventById(int id);
     }
 }
