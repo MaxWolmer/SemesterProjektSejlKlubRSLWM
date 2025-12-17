@@ -82,6 +82,18 @@ namespace ProjektLibrary.Services
             }
         }
 
+        public List<Boat> GetAllBoats()
+        {
+            List<Boat> results = new List<Boat>();
+
+            foreach (Boat b in _boats.Values)
+            {
+                results.Add(b);
+            }
+
+            return results;
+        }
+
 
 
         //Sorting methods
