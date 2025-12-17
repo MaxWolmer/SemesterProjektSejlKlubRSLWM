@@ -15,18 +15,18 @@ namespace ProjektLibrary.Models
 			set { _sailMaterial = value; }
 		}
         public string TypeOfSail { get; set; } //Her er den det slags sejl, som sejlet er. f.eks.: MailSail, som er det primære sejl.
-        public double AreaOfSail { get; set; } //I kvadratmeter (m^2)
-        public SailRepair(string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser, string sailMaterial, string typeOfSail, double areaOfSail) : base(descriptionOfDamage, statusOfRepair, theBoat, theUser)
+        public double AreaOfSailDamage { get; set; } //I kvadratmeter (m^2)
+        public SailRepair(string descriptionOfDamage, bool statusOfRepair, Boat theBoat, User theUser, string sailMaterial, string typeOfSail, double areaOfSailDamage) : base(descriptionOfDamage, statusOfRepair, theBoat, theUser)
         {
             SailMaterial = sailMaterial;
             TypeOfSail = typeOfSail;
-            AreaOfSail = areaOfSail;
+            AreaOfSailDamage = areaOfSailDamage;
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return base.ToString() + $"\nSejl Materiale: {SailMaterial}, SejlType: {TypeOfSail}, sejlets areal: {AreaOfSail} kvadratmeter";
+            return "--------------\n" + $"Reperations id: {Id}, Båd: {TheBoat.BoatName}, Indrapporteret af: {TheUser.Name} \nTidspunkt for skaden: {DateOfDamage}, \nStatus på reparationen: {(StatusOfRepair ? "Reperareret." : "Ikke reperareret.")} \nBeskrivelse af skade: {DescriptionOfDamage} \nSejl Materiale: {SailMaterial}, SejlType: {TypeOfSail}, skadens areal: {AreaOfSailDamage} cm\n";
         }
-
+        
     }
 }
