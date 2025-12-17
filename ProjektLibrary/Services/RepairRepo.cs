@@ -80,10 +80,9 @@ namespace ProjektLibrary.Services
 
         public Repair PrintAllRepairs()
         {
-
             foreach (Repair repair in _allRepairs.Values)
             {
-                Console.WriteLine(repair);
+                Console.WriteLine(repair.ToString());
             }
             return null;
         }
