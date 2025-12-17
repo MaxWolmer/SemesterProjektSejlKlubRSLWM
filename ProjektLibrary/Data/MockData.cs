@@ -72,7 +72,7 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Booking data
-        
+       //List<Booking> _bookings = new List<Booking>() {new Booking() }
         #endregion
 
         #region Registration

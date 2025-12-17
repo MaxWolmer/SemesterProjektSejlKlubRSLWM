@@ -21,7 +21,7 @@ namespace ProjektLibrary.Services
 
         public BookingRepository()
         {
-            _bookings = MockData.
+            //_bookings = MockData.
         }
         #region metoder
         public void BookingFree(Boat aboat, DateTime StarTime, DateTime Endtime)
@@ -151,13 +151,10 @@ namespace ProjektLibrary.Services
 
             }
 
-
-            
-
-            return 0;
-
-            
+            return 0;            
         }
+
+        
         public void printall()
         {
             foreach (Booking Abooking in _bookings)
