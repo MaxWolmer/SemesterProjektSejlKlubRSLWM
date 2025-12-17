@@ -32,7 +32,7 @@ namespace ProjektLibrary.Data
         #region Instance fields
         private static Dictionary<int, Boat> _boatData = new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true , _users["12345678"]) },
+        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", false, true , _users["12345678"]) },
         { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
         { 3, new Boat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["13131313"]) },
         { 4, new Boat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },

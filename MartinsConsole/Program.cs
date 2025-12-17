@@ -3,14 +3,15 @@ using ProjektLibrary.Models;
 using ProjektLibrary.Services;
 using ProjektLibrary.Data;
 using System.Runtime.Intrinsics.X86;
+using System.ComponentModel.Design;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!\n\n");
 
 BoatRepo bRepo = new BoatRepo();
 
 
-    User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false, UserTypeEnum.Passive);
-    User u2 = new User("Kasper", "Kasper@gmail.com", "12345678", true, UserTypeEnum.Senior);
+User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false, UserTypeEnum.Passive);
+User u2 = new User("Kasper", "Kasper@gmail.com", "12345678", true, UserTypeEnum.Senior);
 try
 {
     Console.WriteLine($"Number of boats {bRepo.Count}");
@@ -27,7 +28,7 @@ try
     bRepo.AddBoat(b7);
     Console.WriteLine($"\n{b7}");
 }
-catch (BoatIDAlreadyExistsException bae)
+catch (BoatNotExistException bae)
 {
     Console.WriteLine(bae.Message);
 }
@@ -79,3 +80,39 @@ bRepo.BrandsInOrder();
 Console.WriteLine("------------------------------------");
 Console.WriteLine($"Printing Names sorted boat list\n------------------------------------");
 bRepo.NamesInOrder();
+Console.WriteLine();
+
+
+
+
+Console.WriteLine("------------------------------------------------------\n");
+Console.WriteLine("Searching boat by either type, brand or availability");
+
+var onlyAvailable = bRepo.GetBoatsBySearchWord(available: true);
+if (onlyAvailable.Count > 0)
+{
+    Console.WriteLine($"Found {onlyAvailable.Count} available boats:\n");
+    foreach (Boat b in onlyAvailable)
+    {
+        Console.WriteLine(b);
+    }
+}
+else
+{
+    Console.WriteLine("No boats found matching the search");
+}
+Console.WriteLine("------------------------------------");
+var onlyAvailableFrigate = bRepo.GetBoatsBySearchWord(available: true);
+if (onlyAvailable.Count > 0)
+{
+    Console.WriteLine($"Found {onlyAvailable.Count} available boats:\n");
+    foreach (Boat b in onlyAvailable)
+    {
+        Console.WriteLine(b);
+    }
+}
+else
+{
+    Console.WriteLine("No boats found matching the search");
+}
+Console.WriteLine("------------------------------------");
