@@ -1,5 +1,6 @@
 ﻿using ProjektLibrary.Data;
 using ProjektLibrary.Exceptions.BlogExceptions;
+using ProjektLibrary.Exceptions.EventExceptions;
 using ProjektLibrary.Interfaces;
 using ProjektLibrary.Models;
 using System;
@@ -37,26 +38,20 @@ namespace ProjektLibrary.Services
             throw new BlogIdNotExistException("En post med dette ID findes ikke");
         }
 
-        public void UpdatePostTitle(int id, string newTitle)
+        public void UpdatePost(int id)
         {
             Blogpost post = FindPostById(id);
-            if (post != null)
+            if (post == null)
             {
-                post.BlogTitle = newTitle;
-                return;
+                throw new BlogIdNotExistException("En post med dette ID findes ikke");
             }
-            throw new BlogIdNotExistException("En post med dette ID findes ikke");
-        }
+            Console.WriteLine("Skriv ny titel:");
+            string newTitle = Console.ReadLine();
+            post.BlogTitle = newTitle;
 
-        public void UpdatePostDesc(int id, string newDescription)
-        {
-            Blogpost post = FindPostById(id);
-            if (post != null)
-            {
-                post.BlogDescription = newDescription;
-                return;
-            }
-            throw new BlogIdNotExistException("En post med dette ID findes ikke");
+            Console.WriteLine("Skriv ny beskrivelse:");
+            string newDescription = Console.ReadLine();
+            post.BlogDescription = newDescription;
         }
 
         public Blogpost FindPostById(int id)

@@ -1,78 +1,41 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ProjektLibrary.Exceptions.BlogExceptions;
+using ProjektLibrary.Exceptions.EventExceptions;
 using ProjektLibrary.Models;
 using ProjektLibrary.Services;
 using System;
 using System.Linq.Expressions;
+using System.Transactions;
 
 Console.WriteLine("Hello, World!");
 
+#region Blog Testing
 BlogRepo postlist = new BlogRepo();
-
 postlist.PrintListOfPosts();
+#endregion
+
+EventRepo eventlist = new EventRepo();
+
+#region Event Update Testing
+
+//Tror dette kan skrives direkte ind i Console
+Console.WriteLine("Skriv ID på den ppst du gerne vil ændre:");
+int id = int.Parse(Console.ReadLine());
+Console.WriteLine("Skriv ny titel:");
+string newTitle = Console.ReadLine();
+Console.WriteLine("Skriv ny beskrivelse:");
+string newDescription = Console.ReadLine();
 
 try
 {
-    Console.WriteLine("Trying to delete post 2..");
-    postlist.DeletePost(2);
-    Console.WriteLine("Post 2 deleted\n");
+    eventlist.UpdateEvent(id, newTitle, newDescription);
+    Console.WriteLine("Event er opdateret\n");
 }
-catch (BlogIdNotExistException bineex)
+catch (EventIdNotExistException eineex)
 {
-    Console.WriteLine(bineex.Message);
+    Console.WriteLine(eineex.Message);
 }
+eventlist.PrintListOfEvents();
 
-try
-{
-    Console.WriteLine("Trying to change post 3 title..");
-    postlist.UpdatePostTitle(3, "Lol nyt navn");
-    Console.WriteLine("Title changed\n");
-}
-catch (BlogIdNotExistException bineex)
-{
-    Console.WriteLine(bineex.Message);
-}
+#endregion
 
-try
-{
-    Console.WriteLine("Trying to change post 3 description..");
-    postlist.UpdatePostDesc(3, "New description");
-    Console.WriteLine("Description changed\n");
-}
-catch (BlogIdNotExistException bineex)
-{
-    Console.WriteLine(bineex.Message);
-}
-
-postlist.PrintListOfPosts();
-
-//Try catch fejltest
-
-Console.WriteLine("- try-catch fejltest herfra -\n");
-try
-{
-    Console.WriteLine("Trying to delete post 8 (this does not exist)..");
-    postlist.DeletePost(8);
-}
-catch (BlogIdNotExistException bineex)
-{
-    Console.WriteLine(bineex.Message);
-}
-try
-{
-    Console.WriteLine("Trying to change post 8 title (this does not exist)..");
-    postlist.UpdatePostTitle(8, "New Title");
-}
-catch (BlogIdNotExistException bineex)
-{
-    Console.WriteLine(bineex.Message);
-}
-try
-{
-    Console.WriteLine("Trying to change post 8 description (this does not exist)..");
-    postlist.UpdatePostDesc(8, "New description");
-}
-catch (BlogIdNotExistException bineex)
-{
-    Console.WriteLine(bineex.Message);
-}

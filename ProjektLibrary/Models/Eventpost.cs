@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,10 @@ namespace ProjektLibrary.Models
         #region Methods
         public override string ToString()
         {
-            return $"EventNumber:{Id}, Titel:{_eventtitle}, Beskrivelse:{_eventdescription}, Dato:{_eventstartdate}";
+            return $"{Id}. {EventTitle}\n" +
+                $"{EventDescription}\n" +
+                $"Denne event varer fra d. {EventStartDate}\n" +
+                $"til d. {EventEndDate}.\n";
         }
         #endregion
     }

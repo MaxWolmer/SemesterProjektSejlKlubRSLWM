@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Interfaces
 {
-    internal interface IEventRepo
+    public interface IEventRepo
     {
-
+        void AddEvent(Eventpost eventpost);
+        void DeleteEvent(int id);
+        void UpdateEvent(int id, string newTitle, string newDescription);
+        Eventpost FindEventById(int id);
     }
 }

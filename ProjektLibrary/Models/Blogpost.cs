@@ -71,8 +71,8 @@ namespace ProjektLibrary.Models
         {
             return $"{Id}. {BlogTitle}\n" +
                 $"{BlogDescription}\n" +
-                $"Denne post er oprettet d. {BlogCreatedAt}.\n" +
-                $"Denne blog va delt af {BlogPostedBy.Name}.\n";
+                $"Dette indslag er oprettet d. {BlogCreatedAt}.\n" +
+                $"Dette indslag var delt af {BlogPostedBy.Name}.\n";
         }
         #endregion
     }
