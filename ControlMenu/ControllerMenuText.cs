@@ -46,9 +46,8 @@ namespace zControlMenu
             string option3 = "Klubinfo\r\n" +
                 "1. Se medlemmer  \r\n" +
                 "2. Bliv medlem\r\n" +
-                "3. Se aktiviteter\r\n" +
-                "4. Se blogposts\r\n" +
-                "5. Se events\r\n";
+                "3. Se blogposts\r\n" +
+                "4. Se events\r\n";
             return option3;
 
             

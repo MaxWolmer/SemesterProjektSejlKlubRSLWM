@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjektLibrary.Exceptions.BookingExceptions;
+using System.Security.Cryptography.X509Certificates;
+using ProjektLibrary.Data;
 
 namespace ProjektLibrary.Services
 {
@@ -16,6 +18,11 @@ namespace ProjektLibrary.Services
         
         private List<Booking> _bookings = new List<Booking>();
 
+
+        public BookingRepository()
+        {
+            _bookings = MockData.
+        }
         #region metoder
         public void BookingFree(Boat aboat, DateTime StarTime, DateTime Endtime)
         {
@@ -131,13 +138,13 @@ namespace ProjektLibrary.Services
             return _bookings;
         }
 
-        public int? BookingsOnBoat(Boat aboat) //lav om til returnere liste
+        public int BookingsOnBoat(int boatid) //lav om til returnere liste
         {
           
 
             foreach (Booking abooking in _bookings)
             {
-                if (abooking.TheBoat == aboat)
+                if (abooking.TheBoat.BoatId == boatid)
                 {
                     return abooking.TheBoat.BoatCounter;                                  
                 }
@@ -145,13 +152,18 @@ namespace ProjektLibrary.Services
             }
 
 
-            if(aboat.BoatCounter == 0)
-                { 
-                  Console.WriteLine("zerobookings"); 
-                }
+            
 
-            return null;
+            return 0;
 
+            
+        }
+        public void printall()
+        {
+            foreach (Booking Abooking in _bookings)
+            {
+                Console.WriteLine(Abooking);
+            }
         }
         #endregion
     }

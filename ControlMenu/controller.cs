@@ -20,12 +20,12 @@ namespace zControlMenu
         private BoatRepo _boatRepo;
         public controller()
         {
-            BlogRepo blog1 = new BlogRepo();
-            BoatRepo boat1 = new BoatRepo();
-            BookingRepository booking1 = new BookingRepository();
-            EventRepo event1 = new EventRepo();
-            RepairRepo repair1 = new RepairRepo();
-            UserRepo userRepo1 = new UserRepo();
+            _blogRepo = new BlogRepo();
+            _boatRepo = new BoatRepo();
+            _bookingRepo = new BookingRepository();
+            _eventRepo = new EventRepo();
+            _repairRepo = new RepairRepo();
+            _userRepo = new UserRepo();
         }
    
         public UserRepo UserRepo

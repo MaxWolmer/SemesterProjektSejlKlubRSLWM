@@ -104,17 +104,21 @@ while (Loop)
                 {
                     case "1":
                         {
+                            controller.BoatRepo.PrintAllBoats();
 
+                            Console.ReadLine();
                         }
                         break;
                     case "2":
                         {
-
+                            controller.BookingRepo.printall();
                         }
                         break;
                     case "3":
                         {
-
+                          int bookings  = controller.BookingRepo.BookingsOnBoat(2);
+                            
+                            Console.WriteLine(bookings);
                         }
                         break;
                     case "4":
@@ -146,29 +150,53 @@ while (Loop)
                 {
                     case "1":
                         {
+                            controller.UserRepo.PrintAllUsers();
 
+                            Console.ReadLine();
                         }
                         break;
                     case "2":
                         {
+                            Console.WriteLine("enter a name");
+                            string name = Console.ReadLine();
 
+                            Console.WriteLine("enter a email");
+                            string email = Console.ReadLine();
+
+                            Console.WriteLine("enter a phonenumber");
+                            string phone = Console.ReadLine();
+
+                            Console.WriteLine("enter a Y for adming N for not");
+                            string adminkey = Console.ReadLine();
+                            bool admin = false;
+
+                            if(adminkey == "Y")
+                            {
+                                admin = true;
+                            }
+
+                            User Auser = new User(name, email, phone, admin);
+                           
+                                controller.UserRepo.AddUser(Auser);
+
+                            Console.WriteLine("user added");
                         }
                         break;
                     case "3":
                         {
-
+                            controller.BlogRepo.PrintListOfPosts();
+                            Console.ReadLine();
                         }
                         break;
                     case "4":
                         {
+                           
 
+                            controller.EventRepo.PrintListOfEvents();
+                            Console.ReadLine();
                         }
                         break;
-                    case "5":
-                        {
-
-                        }
-                        break;
+                    
                 }
             }
             break;

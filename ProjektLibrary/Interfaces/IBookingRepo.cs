@@ -21,7 +21,7 @@ namespace ProjektLibrary.Interfaces
 
         public List<Booking>? GetAllBookings();
 
-        public int? BookingsOnBoat(Boat aboat);
+        public int BookingsOnBoat(int aboat);
 
     }
 }
