@@ -37,7 +37,7 @@ namespace ProjektLibrary.Services
             if (_allRepairs.ContainsKey(damage.Id) == false)
             {
                 _allRepairs.Add(damage.Id, damage);
-            }            
+            }
         }
 
         public List<Repair> GetAllRepairs()
@@ -112,6 +112,7 @@ namespace ProjektLibrary.Services
             }
             return repairsInTheBoat;
         }
+        
         #endregion
     }
 }

@@ -38,19 +38,14 @@ namespace ProjektLibrary.Services
             throw new BlogIdNotExistException("En post med dette ID findes ikke");
         }
 
-        public void UpdatePost(int id)
+        public void UpdatePost(int id, string newTitle, string newDescription)
         {
             Blogpost post = FindPostById(id);
             if (post == null)
             {
                 throw new BlogIdNotExistException("En post med dette ID findes ikke");
             }
-            Console.WriteLine("Skriv ny titel:");
-            string newTitle = Console.ReadLine();
             post.BlogTitle = newTitle;
-
-            Console.WriteLine("Skriv ny beskrivelse:");
-            string newDescription = Console.ReadLine();
             post.BlogDescription = newDescription;
         }
 

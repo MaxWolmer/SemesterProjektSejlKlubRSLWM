@@ -45,7 +45,10 @@ namespace ProjektLibrary.Services
             {
                 return _boats[boatid];
             }
-            return null;
+            else
+            {
+                throw new BoatNotExistException($"The boat ID {boatid} does not exist\n");
+            }
         }
 
         public void UpdateBoat(int boatid, Boat newboat)
@@ -78,7 +81,6 @@ namespace ProjektLibrary.Services
                 Console.WriteLine(boat.ToString());
             }
         }
-
 
 
 
@@ -144,6 +146,39 @@ namespace ProjektLibrary.Services
             {
                 Console.WriteLine(line);
             }
+        }
+
+        //public int GetBoatBySearchWord(string)
+        //{
+        //    string searchDescription = "Catamaran";
+        //    int numberOfCustomersInRos = 0;
+        //    foreach (Boat b in _boats.Values)
+        //    {
+        //        if (b.BoatType.Contains("Catamaran"))
+        //        {
+        //            numberOfCustomersInRos++;
+        //        }
+        //    }
+        //    Console.WriteLine($"Number of customers in Roskilde is {numberOfCustomersInRos}");
+        //    return numberOfCustomersInRos;
+        //}
+
+        public List<Boat> GetBoatsBySearchWord(string type = null, string brand = null, bool? available = null)
+        {
+            List<Boat> results = new List<Boat>();
+
+            foreach (Boat b in _boats.Values)
+            {
+                bool typeMatch = (type == null || b.BoatType == type);
+                bool brandMatch = (brand == null || b.BoatBrand == brand);
+                bool availabilityMatch = (available == null || b.BoatAvailable == available);
+
+                if (typeMatch && brandMatch && availabilityMatch)
+                {
+                    results.Add(b);
+                }
+            }
+            return results;
         }
     }
 }

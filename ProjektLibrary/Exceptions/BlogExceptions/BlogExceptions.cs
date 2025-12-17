@@ -13,11 +13,4 @@ namespace ProjektLibrary.Exceptions.BlogExceptions
 
         }
     }
-    public class SpaceCannotBeEmptyException : Exception //bscbeex
-    {
-        public SpaceCannotBeEmptyException(string message) : base(message)
-        {
-
-        }
-    }
 }
