@@ -39,20 +39,20 @@ Console.WriteLine("------------------------------------------------------\n");
 try
 {
     Console.WriteLine("Updating boat model and name\n");
-    Boat newBoat = new Boat("Hydroplane", "Lund", "Speedy Sussie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u1);
+    Boat newBoat = new Boat("Hydroplane", "Lund", "Speedy Sussie", "Length: 4 m\nWidth: 1 m\nHeight: 2 m", false, true, u1);
     bRepo.UpdateBoat(4, newBoat);
 
-    Boat newBoat1 = new Boat("Hydroplane", "Lund", "Speedy Sussie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u1);
+    Boat newBoat1 = new Boat("Kajak", "Kaloon", "Kopying Karla", "Length: 10 m\nWidth: 4 m\nHeight: 3 m", true, true, u1);
     bRepo.UpdateBoat(9, newBoat);
 }
 catch (KeyNotFoundException knf)
 {
-    Console.WriteLine($"{knf.Message}");
+    Console.WriteLine($"{knf.Message}\n");
 }
 
 bRepo.DeleteBoat(3);
 
-
+Console.WriteLine("\nPrinting all boats\n");
 bRepo.PrintAllBoats();
 
 Console.WriteLine("------------------------------------------------------\n");
@@ -70,21 +70,12 @@ Console.WriteLine($"Printing alphabetically sorted boat list\n");
 Console.WriteLine("------------------------------------\n");
 
 Console.WriteLine($"Printing Model sorted boat list\n------------------------------------");
+bRepo.TypesInOrder();
 
-foreach (string b in bRepo.ModelsInOrder())
-{
-    Console.WriteLine($"{b}");
-}
-
+Console.WriteLine("------------------------------------");
 Console.WriteLine($"Printing Brands sorted boat list\n------------------------------------");
-foreach (string b in bRepo.BrandsInOrder())
-{
-    Console.WriteLine($"{b}");
-    //Console.WriteLine("");
-}
+bRepo.BrandsInOrder();
 
+Console.WriteLine("------------------------------------");
 Console.WriteLine($"Printing Names sorted boat list\n------------------------------------");
-foreach (string b in bRepo.NamesInOrder())
-{
-    Console.WriteLine($"{b}");
-}
+bRepo.NamesInOrder();

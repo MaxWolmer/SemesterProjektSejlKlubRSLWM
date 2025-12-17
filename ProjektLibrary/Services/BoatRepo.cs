@@ -54,8 +54,11 @@ namespace ProjektLibrary.Services
             {
                 Boat existingBoat = _boats[boatid];
 
+                existingBoat.BoatType = newboat.BoatType;
+                existingBoat.BoatBrand = newboat.BoatBrand;
                 existingBoat.BoatName = newboat.BoatName;
-                existingBoat.BoatModel = newboat.BoatModel;
+                existingBoat.BoatDimensions = newboat.BoatDimensions;
+                existingBoat.BoatAvailable = newboat.BoatAvailable;
             }
             else
             {
@@ -80,55 +83,67 @@ namespace ProjektLibrary.Services
 
 
         //Sorting methods
-       
+
         public List<Boat> MakingAList()
         {
             return _boats.Values.ToList();
         }
 
-        public List<string> ModelsInOrder()
+        public void TypesInOrder()
         {
             List<Boat> Sort = MakingAList();
-            List<string> Models = new List<string>();
+            List<string> combined = new List<string>();
+
+            // Kombinér brand og model til én streng
             foreach (Boat b in Sort)
             {
-                Console.WriteLine($"Model: {b.BoatModel}\nBrand: {b.BoatBrand}\nName: {b.BoatName}\n");
+                combined.Add(b.BoatType + " - " + b.BoatBrand + " - " + b.BoatName);
             }
-            Models.Sort();
-            return Models;
+
+            // Sortér alfabetisk efter hele strengen
+            combined.Sort();
+
+            // Print resultatet
+            foreach (string line in combined)
+            {
+                Console.WriteLine(line);
+            }
         }
 
-        public List<string> BrandsInOrder()
+        public void BrandsInOrder()
         {
             List<Boat> Sort = MakingAList();
-            List<string> Brands = new List<string>();
-            List<string> Models = new List<string>();
+            List<string> combined = new List<string>();
+
             foreach (Boat b in Sort)
             {
-                Brands.Add(b.BoatBrand);
-                Models.Add(b.BoatModel);
+                combined.Add(b.BoatBrand + " - " + b.BoatType + " - " + b.BoatName);
             }
-            Models.Sort();
-            Brands.Sort();
 
-            Console.WriteLine("Brands:");
-            foreach (string brand in Brands)
+            combined.Sort();
+
+            foreach (string line in combined)
             {
-                
+                Console.WriteLine(line);
             }
-            return Brands;
         }
 
-        public List<string> NamesInOrder()
+        public void NamesInOrder()
         {
             List<Boat> Sort = MakingAList();
-            List<string> Names = new List<string>();
+            List<string> combined = new List<string>();
+
             foreach (Boat b in Sort)
             {
-                Console.WriteLine($"Model: {b.BoatModel}\nBrand: {b.BoatBrand}\nName: {b.BoatName}\n");
+                combined.Add(b.BoatName + " - " + b.BoatType + " - " + b.BoatBrand);
             }
-            Names.Sort();
-            return Names;
+
+            combined.Sort();
+
+            foreach (string line in combined)
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }

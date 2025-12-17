@@ -82,7 +82,7 @@ namespace ProjektLibrary.Services
             if (bookingthere == false)
             {
                 _bookings.Add(Abooking);
-                Abooking.TheBoat.Boatcounterr++;
+                Abooking.TheBoat.BoatCounter++;
             }
             
 
@@ -139,13 +139,13 @@ namespace ProjektLibrary.Services
             {
                 if (abooking.TheBoat == aboat)
                 {
-                    return abooking.TheBoat.Boatcounterr;                                  
+                    return abooking.TheBoat.BoatCounter;                                  
                 }
 
             }
 
 
-            if(aboat.Boatcounterr == 0)
+            if(aboat.BoatCounter == 0)
                 { 
                   Console.WriteLine("zerobookings"); 
                 }
