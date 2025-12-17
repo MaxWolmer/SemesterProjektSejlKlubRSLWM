@@ -19,10 +19,12 @@ namespace ProjektLibrary.Models
         private int _bookingcounter = 0;
 
 
+
         #endregion
 
         #region properties
         public string Name { get; set; }
+        public UserTypeEnum TheType { get; set; }
 
         public string Email
         {
@@ -57,7 +59,7 @@ namespace ProjektLibrary.Models
 
 
         #region constructor
-        public User(string name, string email, string phoneNumber, bool admin)
+        public User(string name, string email, string phoneNumber, bool admin, UserTypeEnum userType)
         {
             Name = name;
             Email = email; 
@@ -65,7 +67,8 @@ namespace ProjektLibrary.Models
             _admin = admin;
             _id = _counter++;
             _creationDate = DateTime.Now;
-            
+            TheType = userType;
+
         }
         #endregion
 

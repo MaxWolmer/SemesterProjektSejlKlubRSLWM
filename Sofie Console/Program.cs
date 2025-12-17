@@ -7,8 +7,8 @@ using ProjektLibrary.Services;
 RepairRepo rRepo = new RepairRepo();
 
 #region Ekstra Data
-User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false);
-User u2 = new User("Jytte","Jytte@mail.com", "20202020", true);
+User u1 = new User("Marlene", "Marlene@mail.com", "10101010", false, UserTypeEnum.Passive);
+User u2 = new User("Jytte","Jytte@mail.com", "20202020", true, UserTypeEnum.Senior);
 Boat b1 = new Boat("FEVA", "Volksbotten", "Svane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u1);
 Boat b2 = new Boat("FEVA", "Sea Viking", "Havfruen", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, u2);
 
