@@ -40,7 +40,7 @@ namespace ProjektLibrary.Data
         { 6, new Boat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
         };
         #endregion
-        
+       
         #region Properties
         public static Dictionary<int, Boat> BoatData
         {
@@ -72,11 +72,16 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Booking data
-       //List<Booking> _bookings = new List<Booking>() {new Booking() }
+       //private static List<Booking> _bookings = new List<Booking>() 
+       //{
+       //    new Booking(_users[18181818]) }
         #endregion
 
         #region Registration
-
+       //private static List<Registration> _registrations = new List<Registration>()
+       //{
+       //    new Registration()
+       //}
         #endregion
 
         #region BlogPost Data

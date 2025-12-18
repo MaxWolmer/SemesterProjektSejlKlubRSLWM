@@ -8,7 +8,7 @@ namespace ProjektLibrary.Models
 {
     public class Registration
     {
-        private User _theUser;
+        private User _theUser;  
         private Eventpost _TheEvent;
         private static int _registrationID = 0; //
         private int _id;
