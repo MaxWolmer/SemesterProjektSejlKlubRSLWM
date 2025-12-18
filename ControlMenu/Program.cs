@@ -1,8 +1,9 @@
 ﻿
-using System.Net.Http.Headers;
-using System.Transactions;
 using ProjektLibrary.Models;
 using ProjektLibrary.Services;
+using System.Net.Http.Headers;
+using System.Transactions;
+using System.Xml.Linq;
 using zControlMenu;
 
 
@@ -267,21 +268,8 @@ while (Loop)
                             }
                             Console.Clear();
                         }   break;
-                    case "3":
-                        {
-                            Console.WriteLine(ControllerMenuText.option1Type());
-                            string input = Console.ReadLine();
-                            switch (input)
-                            {
-                                case "1": { } break;
-                                case "2": { } break;
-                                case "3": { } break;
-                                case "4": { } break;
-                                case "5": { } break;
-                            }
-                            Console.Clear();
-                        } break;
-                    case "4":
+                   
+                    case "3 ":
                         {
                             {
                                 Console.WriteLine(ControllerMenuText.option1Type());
@@ -289,8 +277,7 @@ while (Loop)
                                 switch (input)
                                 {
                                     case "1": { Console.WriteLine("indtast båd id på båd du vil slette");
-                                            Console.ReadLine();
-                                      
+                                           
                                         } break;
 
                                     case "2": { Console.WriteLine("indtast event id på event du vil slette");
@@ -385,25 +372,69 @@ while (Loop)
                             Boat aboat = controller.BoatRepo.FindBoatByID(idnumber);
 
 
-                            Console.WriteLine("hvornår vil du starte din booking i timer");
-                            string timestart = Console.ReadLine();
-                            int timestartint = int.Parse(timestart);
 
-                            //DateTime start = new DateTime(18, 22);
 
-                            //Booking abooking = new Booking(Auser ,aboat);
 
-                            //controller.BookingRepo.AddBooking(abooking);
+                            
+
+                            Booking abooking = new Booking(Auser, aboat, DateTime.Now, DateTime.Now);
+
+                            controller.BookingRepo.AddBooking(abooking);
                         }
                         break;
                     case "5":
                         {
+                            Console.WriteLine("indtast id på båd");
+                            string name = Console.ReadLine();
+                            int nameboatid = int.Parse(name);
+                            Boat båden = controller.BoatRepo.FindBoatByID(nameboatid);
 
+                            controller.BookingRepo.BookingDone(DateTime.Now, båden);
                         }
                         break;
                     case "6":
                         {
+                            Console.WriteLine("beskriv skaden");
+                            string skade = Console.ReadLine();
 
+                            Console.WriteLine("hvad er båd id");
+                            string båd = Console.ReadLine();
+                            int nameboatid = int.Parse(båd);
+                           Boat båden = controller.BoatRepo.FindBoatByID(nameboatid);
+
+                            Console.WriteLine("enter a name");
+                            string name = Console.ReadLine();
+
+                            Console.WriteLine("enter a email");
+                            string email = Console.ReadLine();
+
+                            Console.WriteLine("enter a phonenumber");
+                            string phone = Console.ReadLine();
+
+                            Console.WriteLine("enter a Y for adming N for not");
+                            string adminkey = Console.ReadLine();
+                            bool admin = false;
+
+                            if (adminkey == "Y")
+                            {
+                                admin = true;
+                            }
+                            Console.WriteLine("hvad er din user status");
+                            string menutype = Console.ReadLine();
+
+                            UserTypeEnum themenutype = Enum.Parse<UserTypeEnum>(menutype);
+
+                            User Auser = new User(name, email, phone, admin, themenutype);
+
+
+
+                            Repair newrepair = new Repair(skade, false,båden,Auser );
+
+                            controller.RepairRepo.AddRepair(newrepair);
+
+                            Console.WriteLine("repair added");
+
+                            Console.ReadLine();
                         }
                         break;
                 }
