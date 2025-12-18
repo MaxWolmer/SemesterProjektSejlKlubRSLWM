@@ -25,8 +25,7 @@ namespace zControlMenu
             string option1 =
                 "1. Tilføj: båd/event/blog/user/repair\r\n" +
                 "2. Find: båd/event/blog/user/repair\r\n" +
-                "3. Redigér: båd/event/blog/user/repair\r\n" +
-                "4. Slet: båd/event/blog/user/repair\r\n ";
+                "3. Slet: båd/event/blog/user/repair\r\n ";
 
             return option1;
         }
