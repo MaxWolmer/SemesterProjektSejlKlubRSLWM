@@ -17,12 +17,12 @@ Console.WriteLine($"Number of boats {bRepo.Count}");
 Console.WriteLine("------------------------------------------------------\n");
 
 
-Console.WriteLine("Getting first boat\n");
+Console.WriteLine("Getting second boat\n");
 
 List<Boat> allBoats = bRepo.GetAllBoats();
 foreach (Boat b in allBoats)
 {
-    if (b.BoatId == 2 + 3)
+    if (b.BoatId == 2)
     {
         Console.WriteLine(b.ToString());
     }
