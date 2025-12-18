@@ -78,37 +78,129 @@ while (Loop)
 
                                     //event
                                 case "2": { Console.WriteLine("indtast Titel");
+                                        string eventtitel = Console.ReadLine();
                                         Console.WriteLine("indtast Description");
-                                        Console.WriteLine("indtast startidstpunkt");
-                                        Console.WriteLine("indtast slutidspunkt");
+                                        string eventdescription = Console.ReadLine();
+                                        
+                                        
+                                        DateTime startevent = new DateTime(2025, 2, 2);
+                                        DateTime endevent = new DateTime(2025, 2, 3);
+                                       
+                                        Eventpost event1 = new Eventpost(eventtitel, eventdescription, startevent, endevent);
+
+                                        controller.EventRepo.AddEvent(event1);
                                     } break;
 
                                     // blog
                                 case "3":
                                     {
                                         Console.WriteLine("indtast Titel");
+                                        string blogttitel = Console.ReadLine();
                                         Console.WriteLine("indtast Description");
+                                        string blogdescription = Console.ReadLine();
                                         Console.WriteLine("indtast Tidspunkt");
                                         Console.WriteLine("indtast Dine oplysninger");
+                                        DateTime datoforblog = new DateTime();
+                                        datoforblog = DateTime.Now;
+
+                                        Console.WriteLine("enter a name");
+                                        string name = Console.ReadLine();
+
+                                        Console.WriteLine("enter a email");
+                                        string email = Console.ReadLine();
+
+                                        Console.WriteLine("enter a phonenumber");
+                                        string phone = Console.ReadLine();
+
+                                        Console.WriteLine("enter a Y for adming N for not");
+                                        string adminkey = Console.ReadLine();
+                                        bool admin = false;
+
+                                        if (adminkey == "Y")
+                                        {
+                                            admin = true;
+                                        }
+                                        Console.WriteLine("hvad er din user status");
+                                        string menutype = Console.ReadLine();
+
+                                        UserTypeEnum themenutype = Enum.Parse<UserTypeEnum>(menutype);
+
+                                        User EventAuser = new User(name, email, phone, admin, themenutype);
+
+
+                                        Blogpost newblogpost = new Blogpost(blogttitel, blogdescription, datoforblog,EventAuser );
+
+                                        controller.BlogRepo.AddPost(newblogpost);
                                     } break;
                                    
                                 //user
                                 case "4":
                                     {
-                                        Console.WriteLine("indtast name");
+                                        Console.WriteLine("enter a name");
+                                        string name = Console.ReadLine();
 
-                                        Console.WriteLine("indtast email");
-                                        Console.WriteLine("indtast phone");
-                                        Console.WriteLine("indtast admin");
-                                        Console.WriteLine("indtast Usertype");
+                                        Console.WriteLine("enter a email");
+                                        string email = Console.ReadLine();
+
+                                        Console.WriteLine("enter a phonenumber");
+                                        string phone = Console.ReadLine();
+
+                                        Console.WriteLine("enter a Y for adming N for not");
+                                        string adminkey = Console.ReadLine();
+                                        bool admin = false;
+
+                                        if (adminkey == "Y")
+                                        {
+                                            admin = true;
+                                        }
+                                        Console.WriteLine("hvad er din user status");
+                                        string menutype = Console.ReadLine();
+
+                                        UserTypeEnum themenutype = Enum.Parse<UserTypeEnum>(menutype);
+
+                                        User newAuser = new User(name, email, phone, admin, themenutype);
+
+                                        controller.UserRepo.AddUser(newAuser);
                                     } break;
 
                                     //repair
                                 case "5": { Console.WriteLine("Beskrivlese af skade");
-                                        Console.WriteLine("status af repair");
+                                        string damage = Console.ReadLine();
+                                        
 
                                         Console.WriteLine("Hvilken båd");
+                                        string bådid = Console.ReadLine();
+                                        int bådidint = int.Parse(bådid);
+
+                                        Boat addboat = controller.BoatRepo.FindBoatByID(bådidint);
                                         Console.WriteLine("Dine oplysninger");
+
+                                        Console.WriteLine("enter a name");
+                                        string name = Console.ReadLine();
+
+                                        Console.WriteLine("enter a email");
+                                        string email = Console.ReadLine();
+
+                                        Console.WriteLine("enter a phonenumber");
+                                        string phone = Console.ReadLine();
+
+                                        Console.WriteLine("enter a Y for adming N for not");
+                                        string adminkey = Console.ReadLine();
+                                        bool admin = false;
+
+                                        if (adminkey == "Y")
+                                        {
+                                            admin = true;
+                                        }
+                                        Console.WriteLine("hvad er din user status");
+                                        string menutype = Console.ReadLine();
+
+                                        UserTypeEnum themenutype = Enum.Parse<UserTypeEnum>(menutype);
+
+                                        User newaAuser = new User(name, email, phone, admin, themenutype);
+
+                                        Repair Arepair = new Repair(damage,false, addboat, newaAuser);
+                                        controller.RepairRepo.AddRepair(Arepair);
                                     } break;
                             }
                             Console.Clear();
@@ -122,17 +214,55 @@ while (Loop)
                             switch (input)
                             {
                                 case "1": { Console.WriteLine("indtast båd id på båd du vil finde");
+
+                                        string bådid = Console.ReadLine();
+                                        int bådidint = int.Parse(bådid);
+
+                                        Boat foundboat = controller.BoatRepo.FindBoatByID(bådidint);
+                                       
+                                        Console.WriteLine(foundboat);
+
                                         Console.ReadLine();
+
+
                                     } break;
                                 case "2": { Console.WriteLine("indtast event id på event du vil finde");
+                                        string eventid = Console.ReadLine();
+                                        int eventidint = int.Parse(eventid);
+
+
+                                        Eventpost foundevent = controller.EventRepo.FindEventById(eventidint);
+                                        Console.WriteLine(foundevent);
+
                                         Console.ReadLine();
                                     } break;
-                                case "3": { Console.WriteLine("indtast blog id på event du vil finde");
-                                        Console.ReadLine(); } break;
-                                case "4": { Console.WriteLine("indtast user id på event du vil finde");
+                                case "3": { Console.WriteLine("indtast blog id på blog du vil finde");
+
+                                        string blogid = Console.ReadLine();
+                                        int blogtidint = int.Parse(blogid);
+
+                                        Blogpost foundblog = controller.BlogRepo.FindPostById(blogtidint);
+
+                                        Console.WriteLine(foundblog);
+
+                                        Console.ReadLine(); 
+                                    
+                                    } break;
+                                case "4": { Console.WriteLine("indtast user id på user du vil finde");
+                                        string userphone = Console.ReadLine();
+                                        
+
+                                     User founduser =   controller.UserRepo.GetUserByMobile(userphone);
+
+                                        Console.WriteLine(founduser);
                                         Console.ReadLine();
                                     } break;
-                                case "5": { Console.WriteLine("indtast repair id på event du vil finde");
+                                case "5": { Console.WriteLine("indtast repair id på repair du vil finde");
+                                        string repairid = Console.ReadLine();
+                                        int repairtidint = int.Parse(repairid);
+                                        Repair foundrepair = controller.RepairRepo.GetRepairById(repairtidint);
+
+                                        Console.WriteLine(foundrepair);
                                         Console.ReadLine();
                                     } break;
                             }
