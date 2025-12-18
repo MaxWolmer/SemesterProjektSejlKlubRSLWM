@@ -160,21 +160,6 @@ namespace ProjektLibrary.Services
             }
         }
 
-        //public int GetBoatBySearchWord(string)
-        //{
-        //    string searchDescription = "Catamaran";
-        //    int numberOfCustomersInRos = 0;
-        //    foreach (Boat b in _boats.Values)
-        //    {
-        //        if (b.BoatType.Contains("Catamaran"))
-        //        {
-        //            numberOfCustomersInRos++;
-        //        }
-        //    }
-        //    Console.WriteLine($"Number of customers in Roskilde is {numberOfCustomersInRos}");
-        //    return numberOfCustomersInRos;
-        //}
-
         public List<Boat> GetBoatsBySearchWord(string type = null, string brand = null, bool? available = null)
         {
             List<Boat> results = new List<Boat>();
@@ -192,5 +177,15 @@ namespace ProjektLibrary.Services
             }
             return results;
         }
+
+        //public void MarkBoatAvailability()
+        //{
+        //    foreach (Boat b in _boats.Values)
+        //    {
+        //        bool(b.BoatType == type);
+
+        //        if ()
+        //    }
+        //}
     }
 }

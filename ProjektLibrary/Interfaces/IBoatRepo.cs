@@ -15,5 +15,10 @@ namespace ProjektLibrary.Interfaces
         void UpdateBoat(int oldBoatID, Boat newBoat);
         void DeleteBoat(int boatid);
         void PrintAllBoats();
+        public List<Boat> GetAllBoats();
+        public void BrandsInOrder();
+        public void NamesInOrder();
+        public void TypesInOrder();
+        public List<Boat> GetBoatsBySearchWord(string type = null, string brand = null, bool? available = null);
     }
 }
