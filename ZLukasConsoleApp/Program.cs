@@ -10,14 +10,12 @@ using System.Transactions;
 Console.WriteLine("Hello, World!");
 
 #region Blog Testing
-//BlogRepo postlist = new BlogRepo();
-//postlist.PrintListOfPosts();
+BlogRepo postlist = new BlogRepo();
+postlist.PrintListOfPosts();
 #endregion
 
 #region Event Testing
 EventRepo eventlist = new EventRepo();
-int id;
-
 eventlist.PrintListOfEvents();
 #endregion
 
