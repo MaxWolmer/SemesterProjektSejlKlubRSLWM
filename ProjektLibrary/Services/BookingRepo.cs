@@ -96,22 +96,22 @@ namespace ProjektLibrary.Services
            
                      
         }
-        public void DeleteBooking(Booking AbooKing)
+        public void DeleteBooking(Booking abooKing)
         {
             bool bookingthere = false;            
  
             foreach (Booking Somebooking in _bookings)
             {
-                if(Somebooking.BookingId == AbooKing.BookingId)
+                if(Somebooking.TheUser.PhoneNumber == abooKing.TheUser.PhoneNumber)
                 {
-                    bookingthere = true;
+                    bookingthere = true;    
 
                 }
 
             }
             if (bookingthere == false)
             {
-                _bookings.Remove(AbooKing);
+                _bookings.Remove(abooKing);
             }
             else Console.WriteLine("booking was not there");
         }

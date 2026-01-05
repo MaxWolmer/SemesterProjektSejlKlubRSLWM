@@ -4,7 +4,7 @@ using ProjektLibrary.Services;
 using ProjektLibrary.Data;
 using System.Runtime.Intrinsics.X86;
 using System.ComponentModel.Design;
-// See https://aka.ms/new-console-template for more information
+
 Console.WriteLine("Hello, World!\n\n");
 
 BoatRepo bRepo = new BoatRepo();

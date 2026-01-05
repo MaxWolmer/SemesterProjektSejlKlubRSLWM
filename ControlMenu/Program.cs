@@ -269,7 +269,7 @@ while (Loop)
                             Console.Clear();
                         }   break;
                    
-                    case "3 ":
+                    case "3":
                         {
                             {
                                 Console.WriteLine(ControllerMenuText.option1Type());
