@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektLibrary.SubClasses
+namespace ProjektLibrary.SubClasses.MartinsSubClasses
 {
     public class Uboat : Boat
     {
