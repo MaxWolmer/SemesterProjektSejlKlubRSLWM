@@ -29,24 +29,35 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Boat Data
+        public class SailBoat : Boat
+        {
+            public SailBoat(string type, string brand, string name, string description, bool isRented, bool isAvailable, User owner)
+                : base(type, brand, name, description, isRented, isAvailable, owner)
+            {
+            }
+
+            public override void Sail()
+            {
+
+            }
+        }
         #region Instance fields
         private static Dictionary<int, Boat> _boatData = new Dictionary<int, Boat>()
         {
-        { 1, new Boat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", false, true , _users["12345678"]) },
-        { 2, new Boat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
-        { 3, new Boat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["13131313"]) },
-        { 4, new Boat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
-        { 5, new Boat("Frigate", "Tracker", "Talkative Tuna", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
-        { 6, new Boat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
+        { 1, new SailBoat("Catamaran", "Honda", "Big Bertha", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", false, true , _users["12345678"]) },
+        { 2, new SailBoat("Ironclad", "Yahama", "Small Bessie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["12121212"]) },
+        { 3, new SailBoat("Uboat", "Mitsubishi", "Furious Freja", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["13131313"]) },
+        { 4, new SailBoat("Tireme", "Bertram", "Mad Maddie", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 5, new SailBoat("Frigate", "Tracker", "Talkative Tuna", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) },
+        { 6, new SailBoat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
         };
         #endregion
-       
+
         #region Properties
         public static Dictionary<int, Boat> BoatData
         {
             get { return _boatData; }
         }
-        #endregion
         #endregion
 
         #region Repair Data
@@ -72,16 +83,16 @@ namespace ProjektLibrary.Data
         #endregion
 
         #region Booking data
-       //private static List<Booking> _bookings = new List<Booking>() 
-       //{
-       //    new Booking(_users[18181818]) }
+        //private static List<Booking> _bookings = new List<Booking>() 
+        //{
+        //    new Booking(_users[18181818]) }
         #endregion
 
         #region Registration
-       //private static List<Registration> _registrations = new List<Registration>()
-       //{
-       //    new Registration()
-       //}
+        //private static List<Registration> _registrations = new List<Registration>()
+        //{
+        //    new Registration()
+        //}
         #endregion
 
         #region BlogPost Data
@@ -116,4 +127,6 @@ namespace ProjektLibrary.Data
         }
         #endregion
     }
+
+    
 }

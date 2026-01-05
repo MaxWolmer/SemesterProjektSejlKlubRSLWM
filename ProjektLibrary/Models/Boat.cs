@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjektLibrary.Models
 {
-    public class Boat
+    public abstract class Boat
     {
         private int _id;
         private static int _counter = 1;
@@ -52,6 +52,8 @@ namespace ProjektLibrary.Models
 
         public bool BoatAvailable { get { return _available; } set { if (_admin) { { _available = value; } } } }
 
+
+        public abstract void Sail();
 
         public override string ToString()
         {
