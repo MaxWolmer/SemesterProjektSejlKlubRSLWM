@@ -41,6 +41,7 @@ namespace ProjektLibrary.Data
 
             }
         }
+        
         #region Instance fields
         private static Dictionary<int, Boat> _boatData = new Dictionary<int, Boat>()
         {
@@ -52,6 +53,7 @@ namespace ProjektLibrary.Data
         { 6, new SailBoat("Submarine", "Sea Ray", "Jealous Jane", "Length: 12 m\nWidth: 3 m\nHeight: 2 m", true, true, _users["15151515"]) }
         };
         #endregion
+#endregion
 
         #region Properties
         public static Dictionary<int, Boat> BoatData

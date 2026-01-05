@@ -13,11 +13,15 @@ namespace ProjektLibrary.SubClasses.MartinsSubClasses
         public int DiveDepth { get; set; }
 
 
-        public Uboat(int DiveSpeed, int DiveDepth, string Type, string Brand, string Name, string Dimensions, bool Available, bool admin, User aUser) : base(Type, Brand, Name, Dimensions, Available, admin, aUser)
+        public Uboat(string Type, int DiveSpeed, int DiveDepth, string Brand, string Name, string Dimensions, bool Available, bool admin, User aUser) : base(Type, Brand, Name, Dimensions, Available, admin, aUser)
         {
 
         }
 
+        public override void Sail()
+        {
+            Console.WriteLine("Uboat sails forth");
+        }
 
         public override string ToString()
         {
