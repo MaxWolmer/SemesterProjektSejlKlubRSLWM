@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZLukasConsoleApp", "ZLukasC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamConsole", "WilliamConsole\WilliamConsole.csproj", "{2096C5FF-FC8D-4C45-BF33-903CFB5F9663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZMartinsConsole", "MartinsConsole\ZMartinsConsole.csproj", "{02FE2545-F0B2-4B0B-8C00-D36356E27848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartinsConsole", "MartinsConsole\MartinsConsole.csproj", "{02FE2545-F0B2-4B0B-8C00-D36356E27848}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zControlMenu", "ControlMenu\zControlMenu.csproj", "{26925E08-5EB6-46D2-98EE-B5CC940C2B14}"
 EndProject
