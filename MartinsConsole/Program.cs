@@ -64,7 +64,7 @@ try
     bRepo.UpdateBoat(4, newBoat);
 
     Boat newBoat1 = new Boat("Kajak", "Kaloon", "Kopying Karla", "Length: 10 m\nWidth: 4 m\nHeight: 3 m", true, true, u1);
-    bRepo.UpdateBoat(9, newBoat);
+    bRepo.UpdateBoat(9, newBoat1);
 }
 catch (KeyNotFoundException knf)
 {
